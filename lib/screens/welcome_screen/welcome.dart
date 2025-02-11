@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:saken_mobile/const/const.dart';
 import 'package:get/get.dart';
 import 'package:saken_mobile/screens/login_page/login.dart';
+import 'package:saken_mobile/screens/signup_page/sign_up.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
@@ -67,7 +68,7 @@ class Welcome extends StatelessWidget {
         ),
       ),
       onTap: () {
-        text == "تسجيل الدخول" ? Get.offAll(const Login()) : null;
+        text == "تسجيل الدخول" ? Get.offAll(Login()) : Get.offAll(SignUp());
       },
     );
   }
