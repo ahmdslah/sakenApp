@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saken_mobile/saken_cubit/form_cubit/custom_form_cubit.dart';
 import 'package:saken_mobile/saken_cubit/splash_cubit/splash_cubit.dart';
+import 'package:saken_mobile/screens/login_page/cubit/login_cubit.dart';
 import 'package:saken_mobile/screens/signup_page/cubit/sign_up_cubit.dart';
 import 'package:saken_mobile/screens/splash_screen/splash_screen.dart';
 import 'package:get/get.dart';
@@ -24,17 +25,16 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
-    FirebaseAuth.instance
-  .authStateChanges()
-  .listen((User? user) {
-    if (user == null) {
-      print('==========User is currently signed out!');
-    } else {
-      print('===========User is signed in!');
-    }
-  });
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user == null) {
+        print('==========User is currently signed out!');
+      } else {
+        print('===========User is signed in!');
+      }
+    });
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -47,6 +47,9 @@ class _MyAppState extends State<MyApp> {
         ),
         BlocProvider(
           create: (context) => SignUpCubit(),
+        ),
+        BlocProvider(
+          create: (context) => LoginCubit(),
         ),
       ],
       child: GetMaterialApp(
