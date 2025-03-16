@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.saken_mobile.app-mergeDebugResources-33:/values-my/values-my.xml",
+            "outputFile": "com.example.saken_mobile.app-mergeDebugResources-31:/values-my/values-my.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\08fa285c18f0ebd20c9546d0a71a7811\\transformed\\jetified-credentials-1.2.0-rc01\\res\\values-my\\values-my.xml",

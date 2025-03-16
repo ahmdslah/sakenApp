@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.saken_mobile.app-mergeDebugResources-33:/values-uz/values-uz.xml",
+            "outputFile": "com.example.saken_mobile.app-mergeDebugResources-31:/values-uz/values-uz.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\7019b76e95ec68a87c3ea591638ea5d5\\transformed\\jetified-play-services-basement-18.4.0\\res\\values-uz\\values.xml",

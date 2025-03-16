@@ -3,11 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saken_mobile/screens/home_view/views/home_view.dart';
 import 'package:saken_mobile/screens/login_page/login.dart';
 import 'package:saken_mobile/screens/signup_page/cubit/sign_up_cubit.dart';
+import 'package:saken_mobile/services/auth_services.dart';
 
 import '../../const/const widgets/custom_form_field.dart';
 import '../../const/const.dart';
 import 'package:get/get.dart';
-
 
 class SignUp extends StatelessWidget {
   SignUp({super.key});
@@ -25,9 +25,9 @@ class SignUp extends StatelessWidget {
           ScaffoldMessenger.of(
             context,
           ).showSnackBar(SnackBar(content: Text(state.errorrMessage)));
-        }else if (state is SignUpSuccess) {
-    Get.offAll(const HomeView());
-  }
+        } else if (state is SignUpSuccess) {
+          Get.offAll(const HomeView());
+        }
       },
       builder: (context, state) {
         return Scaffold(
@@ -158,18 +158,34 @@ class SignUp extends StatelessWidget {
                       SizedBox(
                         height: height * .02,
                       ),
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          CircleAvatar(
+                          const CircleAvatar(
                             radius: 25,
                             backgroundColor: Colors.transparent,
                             backgroundImage: AssetImage("${path}facebook.png"),
                           ),
-                          CircleAvatar(
-                            radius: 25,
-                            backgroundColor: Colors.transparent,
-                            backgroundImage: AssetImage("${path}google.png"),
+                          GestureDetector(
+                            onTap: () async {
+                              var userCredential =
+                                  await AuthServices().signInWithGoogle();
+
+                              // Check if sign-in was successful
+                              if (userCredential != null) {
+                                // Navigate to BottomNav if the user is signed in
+                                Get.offAll(() => const HomeView());
+                              } else {
+                                // Optionally show an error message if sign-in failed
+                                Get.snackbar('Sign-In Error',
+                                    'Google Sign-In failed. Please try again.');
+                              }
+                            },
+                            child: const CircleAvatar(
+                              radius: 25,
+                              backgroundColor: Colors.transparent,
+                              backgroundImage: AssetImage("${path}google.png"),
+                            ),
                           ),
                         ],
                       ),

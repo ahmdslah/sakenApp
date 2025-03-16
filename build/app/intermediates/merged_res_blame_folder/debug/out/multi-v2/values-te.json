@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.saken_mobile.app-mergeDebugResources-33:/values-te/values-te.xml",
+            "outputFile": "com.example.saken_mobile.app-mergeDebugResources-31:/values-te/values-te.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\74c1895ee15d4a639000e095e1132bc7\\transformed\\core-1.13.1\\res\\values-te\\values-te.xml",

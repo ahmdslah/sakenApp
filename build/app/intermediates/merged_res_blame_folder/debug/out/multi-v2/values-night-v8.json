@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.saken_mobile.app-mergeDebugResources-33:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.example.saken_mobile.app-mergeDebugResources-31:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\flutter\\saken_mobile\\android\\app\\src\\main\\res\\values-night\\styles.xml",
