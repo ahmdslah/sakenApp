@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saken_mobile/screens/home_view/views/home_view.dart';
 import 'package:saken_mobile/screens/login_page/cubit/login_cubit.dart';
+import 'package:saken_mobile/screens/main_view/views/main_view.dart';
 import 'package:saken_mobile/services/auth_services.dart';
 
 import '../../const/const widgets/custom_form_field.dart';
@@ -27,7 +28,7 @@ class Login extends StatelessWidget {
           ).showSnackBar(SnackBar(content: Text(state.errMessage)));
         } else if (state is LoginSuccess) {
           cubit.clearFields();
-          Get.offAll(const HomeView());
+          Get.offAll( MainView());
         }
       },
       builder: (context, state) {

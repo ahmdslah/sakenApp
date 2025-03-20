@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saken_mobile/screens/home_view/views/home_view.dart';
 import 'package:saken_mobile/screens/login_page/login.dart';
+import 'package:saken_mobile/screens/main_view/views/main_view.dart';
 import 'package:saken_mobile/screens/signup_page/cubit/sign_up_cubit.dart';
 import 'package:saken_mobile/services/auth_services.dart';
 
@@ -26,7 +27,7 @@ class SignUp extends StatelessWidget {
             context,
           ).showSnackBar(SnackBar(content: Text(state.errorrMessage)));
         } else if (state is SignUpSuccess) {
-          Get.offAll(const HomeView());
+          Get.offAll( MainView());
         }
       },
       builder: (context, state) {
