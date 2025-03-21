@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:saken_mobile/const/const.dart';
 import 'package:saken_mobile/screens/home_view/views/home_view.dart';
+import 'package:saken_mobile/screens/profile_view/views/profile_view.dart';
 
 class MainViewController extends GetxController {
   var selectedIndex = 0.obs;
@@ -28,9 +29,7 @@ class MainView extends StatelessWidget {
     const Center(
       child: Text('chat'),
     ),
-    const Center(
-      child: Text('Profile'),
-    ),
+    const ProfileView(),
   ];
 
   @override

@@ -10,6 +10,8 @@ MERGED from [:firebase_storage] C:\Users\user\flutter\saken_mobile\build\firebas
 MERGED from [:firebase_storage] C:\Users\user\flutter\saken_mobile\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_core] C:\Users\user\flutter\saken_mobile\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_core] C:\Users\user\flutter\saken_mobile\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-13:19
+MERGED from [com.google.firebase:firebase-firestore-ktx:25.1.2] C:\Users\user\.gradle\caches\transforms-3\fc65e87721a01141c8ea5435e3e1f15a\transformed\jetified-firebase-firestore-ktx-25.1.2\AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.firebase:firebase-firestore-ktx:25.1.2] C:\Users\user\.gradle\caches\transforms-3\fc65e87721a01141c8ea5435e3e1f15a\transformed\jetified-firebase-firestore-ktx-25.1.2\AndroidManifest.xml:8:5-16:19
 MERGED from [com.google.firebase:firebase-firestore:25.1.2] C:\Users\user\.gradle\caches\transforms-3\5c997fd66a98cc4c59367b7d78a67b24\transformed\jetified-firebase-firestore-25.1.2\AndroidManifest.xml:13:5-24:19
 MERGED from [com.google.firebase:firebase-firestore:25.1.2] C:\Users\user\.gradle\caches\transforms-3\5c997fd66a98cc4c59367b7d78a67b24\transformed\jetified-firebase-firestore-25.1.2\AndroidManifest.xml:13:5-24:19
 MERGED from [com.google.firebase:firebase-auth:23.2.0] C:\Users\user\.gradle\caches\transforms-3\e74cd5823cf381d00b04394836d517a7\transformed\jetified-firebase-auth-23.2.0\AndroidManifest.xml:28:5-73:19
@@ -70,6 +72,7 @@ MERGED from [:cloud_firestore] C:\Users\user\flutter\saken_mobile\build\cloud_fi
 MERGED from [:firebase_auth] C:\Users\user\flutter\saken_mobile\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:firebase_storage] C:\Users\user\flutter\saken_mobile\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:firebase_core] C:\Users\user\flutter\saken_mobile\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-15:12
+MERGED from [com.google.firebase:firebase-firestore-ktx:25.1.2] C:\Users\user\.gradle\caches\transforms-3\fc65e87721a01141c8ea5435e3e1f15a\transformed\jetified-firebase-firestore-ktx-25.1.2\AndroidManifest.xml:2:1-18:12
 MERGED from [com.google.firebase:firebase-firestore:25.1.2] C:\Users\user\.gradle\caches\transforms-3\5c997fd66a98cc4c59367b7d78a67b24\transformed\jetified-firebase-firestore-25.1.2\AndroidManifest.xml:2:1-26:12
 MERGED from [com.google.firebase:firebase-auth:23.2.0] C:\Users\user\.gradle\caches\transforms-3\e74cd5823cf381d00b04394836d517a7\transformed\jetified-firebase-auth-23.2.0\AndroidManifest.xml:17:1-75:12
 MERGED from [com.google.firebase:firebase-storage:21.0.1] C:\Users\user\.gradle\caches\transforms-3\fb860ef5b7cad763f6301d2fd02b7838\transformed\jetified-firebase-storage-21.0.1\AndroidManifest.xml:15:1-39:12
@@ -108,10 +111,10 @@ MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] C:\Users\user\.gradle\c
 MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\user\.gradle\caches\transforms-3\06238db6d1b9fadfc90e00cec994ce15\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:17:1-35:12
 MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\user\.gradle\caches\transforms-3\c9123b7a3dc7f28755ddca60dc9516fb\transformed\jetified-savedstate-1.2.1\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.0] C:\Users\user\.gradle\caches\transforms-3\70669664988932534e1e0db885aa18f5\transformed\jetified-googleid-1.1.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.firebase:firebase-components:18.0.0] C:\Users\user\.gradle\caches\transforms-3\12d0c7825e2b2f9c3b013c19bbbf873f\transformed\jetified-firebase-components-18.0.0\AndroidManifest.xml:15:1-20:12
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\user\.gradle\caches\transforms-3\691ea7010aebab9266cc2c85ade0f719\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:17:1-55:12
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\user\.gradle\caches\transforms-3\34ddd7b6a9be711203d62a15abaa1b33\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\user\.gradle\caches\transforms-3\85ecb27296a7bac951819b774cf77902\transformed\jetified-tracing-1.2.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.firebase:firebase-components:18.0.0] C:\Users\user\.gradle\caches\transforms-3\12d0c7825e2b2f9c3b013c19bbbf873f\transformed\jetified-firebase-components-18.0.0\AndroidManifest.xml:15:1-20:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\user\.gradle\caches\transforms-3\29ef3c5bfb6292a8ed83234a523b532e\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\user\.gradle\caches\transforms-3\b1ada872b13b0e2ae0135a7d442d09d0\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\user\.gradle\caches\transforms-3\5b07cac9d5ff4c36b4463dfc5bdd3673\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
@@ -168,6 +171,8 @@ MERGED from [:firebase_storage] C:\Users\user\flutter\saken_mobile\build\firebas
 MERGED from [:firebase_storage] C:\Users\user\flutter\saken_mobile\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] C:\Users\user\flutter\saken_mobile\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] C:\Users\user\flutter\saken_mobile\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-firestore-ktx:25.1.2] C:\Users\user\.gradle\caches\transforms-3\fc65e87721a01141c8ea5435e3e1f15a\transformed\jetified-firebase-firestore-ktx-25.1.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-firestore-ktx:25.1.2] C:\Users\user\.gradle\caches\transforms-3\fc65e87721a01141c8ea5435e3e1f15a\transformed\jetified-firebase-firestore-ktx-25.1.2\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-firestore:25.1.2] C:\Users\user\.gradle\caches\transforms-3\5c997fd66a98cc4c59367b7d78a67b24\transformed\jetified-firebase-firestore-25.1.2\AndroidManifest.xml:6:5-44
 MERGED from [com.google.firebase:firebase-firestore:25.1.2] C:\Users\user\.gradle\caches\transforms-3\5c997fd66a98cc4c59367b7d78a67b24\transformed\jetified-firebase-firestore-25.1.2\AndroidManifest.xml:6:5-44
 MERGED from [com.google.firebase:firebase-auth:23.2.0] C:\Users\user\.gradle\caches\transforms-3\e74cd5823cf381d00b04394836d517a7\transformed\jetified-firebase-auth-23.2.0\AndroidManifest.xml:21:5-23:151
@@ -244,14 +249,14 @@ MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\user\.gradle\caches\
 MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\user\.gradle\caches\transforms-3\c9123b7a3dc7f28755ddca60dc9516fb\transformed\jetified-savedstate-1.2.1\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.0] C:\Users\user\.gradle\caches\transforms-3\70669664988932534e1e0db885aa18f5\transformed\jetified-googleid-1.1.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.0] C:\Users\user\.gradle\caches\transforms-3\70669664988932534e1e0db885aa18f5\transformed\jetified-googleid-1.1.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-components:18.0.0] C:\Users\user\.gradle\caches\transforms-3\12d0c7825e2b2f9c3b013c19bbbf873f\transformed\jetified-firebase-components-18.0.0\AndroidManifest.xml:18:5-44
+MERGED from [com.google.firebase:firebase-components:18.0.0] C:\Users\user\.gradle\caches\transforms-3\12d0c7825e2b2f9c3b013c19bbbf873f\transformed\jetified-firebase-components-18.0.0\AndroidManifest.xml:18:5-44
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\user\.gradle\caches\transforms-3\691ea7010aebab9266cc2c85ade0f719\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\user\.gradle\caches\transforms-3\691ea7010aebab9266cc2c85ade0f719\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\user\.gradle\caches\transforms-3\34ddd7b6a9be711203d62a15abaa1b33\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\user\.gradle\caches\transforms-3\34ddd7b6a9be711203d62a15abaa1b33\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\user\.gradle\caches\transforms-3\85ecb27296a7bac951819b774cf77902\transformed\jetified-tracing-1.2.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\user\.gradle\caches\transforms-3\85ecb27296a7bac951819b774cf77902\transformed\jetified-tracing-1.2.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-components:18.0.0] C:\Users\user\.gradle\caches\transforms-3\12d0c7825e2b2f9c3b013c19bbbf873f\transformed\jetified-firebase-components-18.0.0\AndroidManifest.xml:18:5-44
-MERGED from [com.google.firebase:firebase-components:18.0.0] C:\Users\user\.gradle\caches\transforms-3\12d0c7825e2b2f9c3b013c19bbbf873f\transformed\jetified-firebase-components-18.0.0\AndroidManifest.xml:18:5-44
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\user\.gradle\caches\transforms-3\29ef3c5bfb6292a8ed83234a523b532e\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\user\.gradle\caches\transforms-3\29ef3c5bfb6292a8ed83234a523b532e\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\user\.gradle\caches\transforms-3\b1ada872b13b0e2ae0135a7d442d09d0\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
@@ -286,6 +291,8 @@ MERGED from [:firebase_storage] C:\Users\user\flutter\saken_mobile\build\firebas
 MERGED from [:firebase_storage] C:\Users\user\flutter\saken_mobile\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-12:19
 MERGED from [:firebase_core] C:\Users\user\flutter\saken_mobile\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-12:19
 MERGED from [:firebase_core] C:\Users\user\flutter\saken_mobile\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-12:19
+MERGED from [com.google.firebase:firebase-firestore-ktx:25.1.2] C:\Users\user\.gradle\caches\transforms-3\fc65e87721a01141c8ea5435e3e1f15a\transformed\jetified-firebase-firestore-ktx-25.1.2\AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-firestore-ktx:25.1.2] C:\Users\user\.gradle\caches\transforms-3\fc65e87721a01141c8ea5435e3e1f15a\transformed\jetified-firebase-firestore-ktx-25.1.2\AndroidManifest.xml:9:9-15:19
 MERGED from [com.google.firebase:firebase-firestore:25.1.2] C:\Users\user\.gradle\caches\transforms-3\5c997fd66a98cc4c59367b7d78a67b24\transformed\jetified-firebase-firestore-25.1.2\AndroidManifest.xml:14:9-23:19
 MERGED from [com.google.firebase:firebase-firestore:25.1.2] C:\Users\user\.gradle\caches\transforms-3\5c997fd66a98cc4c59367b7d78a67b24\transformed\jetified-firebase-firestore-25.1.2\AndroidManifest.xml:14:9-23:19
 MERGED from [com.google.firebase:firebase-auth:23.2.0] C:\Users\user\.gradle\caches\transforms-3\e74cd5823cf381d00b04394836d517a7\transformed\jetified-firebase-auth-23.2.0\AndroidManifest.xml:66:9-72:19
@@ -299,7 +306,7 @@ MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\user\.grad
 MERGED from [com.google.firebase:firebase-common:21.0.0] C:\Users\user\.gradle\caches\transforms-3\3b81ab92d3d3cd8b984b9fe75b04b46e\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:30:9-38:19
 MERGED from [com.google.firebase:firebase-common:21.0.0] C:\Users\user\.gradle\caches\transforms-3\3b81ab92d3d3cd8b984b9fe75b04b46e\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:30:9-38:19
 	android:exported
-		ADDED from [com.google.firebase:firebase-firestore:25.1.2] C:\Users\user\.gradle\caches\transforms-3\5c997fd66a98cc4c59367b7d78a67b24\transformed\jetified-firebase-firestore-25.1.2\AndroidManifest.xml:16:13-37
+		ADDED from [com.google.firebase:firebase-firestore-ktx:25.1.2] C:\Users\user\.gradle\caches\transforms-3\fc65e87721a01141c8ea5435e3e1f15a\transformed\jetified-firebase-firestore-ktx-25.1.2\AndroidManifest.xml:11:13-37
 	tools:targetApi
 		ADDED from [com.google.firebase:firebase-common:21.0.0] C:\Users\user\.gradle\caches\transforms-3\3b81ab92d3d3cd8b984b9fe75b04b46e\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:34:13-32
 	android:directBootAware
@@ -330,6 +337,12 @@ ADDED from [:firebase_core] C:\Users\user\flutter\saken_mobile\build\firebase_co
 		ADDED from [:firebase_core] C:\Users\user\flutter\saken_mobile\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:11:17-82
 	android:name
 		ADDED from [:firebase_core] C:\Users\user\flutter\saken_mobile\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:10:17-124
+meta-data#com.google.firebase.components:com.google.firebase.firestore.ktx.FirebaseFirestoreLegacyRegistrar
+ADDED from [com.google.firebase:firebase-firestore-ktx:25.1.2] C:\Users\user\.gradle\caches\transforms-3\fc65e87721a01141c8ea5435e3e1f15a\transformed\jetified-firebase-firestore-ktx-25.1.2\AndroidManifest.xml:12:13-14:85
+	android:value
+		ADDED from [com.google.firebase:firebase-firestore-ktx:25.1.2] C:\Users\user\.gradle\caches\transforms-3\fc65e87721a01141c8ea5435e3e1f15a\transformed\jetified-firebase-firestore-ktx-25.1.2\AndroidManifest.xml:14:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-firestore-ktx:25.1.2] C:\Users\user\.gradle\caches\transforms-3\fc65e87721a01141c8ea5435e3e1f15a\transformed\jetified-firebase-firestore-ktx-25.1.2\AndroidManifest.xml:13:17-129
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.firebase:firebase-firestore:25.1.2] C:\Users\user\.gradle\caches\transforms-3\5c997fd66a98cc4c59367b7d78a67b24\transformed\jetified-firebase-firestore-25.1.2\AndroidManifest.xml:10:5-79
 MERGED from [com.google.firebase:firebase-auth:23.2.0] C:\Users\user\.gradle\caches\transforms-3\e74cd5823cf381d00b04394836d517a7\transformed\jetified-firebase-auth-23.2.0\AndroidManifest.xml:26:5-79
