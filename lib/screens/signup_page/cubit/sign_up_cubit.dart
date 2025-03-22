@@ -32,6 +32,7 @@ class SignUpCubit extends Cubit<SignUpState> {
         'uid': uid,
         'userName': userName,
         'email': email,
+        'password':password,
         'type': "default account",
         'createdAt': FieldValue.serverTimestamp(),
       });

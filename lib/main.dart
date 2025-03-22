@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saken_mobile/saken_cubit/form_cubit/custom_form_cubit.dart';
 import 'package:saken_mobile/saken_cubit/splash_cubit/splash_cubit.dart';
 import 'package:saken_mobile/screens/login_page/cubit/login_cubit.dart';
+import 'package:saken_mobile/screens/profile_view/cubit/profile_edit_cubit.dart';
 import 'package:saken_mobile/screens/signup_page/cubit/sign_up_cubit.dart';
 import 'package:saken_mobile/screens/splash_screen/splash_screen.dart';
 import 'package:get/get.dart';
@@ -32,6 +33,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => LoginCubit(),
+        ),
+         BlocProvider(
+          create: (context) => ProfileEditCubit(),
         ),
       ],
       child: GetMaterialApp(

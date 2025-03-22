@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 class MyTextBox extends StatelessWidget {
   final String text;
   final String sectionName;
- final void Function()? onPressed;
+  final void Function()? onPressed;
   const MyTextBox({
     Key? key,
     required this.text,
     required this.sectionName,
-   required this.onPressed,
+    required this.onPressed,
   }) : super(key: key);
 
   @override
@@ -21,7 +21,7 @@ class MyTextBox extends StatelessWidget {
         color: Colors.grey[200],
       ),
       padding: const EdgeInsets.only(right: 15, bottom: 15),
-      margin: const EdgeInsets.only(left: 20, right: 20, top: 20),
+      margin: const EdgeInsets.only(top: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
