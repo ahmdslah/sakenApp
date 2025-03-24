@@ -80,7 +80,7 @@ class _CustomSaveEditButtonState extends State<CustomSaveEditButton> {
             ),
             child: const Center(
               child: Text(
-                'Save Edit',
+                'حفظ التعديلات',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,

@@ -2624,7 +2624,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\0edaf7ca36034cd46d9bf18c8f233235\\transformed\\jetified-activity-1.8.1\\res\\values\\values.xml",
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\b91f4be321109e719225f4f247355d00\\transformed\\jetified-activity-1.9.3\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

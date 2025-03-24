@@ -8,6 +8,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:saken_mobile/const/const.dart';
 import 'package:saken_mobile/screens/profile_view/cubit/profile_edit_cubit.dart';
 import 'package:saken_mobile/screens/profile_view/widgets/custom_image_profile.dart';
+import 'package:saken_mobile/screens/profile_view/widgets/custom_logout_button.dart';
 import 'package:saken_mobile/screens/profile_view/widgets/custom_save_edit_button.dart';
 import 'package:saken_mobile/screens/profile_view/widgets/custom_text_field.dart';
 import 'package:saken_mobile/screens/profile_view/widgets/text_box.dart';
@@ -171,6 +172,10 @@ class _ProfileViewState extends State<ProfileView> {
                           height: 30,
                         ),
                         const CustomSaveEditButton(),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        const CustomLogoutButton(),
                         const SizedBox(
                           height: 15,
                         ),

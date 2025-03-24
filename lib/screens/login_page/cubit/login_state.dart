@@ -14,3 +14,6 @@ final class LoginFaild extends LoginState {
   String errMessage;
   LoginFaild({required this.errMessage});
 }
+final class SigningOutLoading extends LoginState {}
+
+final class SigningOutSuccess extends LoginState {}

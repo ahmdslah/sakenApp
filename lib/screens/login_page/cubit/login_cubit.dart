@@ -4,8 +4,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/utils.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:meta/meta.dart';
 import 'package:saken_mobile/screens/home_view/views/home_view.dart';
+import 'package:saken_mobile/screens/welcome_screen/welcome.dart';
 
 part 'login_state.dart';
 
@@ -37,7 +39,15 @@ class LoginCubit extends Cubit<LoginState> {
     }
   }
 
-    void clearFields() {
+  void signOut() async {
+    emit(SigningOutLoading());
+    GoogleSignIn().disconnect();
+    FirebaseAuth.instance.signOut();
+    emit(SigningOutSuccess());
+    Get.offAll(const Welcome());
+  }
+
+  void clearFields() {
     emailController.clear();
     passwordController.clear();
   }
