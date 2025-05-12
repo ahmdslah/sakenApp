@@ -54,6 +54,7 @@ void dispose(){
         centerTitle: true,
       ),
       body: SingleChildScrollView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Column(

@@ -69,6 +69,7 @@ class Welcome extends StatelessWidget {
       ),
       onTap: () {
         text == "تسجيل الدخول" ? Get.offAll(Login()) : Get.offAll(SignUp());
+
       },
     );
   }

@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saken_mobile/saken_cubit/form_cubit/custom_form_cubit.dart';
 import 'package:saken_mobile/saken_cubit/splash_cubit/splash_cubit.dart';
-import 'package:saken_mobile/screens/splash_screen/splash_screen.dart';
+import 'package:saken_mobile/screens/AdminScreen/Adminscreen.dart';
+import 'package:saken_mobile/screens/home_page/screen/home_screen.dart';
+import 'package:saken_mobile/screens/profile_screen/settings/settings.dart';
 import 'package:get/get.dart';
-
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -26,7 +33,7 @@ class MyApp extends StatelessWidget {
       child: GetMaterialApp(
         locale: const Locale('ar'),
         debugShowCheckedModeBanner: false,
-        home: const SplashScreen(),
+        home:AdminScreen(),
         builder: (context, child) {
           return Directionality(
             textDirection: TextDirection.rtl, // Forces RTL throughout the app
@@ -35,5 +42,7 @@ class MyApp extends StatelessWidget {
         },
       ),
     );
+
+
   }
 }

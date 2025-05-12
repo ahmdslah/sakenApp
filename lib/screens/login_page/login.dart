@@ -1,6 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:saken_mobile/const/const%20widgets/DialogUtils.dart';
 import 'package:saken_mobile/saken_cubit/form_cubit/custom_form_cubit.dart';
+import 'package:saken_mobile/screens/home_page/screen/home_screen.dart';
 
 import '../../const/const widgets/custom_form_field.dart';
 import '../../const/const.dart';
@@ -8,10 +12,18 @@ import 'package:get/get.dart';
 
 import '../signup_page/sign_up.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
   final TextEditingController _emailController = TextEditingController();
+
   final TextEditingController _passwordController = TextEditingController();
+
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -137,9 +149,7 @@ class Login extends StatelessWidget {
                       ),
                     ),
                     onTap: () {
-                      if (formKey.currentState!.validate()) {
-                        print("Done");
-                      }
+                      signin();
                     },
                   ),
                   SizedBox(
@@ -155,7 +165,7 @@ class Login extends StatelessWidget {
                   SizedBox(
                     height: height * .02,
                   ),
-                  const Row(
+                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       CircleAvatar(
@@ -163,10 +173,23 @@ class Login extends StatelessWidget {
                         backgroundColor: Colors.transparent,
                         backgroundImage: AssetImage("${path}facebook.png"),
                       ),
-                      CircleAvatar(
-                        radius: 25,
-                        backgroundColor: Colors.transparent,
-                        backgroundImage: AssetImage("${path}google.png"),
+                      GestureDetector(
+                        onTap:() async{
+                       try{ UserCredential response=await signInWithGoogle();
+                          if(response.user?.uid !=null){
+                            Get.offAll(HomeScreen());
+                            return;
+                          }
+                          Navigator.pop(context);
+                       }
+                       catch(e){
+                         print(e.toString());
+                       }},
+                        child: CircleAvatar(
+                          radius: 25,
+                          backgroundColor: Colors.transparent,
+                          backgroundImage: AssetImage("${path}google.png"),
+                        ),
                       ),
                     ],
                   ),
@@ -193,5 +216,58 @@ class Login extends StatelessWidget {
         ),
       ),
     );
+  }
+  signin() async {
+    if (formKey.currentState!.validate()) {
+
+
+      try {
+        final credential = await FirebaseAuth.instance
+            .signInWithEmailAndPassword(
+            email: _emailController.text,
+            password: _passwordController.text
+        );
+        Get.offAll(HomeScreen());
+      } on FirebaseAuthException catch (e) {
+        if (e.code == "usernotfound") {
+          DialogUtils.showmessagedialog(context: context,
+              text: "nouser", posbtntxt: "OK",
+              posbtnclk: () {
+                Navigator.pop(context);
+              }
+          );
+        } else if (e.code == "wrongpassword") {
+          DialogUtils.showmessagedialog(context: context,
+              text: "wrongpasswordprovided", posbtntxt:"OK",
+              posbtnclk: () {
+                Navigator.pop(context);
+              }
+
+          );
+
+        }
+      }
+    }
+  }
+  Future<UserCredential> signInWithGoogle() async {
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+
+    );
+    var credentials= await FirebaseAuth.instance.signInWithCredential(credential);
+    return credentials;
+
+
+
+    // Once signed in, return the UserCredential
+
   }
 }

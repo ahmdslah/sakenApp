@@ -10,9 +10,8 @@ class CustomFormField extends StatelessWidget {
   final bool isPassword;
   final bool isName;
   final bool isphone;
-  final bool iswallet;
-  final bool islocation;
-  final bool iscontact;
+  final bool search;
+
   final TextEditingController? controller;
   final String? Function(String?)? validator;
 
@@ -25,10 +24,9 @@ class CustomFormField extends StatelessWidget {
     required this.validator,
     this.isPassword = false,
     this.isName = false,
-    this.islocation=false,
     this.isphone=false,
-    this.iswallet=false,
-    this.iscontact=false
+    this.search=false,
+
   });
 
   final double height;
@@ -62,11 +60,8 @@ class CustomFormField extends StatelessWidget {
                     ? Icons.lock
                     : isName
                     ? Icons.person_outline:
-                isphone?Icons.edit:
-                islocation?Icons.location_on
-                    :iswallet?Icons.wallet:
-                    iscontact?Icons.add
-                    : Icons.email_outlined,
+                isphone?Icons.edit:search?null:
+                Icons.email_outlined,
                 color: font1,
               ),
               suffixIcon: InkWell(
