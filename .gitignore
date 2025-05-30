@@ -1,0 +1,29 @@
+# Flutter/Dart Build
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+
+# Plugin Registrants
+android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+ios/Runner/GeneratedPluginRegistrant.m
+macos/Flutter/GeneratedPluginRegistrant.swift
+windows/flutter/generated_plugin_registrant.cc
+windows/flutter/generated_plugins.cmake
+
+# Editor settings
+.vscode/
+.idea/
+*.iml
+
+# macOS/Windows files
+.DS_Store
+Thumbs.db
+
+# Local configuration
+android/local.properties
+
+# Optional for packages only
+# pubspec.lock
+
