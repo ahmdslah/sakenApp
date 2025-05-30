@@ -5,6 +5,7 @@ import 'package:saken_mobile/const/const%20widgets/Custom_btn.dart';
 import 'package:saken_mobile/const/const%20widgets/custom_form_field.dart';
 import 'package:get/get.dart';
 import 'package:saken_mobile/const/const.dart';
+import 'package:saken_mobile/screens/AdminScreen/Adminscreen.dart';
 
 
 class EditInfo extends StatefulWidget{
@@ -172,9 +173,13 @@ void dispose(){
                   return null;
                 },),
               SizedBox(height: 5,),
-              CustomBtn("جهات الاتصال",iscontact: true,),
+              CustomBtn("جهات الاتصال",iscontact: true,function:(){
+                Get.to(AdminScreen());
+              } ,),
               SizedBox(height: 5,),
-              CustomBtn("الموقع"),
+              CustomBtn("الموقع",function:(){
+                Get.to(AdminScreen());
+              }),
               SizedBox(height: 20,),
               Center(child: ElevatedButton(onPressed:(){}, child:Text("حفظ الاعدادات"), style: ElevatedButton.styleFrom(foregroundColor: Colors.white,backgroundColor:font1,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50),
                   side:BorderSide(color:font1)

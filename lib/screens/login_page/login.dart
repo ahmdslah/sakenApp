@@ -175,12 +175,8 @@ class _LoginState extends State<Login> {
                       ),
                       GestureDetector(
                         onTap:() async{
-                       try{ UserCredential response=await signInWithGoogle();
-                          if(response.user?.uid !=null){
-                            Get.offAll(HomeScreen());
-                            return;
-                          }
-                          Navigator.pop(context);
+                       try{ await signInWithGoogle();
+                          return;
                        }
                        catch(e){
                          print(e.toString());
@@ -249,25 +245,57 @@ class _LoginState extends State<Login> {
       }
     }
   }
-  Future<UserCredential> signInWithGoogle() async {
-    // Trigger the authentication flow
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+  Future<void> signInWithGoogle() async {
+    try {
+      // Show loading indicator
+      DialogUtils.showLoadingDialog(context);
 
-    // Obtain the auth details from the request
-    final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+      // Trigger the authentication flow
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      
+      // Check if user canceled the sign-in
+      if (googleUser == null) {
+        Navigator.pop(context); // Dismiss loading
+        return;
+      }
 
-    // Create a new credential
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
+      // Obtain the auth details from the request
+      final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
 
-    );
-    var credentials= await FirebaseAuth.instance.signInWithCredential(credential);
-    return credentials;
+      // Create a new credential
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
 
+      // Sign in to Firebase with the Google credential
+      final UserCredential userCredential = 
+          await FirebaseAuth.instance.signInWithCredential(credential);
+      
+      // Dismiss loading dialog
+      Navigator.pop(context);
 
+      // Navigate to home screen if sign in was successful
+      if (userCredential.user != null) {
+        Get.offAll(() => HomeScreen());
+      }
 
-    // Once signed in, return the UserCredential
+    } catch (e) {
+      // Dismiss loading dialog if showing
+      if (Navigator.canPop(context)) {
+        Navigator.pop(context);
+      }
 
+      // Show error dialog
+      DialogUtils.showmessagedialog(
+        context: context,
+        text: "حدث خطأ أثناء تسجيل الدخول. الرجاء المحاولة مرة أخرى.", 
+        posbtntxt: "حسناً",
+        posbtnclk: () {
+          Navigator.pop(context);
+        }
+      );
+      print('Google Sign In Error: ${e.toString()}');
+    }
   }
 }
