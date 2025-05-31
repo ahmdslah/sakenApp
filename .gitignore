@@ -1,0 +1,24 @@
+# Build output
+out/
+build/
+
+# Generated files
+*.g.dart
+*.freezed.dart
+*.gr.dart
+*.gen.dart
+*.part
+*.inject.dart
+*.gql.dart
+*.graphql.dart
+
+# Dependency directories
+.dart_tool/
+.packages
+pubspec.lock  # Optional: ignore for dynamic dependency resolution
+
+# Miscellaneous
+.flutter-plugins
+.flutter-plugins-dependencies
+.idea/  # If not using Android Studio/IntelliJ
+*.iml   # IntelliJ project files
