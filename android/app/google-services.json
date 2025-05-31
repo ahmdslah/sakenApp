@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "54737180655",
+    "project_id": "saken2",
+    "storage_bucket": "saken2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54737180655:android:317d712bb425d74093c81a",
+        "android_client_info": {
+          "package_name": "com.example.saken_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54737180655-vgijrg0khfhhgs831a0afbsnub72349m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.saken_mobile",
+            "certificate_hash": "78c260327a5b92cf16f66a1a33efed95d7a3a5ba"
+          }
+        },
+        {
+          "client_id": "54737180655-hkob2kq2kb8t6834oibic9f7ad5h6s4e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmfOOxu1KGl9-eGlx9A194JxkYuer8q-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54737180655-hkob2kq2kb8t6834oibic9f7ad5h6s4e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "54737180655-rle5hff7k12il3ejkfuo2eleviq0nksg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sakenMobile"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
