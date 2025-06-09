@@ -1,7 +1,10 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:saken_mobile/const/const%20widgets/Custom_btn.dart';
 import 'package:saken_mobile/const/const%20widgets/custom_form_field.dart';
+import 'package:get/get.dart';
+import 'package:saken_mobile/const/const.dart';
 
 
 class EditInfo extends StatefulWidget{
@@ -16,13 +19,21 @@ class _EditInfoState extends State<EditInfo> {
   @override
   File? pickedImage;
   final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _name1Controller = TextEditingController();
+  final TextEditingController _name2Controller = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
-  final TextEditingController _contactController = TextEditingController();
-  final TextEditingController _locationController = TextEditingController();
-  final TextEditingController _walletController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
+void dispose(){
+  super.dispose();
+  _emailController.dispose();
+  _name1Controller.dispose();
+  _name2Controller.dispose();
+  _passwordController.dispose();
+  _phoneController.dispose();
 
+
+}
   Widget build(BuildContext context) {
     final height = MediaQuery
         .of(context)
@@ -34,7 +45,9 @@ class _EditInfoState extends State<EditInfo> {
         .width;
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(onPressed: () {},
+        leading: IconButton(onPressed: () {
+          Get.back();
+        },
             icon: Icon(Icons.arrow_back_ios, color: Colors.black,)),
         title: Text("الحساب", style: TextStyle(
             fontSize: 24, fontWeight: FontWeight.w500, color: Colors.black),),
@@ -77,7 +90,7 @@ class _EditInfoState extends State<EditInfo> {
                       width: width * 0.5,
                       hintText: "الاسم الاول ",
                       isName: true,
-                      controller: _nameController,
+                      controller: _name1Controller,
                       validator: (val) {
                         if (val == null || val.isEmpty) {
                           return 'من فضلك ادخل اسمك';
@@ -93,7 +106,7 @@ class _EditInfoState extends State<EditInfo> {
                       width: width * 0.5,
                       hintText: "الاسم الثاني",
                       isName: true,
-                      controller: _nameController,
+                      controller: _name2Controller,
                       validator: (val) {
                         if (val == null || val.isEmpty) {
                           return 'من فضلك ادخل اسمك';
@@ -108,7 +121,7 @@ class _EditInfoState extends State<EditInfo> {
                 height: height * 0.7,
                 width: width,
                 hintText: "البريد الالكتروني",
-                iscontact: true,
+                isphone: true,
                 controller: _emailController,
                 validator: (val) {
                   if (val == null || val.isEmpty) {
@@ -158,50 +171,19 @@ class _EditInfoState extends State<EditInfo> {
                   return null;
                 },),
               SizedBox(height: 5,),
-              CustomFormField(
-                height: height * 0.7,
-                width: width,
-                hintText: "جهات الاتصال ",
-                iscontact: true,
-                controller: _contactController,
-                validator: (val) {
-                  if (val == null || val.isEmpty) {
-                    return 'من فضلك ادخل رقم الهاتف';
-                  }
-
-                  if (val.length < 11) {
-                    return 'من فضلك ادخل رقم هاتف صحيح';
-                  }
-                  return null;
-                },),
+              CustomBtn("جهات الاتصال",iscontact: true,),
               SizedBox(height: 5,),
-              CustomFormField(
-                height: height * 0.7,
-                width: width,
-                hintText: "الموقع ",
-                islocation: true,
-                controller: _locationController,
-                validator: (val) {
-                  if (val == null || val.isEmpty) {
-                    return 'من فضلك ادخل موقعك';
-                  }
-                  return null;
-                },),
-              SizedBox(height: 5,),
-              CustomFormField(
-                height: height * 0.7,
-                width: width,
-                hintText: "المحفظة ",
-                iswallet: true,
-                controller: _walletController,
-                validator: (val) {
-                  if (val == null || val.isEmpty) {
-                    return 'من فضلك ادخل رقم المحفظة';
-                  }
-                  return null;
-                },),
+              CustomBtn("الموقع"),
+              SizedBox(height: 20,),
+              Center(child: ElevatedButton(onPressed:(){}, child:Text("حفظ الاعدادات"), style: ElevatedButton.styleFrom(foregroundColor: Colors.white,backgroundColor:font1,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50),
+                  side:BorderSide(color:font1)
+              ),))
 
-            ],
+
+
+
+
+              )],
           ),
         ),
       ),
