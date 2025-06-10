@@ -17,6 +17,7 @@ build/
 .packages
 pubspec.lock  # Optional: ignore for dynamic dependency resolution
 
+
 # Miscellaneous
 .flutter-plugins
 .flutter-plugins-dependencies

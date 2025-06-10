@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:saken_mobile/const/Models/apartmentmodel.dart';
-import 'package:saken_mobile/const/const%20widgets/apartment_card.dart';
+import 'package:saken_mobile/const/const%20widgets/apartmint_card.dart';
+
 
 class sakanwidget extends StatelessWidget{
   bool fav;
