@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HousingRequestsScreen extends StatelessWidget {
-  const HousingRequestsScreen({Key? key}) : super(key: key);
+  const HousingRequestsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

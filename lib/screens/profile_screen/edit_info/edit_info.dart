@@ -1,15 +1,10 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:saken_mobile/const/const%20widgets/Custom_btn.dart';
 import 'package:saken_mobile/const/const%20widgets/custom_form_field.dart';
-import 'package:get/get.dart';
-import 'package:saken_mobile/const/const.dart';
 
-
-class EditInfo extends StatefulWidget{
-
-
+class EditInfo extends StatefulWidget {
+  const EditInfo({super.key});
 
   @override
   State<EditInfo> createState() => _EditInfoState();
@@ -19,38 +14,30 @@ class _EditInfoState extends State<EditInfo> {
   @override
   File? pickedImage;
   final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _name1Controller = TextEditingController();
-  final TextEditingController _name2Controller = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
-  final formKey = GlobalKey<FormState>();
-void dispose(){
-  super.dispose();
-  _emailController.dispose();
-  _name1Controller.dispose();
-  _name2Controller.dispose();
-  _passwordController.dispose();
-  _phoneController.dispose();
+  final TextEditingController _contactController = TextEditingController();
+  final TextEditingController _locationController = TextEditingController();
+  final TextEditingController _walletController = TextEditingController();
 
-
-}
+  @override
   Widget build(BuildContext context) {
-    final height = MediaQuery
-        .of(context)
-        .size
-        .height;
-    final width = MediaQuery
-        .of(context)
-        .size
-        .width;
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(onPressed: () {
-          Get.back();
-        },
-            icon: Icon(Icons.arrow_back_ios, color: Colors.black,)),
-        title: Text("الحساب", style: TextStyle(
-            fontSize: 24, fontWeight: FontWeight.w500, color: Colors.black),),
+        leading: IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+            )),
+        title: const Text(
+          "الحساب",
+          style: TextStyle(
+              fontSize: 24, fontWeight: FontWeight.w500, color: Colors.black),
+        ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -58,29 +45,41 @@ void dispose(){
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Column(
             children: [
-              Align(
+              const Align(
                 alignment: Alignment.topRight,
-                child: Text("الاعدادات الشخصيه", style: TextStyle(fontSize: 20,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black,),
+                child: Text(
+                  "الاعدادات الشخصيه",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black,
+                  ),
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               pickedImage == null
                   ? Center(
-                child: GestureDetector(
-                  onTap: () {
-                    selectImage();
-                  },
-                  child: Image.asset("assets/images/Image AR.png"),
-                ),
-              )
+                      child: GestureDetector(
+                        onTap: () {
+                          selectImage();
+                        },
+                        child: Image.asset("assets/images/Image AR.png"),
+                      ),
+                    )
                   : ClipRRect(
-                borderRadius: BorderRadius.circular(50),
-                child: Image.file(
-                  pickedImage!, fit: BoxFit.cover, height: 100, width: 100,),
+                      borderRadius: BorderRadius.circular(50),
+                      child: Image.file(
+                        pickedImage!,
+                        fit: BoxFit.cover,
+                        height: 100,
+                        width: 100,
+                      ),
+                    ),
+              const SizedBox(
+                height: 20,
               ),
-              SizedBox(height: 20,),
               Row(
                 children: [
                   Expanded(
@@ -90,15 +89,18 @@ void dispose(){
                       width: width * 0.5,
                       hintText: "الاسم الاول ",
                       isName: true,
-                      controller: _name1Controller,
+                      controller: _nameController,
                       validator: (val) {
                         if (val == null || val.isEmpty) {
                           return 'من فضلك ادخل اسمك';
                         }
                         return null;
-                      },),
+                      },
+                    ),
                   ),
-                  SizedBox(width: 4,),
+                  const SizedBox(
+                    width: 4,
+                  ),
                   Expanded(
                     flex: 1,
                     child: CustomFormField(
@@ -106,22 +108,25 @@ void dispose(){
                       width: width * 0.5,
                       hintText: "الاسم الثاني",
                       isName: true,
-                      controller: _name2Controller,
+                      controller: _nameController,
                       validator: (val) {
                         if (val == null || val.isEmpty) {
                           return 'من فضلك ادخل اسمك';
                         }
                         return null;
-                      },),
+                      },
+                    ),
                   )
                 ],
               ),
-              SizedBox(height: 5,),
+              const SizedBox(
+                height: 5,
+              ),
               CustomFormField(
                 height: height * 0.7,
                 width: width,
                 hintText: "البريد الالكتروني",
-                isphone: true,
+                iscontact: true,
                 controller: _emailController,
                 validator: (val) {
                   if (val == null || val.isEmpty) {
@@ -134,8 +139,11 @@ void dispose(){
                     return 'من فضلك ادخل بريد الكتروني صحيح';
                   }
                   return null;
-                },),
-              SizedBox(height: 5,),
+                },
+              ),
+              const SizedBox(
+                height: 5,
+              ),
               CustomFormField(
                 height: height * 0.7,
                 width: width,
@@ -152,8 +160,11 @@ void dispose(){
                     return 'من فضلك ادخل رقم هاتف صحيح';
                   }
                   return null;
-                },),
-              SizedBox(height: 5,),
+                },
+              ),
+              const SizedBox(
+                height: 5,
+              ),
               CustomFormField(
                 height: height * 0.7,
                 width: width,
@@ -169,21 +180,61 @@ void dispose(){
                     return 'كلمة السر قصيرة';
                   }
                   return null;
-                },),
-              SizedBox(height: 5,),
-              CustomBtn("جهات الاتصال",iscontact: true,),
-              SizedBox(height: 5,),
-              CustomBtn("الموقع"),
-              SizedBox(height: 20,),
-              Center(child: ElevatedButton(onPressed:(){}, child:Text("حفظ الاعدادات"), style: ElevatedButton.styleFrom(foregroundColor: Colors.white,backgroundColor:font1,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50),
-                  side:BorderSide(color:font1)
-              ),))
+                },
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              CustomFormField(
+                height: height * 0.7,
+                width: width,
+                hintText: "جهات الاتصال ",
+                iscontact: true,
+                controller: _contactController,
+                validator: (val) {
+                  if (val == null || val.isEmpty) {
+                    return 'من فضلك ادخل رقم الهاتف';
+                  }
 
-
-
-
-
-              )],
+                  if (val.length < 11) {
+                    return 'من فضلك ادخل رقم هاتف صحيح';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              CustomFormField(
+                height: height * 0.7,
+                width: width,
+                hintText: "الموقع ",
+                islocation: true,
+                controller: _locationController,
+                validator: (val) {
+                  if (val == null || val.isEmpty) {
+                    return 'من فضلك ادخل موقعك';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              CustomFormField(
+                height: height * 0.7,
+                width: width,
+                hintText: "المحفظة ",
+                iswallet: true,
+                controller: _walletController,
+                validator: (val) {
+                  if (val == null || val.isEmpty) {
+                    return 'من فضلك ادخل رقم المحفظة';
+                  }
+                  return null;
+                },
+              ),
+            ],
           ),
         ),
       ),
@@ -197,13 +248,13 @@ void dispose(){
           return Dialog(
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0)), //this right here
-            child: Container(
+            child: SizedBox(
               height: 160,
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Column(
                   children: [
-                    Text(
+                    const Text(
                       'اختر صورتك الشخصيه',
                       style: TextStyle(
                           fontSize: 18.0, fontWeight: FontWeight.bold),
@@ -219,10 +270,10 @@ void dispose(){
                               Navigator.pop(context);
                               setState(() {});
                             } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text("فشل وضع الصوره !"),
-                                  ));
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(const SnackBar(
+                                content: Text("فشل وضع الصوره !"),
+                              ));
                             }
                           },
                           child: Card(
@@ -236,7 +287,7 @@ void dispose(){
                                       height: 60,
                                       width: 60,
                                     ),
-                                    Text('المعرض'),
+                                    const Text('المعرض'),
                                   ],
                                 ),
                               )),
@@ -245,15 +296,14 @@ void dispose(){
                           onTap: () async {
                             pickedImage = await selectImageFromCamera();
 
-
                             if (pickedImage != '') {
                               Navigator.pop(context);
                               setState(() {});
                             } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text("فشل وضع الصوره"),
-                                  ));
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(const SnackBar(
+                                content: Text("فشل وضع الصوره"),
+                              ));
                             }
                           },
                           child: Card(
@@ -267,7 +317,7 @@ void dispose(){
                                       height: 60,
                                       width: 60,
                                     ),
-                                    Text('الكاميرا'),
+                                    const Text('الكاميرا'),
                                   ],
                                 ),
                               )),

@@ -1,0 +1,2 @@
+C:/flutter_projects/saken_mobile/android/app/.cxx/Debug/1wm4e5g4/x86_64/CMakeFiles/edit_cache.dir
+C:/flutter_projects/saken_mobile/android/app/.cxx/Debug/1wm4e5g4/x86_64/CMakeFiles/rebuild_cache.dir
