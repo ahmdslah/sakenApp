@@ -32,7 +32,7 @@ class UserCard extends StatelessWidget{
                   padding: const EdgeInsets.all(2.0),
                   child: Row(mainAxisSize: MainAxisSize.min,
                     children: [
-                    Text(usermodel.renters[index].username,style: TextStyle(fontSize:10,fontWeight: FontWeight.w500,color: Colors.black),)
+                      Text(usermodel.renters[index].username,style: TextStyle(fontSize:10,fontWeight: FontWeight.w500,color: Colors.black),)
                     ],),
                 ),
               ),
@@ -42,11 +42,11 @@ class UserCard extends StatelessWidget{
                   padding: const EdgeInsets.all(2.0),
                   child: Row(mainAxisSize: MainAxisSize.min,
                     children: [
-                    Text("${usermodel.renters[index].userrole}-${usermodel.renters[index].rate}",style: TextStyle(fontSize:8.7,fontWeight: FontWeight.w500,color: Colors.black),),
-                    Icon(Icons.star_border,weight: 1,)
+                      Text("${usermodel.renters[index].userrole}-${usermodel.renters[index].rate}",style: TextStyle(fontSize:8.7,fontWeight: FontWeight.w500,color: Colors.black),),
+                      Icon(Icons.star_border,weight: 1,)
 
 
-                  ],),
+                    ],),
                 ),
               )
 
@@ -55,7 +55,7 @@ class UserCard extends StatelessWidget{
         )
 
 
-      ,decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),border: Border.all(color: Colors.grey),color: Color(0xffF5F5F5)
+        ,decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),border: Border.all(color: Colors.grey),color: Color(0xffF5F5F5)
       ),
       ),
     );
