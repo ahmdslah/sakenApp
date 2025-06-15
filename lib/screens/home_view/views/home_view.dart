@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:saken_mobile/screens/login_page/cubit/login_cubit.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -7,6 +9,11 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {
+              BlocProvider.of<LoginCubit>(context).signOut();
+            },
+            icon: Icon(Icons.logout_rounded)),
         title: const Text(
           'Home view',
           style: TextStyle(
