@@ -13,7 +13,10 @@ class HomeView extends StatelessWidget {
             onPressed: () {
               BlocProvider.of<LoginCubit>(context).signOut();
             },
-            icon: Icon(Icons.logout_rounded)),
+            icon: Icon(
+              Icons.logout_rounded,
+              size: 25,
+            )),
         title: const Text(
           'Home view',
           style: TextStyle(
