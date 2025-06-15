@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:saken_mobile/const/const%20widgets/messages_tile.dart';
 
 class Messages extends StatelessWidget {

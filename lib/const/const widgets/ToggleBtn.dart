@@ -16,20 +16,20 @@ class _ToggleBtnState extends State<ToggleBtn> {
   Widget build(BuildContext context) {
     return AnimatedToggleSwitch<int>.rolling(
       current: currentval,
-      values: [0, 1],
+      values: const [0, 1],
       onChanged: (newvalue) {
         setState(() {
           currentval = newvalue;
         });
       },
       iconOpacity: 1,
-      style: ToggleStyle(borderColor: font1, indicatorColor: font1),
-      iconList: [
-        const Icon(
+      style: const ToggleStyle(borderColor: font1, indicatorColor: font1),
+      iconList: const [
+        Icon(
           Icons.notifications_on,
           color: Colors.black,
         ),
-        const Icon(
+        Icon(
           Icons.notifications_off,
           color: Colors.black,
         )

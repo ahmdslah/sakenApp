@@ -13,7 +13,7 @@ import 'package:get/get.dart';
 import '../../saken_cubit/form_cubit/custom_form_cubit.dart';
 
 class SignUp extends StatefulWidget {
-  SignUp({super.key});
+  const SignUp({super.key});
 
   @override
   State<SignUp> createState() => _SignUpState();
@@ -206,36 +206,40 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-   Signup()async{
-     DialogUtils.showLoadingDialog(context);
-    if(formKey.currentState!.validate()){
+  Signup() async {
+    DialogUtils.showLoadingDialog(context);
+    if (formKey.currentState!.validate()) {
       try {
-        final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-            email: _emailController.text,
-            password:_passwordController.text
-        );
+        final credential = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(
+                email: _emailController.text,
+                password: _passwordController.text);
         Navigator.pop(context);
         Get.offAll(HomeScreen());
       } on FirebaseAuthException catch (e) {
         if (e.code == 'user-not-found') {
           print('No user found for that email.');
-          DialogUtils.showmessagedialog(context: context,
-              text: 'user-not-found', posbtntxt: "Ok",
-              posbtnclk:(){
-                Navigator.pop(context); });
+          DialogUtils.showmessagedialog(
+              context: context,
+              text: 'user-not-found',
+              posbtntxt: "Ok",
+              posbtnclk: () {
+                Navigator.pop(context);
+              });
         } else if (e.code == 'wrong-password') {
-          DialogUtils.showmessagedialog(context: context,
-              text:'Wrong password provided for that user.' , posbtntxt: "Ok",
-              posbtnclk:(){
+          DialogUtils.showmessagedialog(
+              context: context,
+              text: 'Wrong password provided for that user.',
+              posbtntxt: "Ok",
+              posbtnclk: () {
                 Navigator.pop(context);
               });
           print('Wrong password provided for that user.');
         }
+      } catch (e) {
+        print(e);
       }
-      catch (e) {
-        print(e);}
     }
-
   }
 }
 /*try {

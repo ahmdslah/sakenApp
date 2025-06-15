@@ -4,11 +4,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/utils.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:meta/meta.dart';
 import 'package:saken_mobile/screens/home_view/views/home_view.dart';
-import 'package:saken_mobile/screens/welcome_screen/welcome.dart';
+import 'package:saken_mobile/screens/login_page/login.dart';
 
 part 'login_state.dart';
 
@@ -25,15 +23,19 @@ class LoginCubit extends Cubit<LoginState> {
   }) async {
     emit(LoginLoading());
     try {
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
+      emit(LoginLoading());
+      final credential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
       emit(LoginSuccess());
-      Get.offAll(const HomeView());
-    } on FirebaseAuthException catch (ex) {
-      if (ex.code == 'invalid-credential') {
-        emit(LoginFaild(errMessage: 'Wrong email or password'));
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        emit(LoginFaild(errMessage: 'No user found for that email.'));
+
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        emit(LoginFaild(errMessage: 'Wrong password provided for that user.'));
+
+        print('Wrong password provided for that user.');
       }
     } catch (ex) {
       emit(LoginFaild(errMessage: 'Couldnt signin please try again later'));
@@ -45,7 +47,7 @@ class LoginCubit extends Cubit<LoginState> {
     GoogleSignIn().disconnect();
     FirebaseAuth.instance.signOut();
     emit(SigningOutSuccess());
-    Get.offAll(const Welcome());
+    Get.offAll(Login());
   }
 
   void clearFields() {

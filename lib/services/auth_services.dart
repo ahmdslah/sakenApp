@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-
 class AuthServices {
   Future<UserCredential?> signInWithGoogle() async {
     try {
@@ -20,7 +19,8 @@ class AuthServices {
       );
 
       // تنفيذ تسجيل الدخول باستخدام Firebase
-      final userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
+      final userCredential =
+          await FirebaseAuth.instance.signInWithCredential(credential);
 
       // تخزين اسم المستخدم
 //       var box = await Hive.openBox('USER_BOX');
@@ -36,5 +36,6 @@ class AuthServices {
       print('Google sign-in error: $e');
       return null;
     }
+    return null;
   }
 }

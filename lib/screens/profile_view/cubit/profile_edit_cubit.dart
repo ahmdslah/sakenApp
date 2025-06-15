@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:meta/meta.dart';
 
 part 'profile_edit_state.dart';
 
@@ -20,6 +19,7 @@ class ProfileEditCubit extends Cubit<ProfileEditState> {
     newPasswordController.clear();
     confirmPasswordController.clear();
   }
+
   final Map<String, bool> _obstructMap = {
     'oldPassword': true,
     'newPassword': true,
@@ -40,5 +40,4 @@ class ProfileEditCubit extends Cubit<ProfileEditState> {
     isObstruct = !isObstruct;
     emit(ProfileChangeEye());
   }
-  
 }

@@ -7,11 +7,11 @@ class MyTextBox extends StatelessWidget {
   final String sectionName;
   final void Function()? onPressed;
   const MyTextBox({
-    Key? key,
+    super.key,
     required this.text,
     required this.sectionName,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

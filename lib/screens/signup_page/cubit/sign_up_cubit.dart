@@ -3,8 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:meta/meta.dart';
 import 'package:saken_mobile/screens/home_view/views/home_view.dart';
 
 part 'sign_up_state.dart';
@@ -32,7 +30,7 @@ class SignUpCubit extends Cubit<SignUpState> {
         'uid': uid,
         'userName': userName,
         'email': email,
-        'password':password,
+        'password': password,
         'type': "default account",
         'createdAt': FieldValue.serverTimestamp(),
       });

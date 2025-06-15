@@ -18,7 +18,7 @@ class Custom_Row extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                   color: Colors.black),
             )),
-        Expanded(child: ToggleBtn())
+        const Expanded(child: ToggleBtn())
       ],
     );
   }

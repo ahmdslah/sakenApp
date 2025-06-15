@@ -38,13 +38,15 @@ class CustomTextField extends StatelessWidget {
                       cubit.toggleObstruct(fieldKey);
                     },
                     child: Icon(
-                      isObscured ? CupertinoIcons.eye_slash : CupertinoIcons.eye,
+                      isObscured
+                          ? CupertinoIcons.eye_slash
+                          : CupertinoIcons.eye,
                       color: font1,
                     ),
                   )
                 : null,
             hintText: hintText,
-            hintStyle: TextStyle(fontSize: 18, color: Color(0xff828282)),
+            hintStyle: const TextStyle(fontSize: 18, color: Color(0xff828282)),
             fillColor: Colors.grey[200],
             filled: true,
             enabledBorder: OutlineInputBorder(

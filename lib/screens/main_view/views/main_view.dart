@@ -42,10 +42,10 @@ class MainView extends StatelessWidget {
               unselectedItemColor: const Color(0xFF92929D),
               showSelectedLabels: true,
               showUnselectedLabels: true,
-              unselectedLabelStyle: TextStyle(
+              unselectedLabelStyle: const TextStyle(
                 fontSize: 14,
               ),
-              selectedLabelStyle: TextStyle(
+              selectedLabelStyle: const TextStyle(
                 fontSize: 16,
               ),
               currentIndex: controller.selectedIndex.value,

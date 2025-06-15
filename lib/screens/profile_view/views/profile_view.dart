@@ -31,7 +31,7 @@ class _ProfileViewState extends State<ProfileView> {
         builder: (context) => AlertDialog(
               backgroundColor: Colors.grey[900],
               title: Text(
-                'Edit' + field,
+                'Edit$field',
                 style: const TextStyle(color: Colors.white),
               ),
               content: TextField(
@@ -68,7 +68,7 @@ class _ProfileViewState extends State<ProfileView> {
               ],
             ));
 
-    if (newValue.trim().length > 0) {
+    if (newValue.trim().isNotEmpty) {
       await userCollections.doc(currentUser.uid).update({field: newValue});
     }
   }

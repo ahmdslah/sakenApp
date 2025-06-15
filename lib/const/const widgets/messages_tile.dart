@@ -3,6 +3,7 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class MessagesTile extends StatelessWidget {
   MessagesTile({
+    super.key,
     this.message = 'رسالة وهمية...',
     this.name = 'اسم افتراضي',
     this.image = "assets/images/Image AR.png",
@@ -19,7 +20,7 @@ class MessagesTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Color(0xffF8F8F8),
+      color: const Color(0xffF8F8F8),
       elevation: 5,
       child: ListTile(
         onTap: ontap,
@@ -27,27 +28,27 @@ class MessagesTile extends StatelessWidget {
           children: [
             Text(
               name,
-              style:
-                  TextStyle(fontFamily: "cairo", fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                  fontFamily: "cairo", fontWeight: FontWeight.bold),
             ),
-            Spacer(),
+            const Spacer(),
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.more_horiz),
+              icon: const Icon(Icons.more_horiz),
             ),
           ],
         ),
         subtitle: Row(
           children: [
-            Icon(
+            const Icon(
               MaterialCommunityIcons.check_all,
               size: 18,
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             Text(message),
-            Spacer(),
+            const Spacer(),
             Text(time)
           ],
         ),

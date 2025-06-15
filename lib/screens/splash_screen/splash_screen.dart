@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saken_mobile/saken_cubit/splash_cubit/splash_cubit.dart';
+import 'package:saken_mobile/saken_cubit/splash_cubit/splash_state.dart';
 
 import '../../const/const.dart';
 

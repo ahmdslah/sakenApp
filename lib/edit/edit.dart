@@ -1,4 +1,3 @@
-
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -11,7 +10,8 @@ class EditPropertyScreen extends StatefulWidget {
   final String initialDate;
   final File? initialImage;
 
-  EditPropertyScreen({
+  const EditPropertyScreen({
+    super.key,
     this.initialPropertyType,
     this.initialFinishingType,
     this.initialPaymentType = 'Installments',
@@ -56,83 +56,84 @@ class _EditPropertyScreenState extends State<EditPropertyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Edit Property')),
+      appBar: AppBar(title: const Text('Edit Property')),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Form(
           key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Property Type'),
+              const Text('Property Type'),
               DropdownButtonFormField<String>(
                 value: propertyType,
                 items: ['Studio', 'Apartment', 'Villa']
-                    .map((type) => DropdownMenuItem(value: type, child: Text(type)))
+                    .map((type) =>
+                        DropdownMenuItem(value: type, child: Text(type)))
                     .toList(),
                 onChanged: (value) => setState(() => propertyType = value),
-                decoration: InputDecoration(border: OutlineInputBorder()),
-                validator: (value) => value == null ? 'Please select a type' : null,
+                decoration: const InputDecoration(border: OutlineInputBorder()),
+                validator: (value) =>
+                    value == null ? 'Please select a type' : null,
               ),
-              SizedBox(height: 16),
-
-              Text('Finishing Type'),
+              const SizedBox(height: 16),
+              const Text('Finishing Type'),
               DropdownButtonFormField<String>(
                 value: finishingType,
                 items: ['Finished', 'Unfinished']
-                    .map((type) => DropdownMenuItem(value: type, child: Text(type)))
+                    .map((type) =>
+                        DropdownMenuItem(value: type, child: Text(type)))
                     .toList(),
                 onChanged: (value) => setState(() => finishingType = value),
-                decoration: InputDecoration(border: OutlineInputBorder()),
-                validator: (value) => value == null ? 'Please select finishing' : null,
+                decoration: const InputDecoration(border: OutlineInputBorder()),
+                validator: (value) =>
+                    value == null ? 'Please select finishing' : null,
               ),
-              SizedBox(height: 16),
-
-              Text('Property Area (m²)'),
+              const SizedBox(height: 16),
+              const Text('Property Area (m²)'),
               TextFormField(
                 controller: areaController,
                 keyboardType: TextInputType.number,
-                decoration: InputDecoration(border: OutlineInputBorder()),
+                decoration: const InputDecoration(border: OutlineInputBorder()),
                 validator: (value) => value!.isEmpty ? 'Enter area' : null,
               ),
-              SizedBox(height: 16),
-
-              Text('Contract Date'),
+              const SizedBox(height: 16),
+              const Text('Contract Date'),
               TextFormField(
                 controller: dateController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'e.g. 28 Mar 2025',
                 ),
                 validator: (value) => value!.isEmpty ? 'Enter date' : null,
               ),
-              SizedBox(height: 16),
-
-              Text('Payment Type'),
+              const SizedBox(height: 16),
+              const Text('Payment Type'),
               Row(
                 children: [
                   Expanded(
                     child: RadioListTile<String>(
                       value: 'Installments',
                       groupValue: paymentType,
-                      onChanged: (value) => setState(() => paymentType = value!),
-                      title: Text('Installments'),
+                      onChanged: (value) =>
+                          setState(() => paymentType = value!),
+                      title: const Text('Installments'),
                     ),
                   ),
                   Expanded(
                     child: RadioListTile<String>(
                       value: 'Cash',
                       groupValue: paymentType,
-                      onChanged: (value) => setState(() => paymentType = value!),
-                      title: Text('Cash'),
+                      onChanged: (value) =>
+                          setState(() => paymentType = value!),
+                      title: const Text('Cash'),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 16),
-
-              Text('Property Image'),
-              SizedBox(height: 8),
+              const SizedBox(height: 16),
+              const Text('Property Image'),
+              const SizedBox(height: 8),
               GestureDetector(
                 onTap: _pickImage,
                 child: Container(
@@ -141,21 +142,20 @@ class _EditPropertyScreenState extends State<EditPropertyScreen> {
                   color: Colors.grey[200],
                   child: imageFile != null
                       ? Image.file(imageFile!, fit: BoxFit.cover)
-                      : Icon(Icons.camera_alt, size: 50),
+                      : const Icon(Icons.camera_alt, size: 50),
                 ),
               ),
-              SizedBox(height: 24),
-
+              const SizedBox(height: 24),
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     // Save edited property
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Property updated')),
+                      const SnackBar(content: Text('Property updated')),
                     );
                   }
                 },
-                child: Text('Save Changes'),
+                child: const Text('Save Changes'),
               ),
             ],
           ),
