@@ -45,6 +45,7 @@ dependencies:
   google_sign_in: ^6.3.0
   flutter_facebook_auth: ^7.1.2
   flutter_vector_icons: ^2.0.0
+  cloud_firestore: ^5.6.9
 
 dev_dependencies:
   flutter_test:
