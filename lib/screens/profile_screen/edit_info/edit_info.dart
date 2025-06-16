@@ -218,7 +218,9 @@ class _EditInfoState extends State<EditInfo> {
               ),
               Center(
                   child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.white,
                         backgroundColor: font1,

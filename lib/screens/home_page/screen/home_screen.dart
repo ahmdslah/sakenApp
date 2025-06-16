@@ -6,6 +6,9 @@ import 'package:saken_mobile/screens/home_page/tabs/hometab.dart';
 import 'package:saken_mobile/screens/home_page/tabs/messagescreen.dart';
 import 'package:saken_mobile/screens/home_page/tabs/profilescreen.dart';
 import 'package:saken_mobile/screens/home_page/tabs/recomendationscreen.dart';
+import 'package:saken_mobile/screens/profile_screen/edit_info/edit_info.dart';
+import 'package:saken_mobile/screens/profile_screen/settings/settings.dart';
+import 'package:saken_mobile/screens/profile_view/views/profile_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -21,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
     RecommendationTab(),
     FavTab(),
     MessagesTab(),
-    ProfileTab()
+    ProfileView(),
   ];
   @override
   void initState() {

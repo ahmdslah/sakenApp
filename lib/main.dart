@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:saken_mobile/const/Routes.dart';
+import 'package:saken_mobile/const/routes.dart';
 import 'package:saken_mobile/saken_cubit/form_cubit/custom_form_cubit.dart';
 import 'package:saken_mobile/saken_cubit/splash_cubit/splash_cubit.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:saken_mobile/screens/home_page/screen/home_screen.dart';
 import 'package:saken_mobile/screens/login_page/cubit/login_cubit.dart';
 import 'package:saken_mobile/screens/login_page/login.dart';
-import 'package:saken_mobile/screens/main_view/views/main_view.dart';
+import 'package:saken_mobile/screens/profile_screen/edit_info/edit_info.dart';
+import 'package:saken_mobile/screens/profile_screen/settings/settings.dart';
 import 'package:saken_mobile/screens/signup_page/cubit/sign_up_cubit.dart';
 import 'package:saken_mobile/screens/signup_page/sign_up.dart';
 import 'firebase_options.dart';
@@ -49,7 +51,9 @@ class MyApp extends StatelessWidget {
           Routes.splash: (context) => SplashScreen(),
           Routes.login: (context) => Login(),
           Routes.signup: (context) => SignUp(),
-          Routes.mainView: (context) => MainView(),
+          Routes.homeScreen: (context) => HomeScreen(),
+          Routes.editInfo: (context) => EditInfo(),
+          Routes.settings: (context) => Settings(),
         },
         builder: (context, child) {
           return Directionality(
