@@ -209,7 +209,7 @@ class Login extends StatelessWidget {
                             ),
                           ),
                           onTap: () {
-                            Get.to(const SignUp());
+                            Get.to(SignUp());
                           },
                         ),
                       ],

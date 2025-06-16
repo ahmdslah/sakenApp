@@ -22,9 +22,13 @@ class SignUpCubit extends Cubit<SignUpState> {
     required String userName,
   }) async {
     emit(SignUpLoading());
+
     try {
-      final credential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password);
+      final credential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
       String uid = credential.user!.uid;
       await firestore.collection('users').doc(uid).set({
         'uid': uid,
@@ -35,14 +39,43 @@ class SignUpCubit extends Cubit<SignUpState> {
         'createdAt': FieldValue.serverTimestamp(),
       });
       emit(SignUpSuccess());
-      Get.offAll(const HomeView());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        emit(SignUpFaild(errorrMessage: 'Weak password'));
+        emit(SignUpFaild(errorrMessage: "The password provided is too weak."));
+        print('The password provided is too weak.');
       } else if (e.code == 'email-already-in-use') {
-        emit(SignUpFaild(errorrMessage: 'This email already exists'));
+        emit(SignUpFaild(
+            errorrMessage: "The account already exists for that email."));
+
+        print('The account already exists for that email.');
       }
-    } catch (e) {
+    }
+    //  catch (e) {
+    //   print(e);
+    // }
+/////////////////////////////////////////////////////////////
+    // try {
+    //   final credential = await FirebaseAuth.instance
+    //       .createUserWithEmailAndPassword(email: email, password: password);
+    //   String uid = credential.user!.uid;
+    //   await firestore.collection('users').doc(uid).set({
+    //     'uid': uid,
+    //     'userName': userName,
+    //     'email': email,
+    //     'password': password,
+    //     'type': "default account",
+    //     'createdAt': FieldValue.serverTimestamp(),
+    //   });
+    //   emit(SignUpSuccess());
+    //   Get.offAll(const HomeView());
+    // } on FirebaseAuthException catch (e) {
+    //   if (e.code == 'weak-password') {
+    //     emit(SignUpFaild(errorrMessage: 'Weak password'));
+    //   } else if (e.code == 'email-already-in-use') {
+    //     emit(SignUpFaild(errorrMessage: 'This email already exists'));
+    //   }
+    // }
+    catch (e) {
       emit(
         SignUpFaild(errorrMessage: 'Couldnt signup please try again later.'),
       );
