@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:saken_mobile/const/const%20widgets/DialogUtils.dart';
+import 'package:saken_mobile/screens/home_page/screen/home_screen.dart';
 import 'package:saken_mobile/screens/home_view/views/home_view.dart';
 import 'package:saken_mobile/screens/login_page/cubit/login_cubit.dart';
 import 'package:saken_mobile/screens/main_view/views/main_view.dart';
@@ -26,17 +28,15 @@ class Login extends StatelessWidget {
           isloading = true;
         } else if (state is LoginFaild) {
           isloading = false;
-          Get.snackbar("Login Field", state.errMessage);
+          Get.snackbar("Login Faild", state.errMessage);
         } else if (state is LoginSuccess) {
           isloading = false;
-          Get.offAll(MainViewController());
+          Get.offAll(HomeScreen());
         }
       },
       builder: (context, state) {
         if (isloading) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return DialogUtils.showLoadingDialog(context);
         } else {
           return Scaffold(
             backgroundColor: Colors.white,
