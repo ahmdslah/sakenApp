@@ -1,17 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saken_mobile/const/const%20widgets/DialogUtils.dart';
-import 'package:saken_mobile/screens/home_page/screen/home_screen.dart';
 import 'package:saken_mobile/screens/login_page/login.dart';
-import 'package:saken_mobile/screens/profile_screen/edit_info/edit_info.dart';
 import 'package:saken_mobile/screens/signup_page/cubit/sign_up_cubit.dart';
 
 import '../../const/const widgets/custom_form_field.dart';
 import '../../const/const.dart';
 import 'package:get/get.dart';
-
-import '../../saken_cubit/form_cubit/custom_form_cubit.dart';
 
 class SignUp extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
@@ -40,7 +35,11 @@ class SignUp extends StatelessWidget {
       },
       builder: (context, state) {
         if (isloading) {
-          return DialogUtils.showLoadingDialog(context);
+          return Center(
+            child: CircularProgressIndicator(
+              backgroundColor: Color.fromARGB(0, 0, 85, 85),
+            ),
+          );
         } else {
           return Scaffold(
             backgroundColor: Colors.white,
