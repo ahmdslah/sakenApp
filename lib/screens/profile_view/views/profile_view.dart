@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:saken_mobile/const/Routes.dart';
 import 'package:saken_mobile/const/const.dart';
+import 'package:saken_mobile/screens/profile_view/cubit/image_picker_cubit.dart';
 import 'package:saken_mobile/screens/profile_view/cubit/profile_edit_cubit.dart';
 import 'package:saken_mobile/screens/profile_view/widgets/custom_image_profile.dart';
 import 'package:saken_mobile/screens/profile_view/widgets/custom_logout_button.dart';
@@ -75,126 +77,161 @@ class _ProfileViewState extends State<ProfileView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: font1,
-        centerTitle: true,
-        title: const Text(
-          'Profile page',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.w500,
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (_) => ProfileEditCubit()),
+          BlocProvider(create: (_) => ImagePickerCubit()),
+        ],
+        child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: font1,
+            centerTitle: true,
+            title: const Text(
+              'Profile page',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
           ),
-        ),
-      ),
-      body: StreamBuilder<DocumentSnapshot>(
-        stream: FirebaseFirestore.instance
-            .collection('users')
-            .doc(currentUser.uid)
-            .snapshots(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            final userData =
-                snapshot.data!.data() as Map<String, dynamic>? ?? {};
-            return BlocBuilder<ProfileEditCubit, ProfileEditState>(
-              builder: (context, state) {
-                final cubit = context.read<ProfileEditCubit>();
+          body: StreamBuilder<DocumentSnapshot>(
+            stream: FirebaseFirestore.instance
+                .collection('users')
+                .doc(currentUser.uid)
+                .snapshots(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                final userData =
+                    snapshot.data!.data() as Map<String, dynamic>? ?? {};
+                return BlocBuilder<ProfileEditCubit, ProfileEditState>(
+                  builder: (context, state) {
+                    final cubit = context.read<ProfileEditCubit>();
 
-                return SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 25, left: 25),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const SizedBox(
-                          height: 40,
+                    return SingleChildScrollView(
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 25, left: 25),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(
+                              height: 40,
+                            ),
+                            const CustomImageProfile(),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Center(
+                              child: Text(
+                                currentUser.email!,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(color: Colors.grey[700]),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 50,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, Routes.editInfo);
+                                    },
+                                    child: Text(
+                                      "تعديل المعلومات",
+                                      style: TextStyle(
+                                          fontSize: 25,
+                                          color: Color(0xff005555)),
+                                    )),
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, Routes.settings);
+                                    },
+                                    child: Text(
+                                      "الاعدادات",
+                                      style: TextStyle(
+                                          fontSize: 25,
+                                          color: Color(0xff005555)),
+                                    )),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 50,
+                            ),
+                            Text(
+                              'تغيير اسم المستخدم',
+                              style: TextStyle(color: Colors.grey[900]),
+                            ),
+                            MyTextBox(
+                              text: userData['userName'] ?? 'No username',
+                              sectionName: 'اسم المستخدم',
+                              onPressed: () => editField('userName'),
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              'تغيير كلمة المرور',
+                              style: TextStyle(
+                                color: Colors.grey[900],
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            CustomTextField(
+                              hintText: 'كلمة المرور القديمه',
+                              controller: cubit.oldPasswordController,
+                              isPassword: true,
+                              fieldKey: 'oldPassword',
+                            ),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            CustomTextField(
+                              hintText: 'كلمة المرور الجديده',
+                              controller: cubit.newPasswordController,
+                              isPassword: true,
+                              fieldKey: 'newPassword',
+                            ),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            CustomTextField(
+                              hintText: 'تأكيد كلمة المرور',
+                              controller: cubit.confirmPasswordController,
+                              isPassword: true,
+                              fieldKey: 'confirmPassword',
+                            ),
+                            const SizedBox(
+                              height: 30,
+                            ),
+                            const CustomSaveEditButton(),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            const CustomLogoutButton(),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                          ],
                         ),
-                        const CustomImageProfile(),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Center(
-                          child: Text(
-                            currentUser.email!,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(color: Colors.grey[700]),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 50,
-                        ),
-                        Text(
-                          'تغيير اسم المستخدم',
-                          style: TextStyle(color: Colors.grey[900]),
-                        ),
-                        MyTextBox(
-                          text: userData['userName'] ?? 'No username',
-                          sectionName: 'اسم المستخدم',
-                          onPressed: () => editField('userName'),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          'تغيير كلمة المرور',
-                          style: TextStyle(
-                            color: Colors.grey[900],
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        CustomTextField(
-                          hintText: 'كلمة المرور القديمه',
-                          controller: cubit.oldPasswordController,
-                          isPassword: true,
-                          fieldKey: 'oldPassword',
-                        ),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                        CustomTextField(
-                          hintText: 'كلمة المرور الجديده',
-                          controller: cubit.newPasswordController,
-                          isPassword: true,
-                          fieldKey: 'newPassword',
-                        ),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                        CustomTextField(
-                          hintText: 'تأكيد كلمة المرور',
-                          controller: cubit.confirmPasswordController,
-                          isPassword: true,
-                          fieldKey: 'confirmPassword',
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        const CustomSaveEditButton(),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        const CustomLogoutButton(),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                      ],
-                    ),
-                  ),
+                      ),
+                    );
+                  },
                 );
-              },
-            );
-          } else if (snapshot.hasError) {
-            return Center(
-              child: Text('Erorr${snapshot.error}'),
-            );
-          }
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        },
-      ),
-    );
+              } else if (snapshot.hasError) {
+                return Center(
+                  child: Text('Erorr${snapshot.error}'),
+                );
+              }
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            },
+          ),
+        ));
   }
 }

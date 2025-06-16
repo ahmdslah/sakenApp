@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saken_mobile/const/const%20widgets/DialogUtils.dart';
 import 'package:saken_mobile/screens/home_page/screen/home_screen.dart';
-import 'package:saken_mobile/screens/home_view/views/home_view.dart';
 import 'package:saken_mobile/screens/login_page/cubit/login_cubit.dart';
-import 'package:saken_mobile/screens/main_view/views/main_view.dart';
 
 import '../../const/const widgets/custom_form_field.dart';
 import '../../const/const.dart';
@@ -209,7 +207,7 @@ class Login extends StatelessWidget {
                             ),
                           ),
                           onTap: () {
-                            Get.to(const SignUp());
+                            Get.to(SignUp());
                           },
                         ),
                       ],

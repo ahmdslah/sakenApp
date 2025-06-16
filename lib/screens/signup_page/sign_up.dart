@@ -1,26 +1,14 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saken_mobile/const/const%20widgets/DialogUtils.dart';
-import 'package:saken_mobile/screens/home_page/screen/home_screen.dart';
 import 'package:saken_mobile/screens/login_page/login.dart';
-import 'package:saken_mobile/screens/profile_screen/edit_info/edit_info.dart';
 import 'package:saken_mobile/screens/signup_page/cubit/sign_up_cubit.dart';
 
 import '../../const/const widgets/custom_form_field.dart';
 import '../../const/const.dart';
 import 'package:get/get.dart';
 
-import '../../saken_cubit/form_cubit/custom_form_cubit.dart';
-
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
-
-  @override
-  State<SignUp> createState() => _SignUpState();
-}
-
-class _SignUpState extends State<SignUp> {
+class SignUp extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
 
   final TextEditingController _nameController = TextEditingController();
@@ -33,21 +21,25 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    return BlocConsumer<SignUpCubit,SignUpState >(
+    return BlocConsumer<SignUpCubit, SignUpState>(
       listener: (context, state) {
         if (state is SignUpLoading) {
           isloading = true;
-        } else if (state is SignUpFaild ) {
+        } else if (state is SignUpFaild) {
           isloading = false;
           Get.snackbar("Login Faild", state.errorrMessage);
-        } else if (state is  SignUpSuccess) {
+        } else if (state is SignUpSuccess) {
           isloading = false;
-          Get.offAll(HomeScreen());
+          Get.offAll(Login());
         }
       },
       builder: (context, state) {
         if (isloading) {
-          return DialogUtils.showLoadingDialog(context);
+          return Center(
+            child: CircularProgressIndicator(
+              backgroundColor: Color.fromARGB(0, 0, 85, 85),
+            ),
+          );
         } else {
           return Scaffold(
             backgroundColor: Colors.white,
@@ -155,7 +147,11 @@ class _SignUpState extends State<SignUp> {
                             ),
                           ),
                           onTap: () {
-                            Signup();
+                            BlocProvider.of<SignUpCubit>(context).signUp(
+                                context: context,
+                                email: _emailController.text,
+                                password: _passwordController.text,
+                                userName: _nameController.text);
                           },
                         ),
                         SizedBox(
@@ -177,7 +173,8 @@ class _SignUpState extends State<SignUp> {
                             CircleAvatar(
                               radius: 25,
                               backgroundColor: Colors.transparent,
-                              backgroundImage: AssetImage("${path}facebook.png"),
+                              backgroundImage:
+                                  AssetImage("${path}facebook.png"),
                             ),
                             CircleAvatar(
                               radius: 25,
@@ -224,72 +221,5 @@ class _SignUpState extends State<SignUp> {
         }
       },
     );
-
-  }
-
-  Signup() async {
-    DialogUtils.showLoadingDialog(context);
-    if (formKey.currentState!.validate()) {
-      try {
-        final credential = await FirebaseAuth.instance
-            .createUserWithEmailAndPassword(
-                email: _emailController.text,
-                password: _passwordController.text);
-        Navigator.pop(context);
-        Get.offAll(HomeScreen());
-      } on FirebaseAuthException catch (e) {
-        if (e.code == 'user-not-found') {
-          print('No user found for that email.');
-          DialogUtils.showmessagedialog(
-              context: context,
-              text: 'user-not-found',
-              posbtntxt: "Ok",
-              posbtnclk: () {
-                Navigator.pop(context);
-              });
-        } else if (e.code == 'wrong-password') {
-          DialogUtils.showmessagedialog(
-              context: context,
-              text: 'Wrong password provided for that user.',
-              posbtntxt: "Ok",
-              posbtnclk: () {
-                Navigator.pop(context);
-              });
-          print('Wrong password provided for that user.');
-        }
-      } catch (e) {
-        print(e);
-      }
-    }
   }
 }
-/*try {
-        DialogUtils.showLoadingDialog(context);
-        final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-            email: _emailController.text,
-            password: _passwordController.text
-        );
-        Navigator.pop(context);
-        Get.offAll(HomeScreen());
-
-
-
-      } on FirebaseAuthException catch (e) {
-        if (e.code == 'user-not-found') {
-          print(e);
-          DialogUtils.showmessagedialog(context: context,
-              text: 'user-not-found', posbtntxt: "Ok",
-              posbtnclk:(){
-                Navigator.pop(context);
-              });
-        } else if (e.code == 'wrong-password') {
-          DialogUtils.showmessagedialog(context: context,
-              text:'Wrong password provided for that user.' , posbtntxt: "Ok",
-              posbtnclk:(){
-                Navigator.pop(context);
-              });
-        }
-
-      }
-      catch (e) {
-        print(e);}*/
