@@ -12,6 +12,13 @@ class chatscreen extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.arrow_forward))
+          ],
           leading: Padding(
             padding: const EdgeInsets.all(8.0),
             child: ClipRRect(

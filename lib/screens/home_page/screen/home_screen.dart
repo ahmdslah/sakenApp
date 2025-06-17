@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:saken_mobile/const/const%20widgets/User_Card.dart';
+import 'package:saken_mobile/screens/chatscreen/chatscreen.dart';
 import 'package:saken_mobile/screens/home_page/tabs/favscreen.dart';
 import 'package:saken_mobile/screens/home_page/tabs/hometab.dart';
 import 'package:saken_mobile/screens/home_page/tabs/messagescreen.dart';
