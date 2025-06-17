@@ -3,19 +3,9 @@ import 'package:flutter/material.dart';
 
 class ApartmentsScreen extends StatelessWidget {
   final List<Apartment> apartments = [
-    Apartment(
-        name: "شقة فاخرة",
-        city: "القاهرة",
-        price: 5000,
-        imageUrl: "assets/apartment1.jpg"),
-    Apartment(
-        name: "شقة متوسطة",
-        city: "الإسكندرية",
-        price: 3000,
-        imageUrl: "assets/apartment2.jpg"),
+    Apartment(name: "شقة فاخرة", city: "القاهرة", price: 5000, imageUrl: "assets/images/2021_8_7_21_14_40_320.jpg"),
+    Apartment(name: "شقة متوسطة", city: "الإسكندرية", price: 3000, imageUrl: "assets/images/2021_8_7_21_14_40_320.jpg"),
   ];
-
-  ApartmentsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +13,10 @@ class ApartmentsScreen extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("المساكن"),
+          title: Text("المساكن"),
           actions: [
             IconButton(
-              icon: const Icon(Icons.add),
+              icon: Icon(Icons.add),
               onPressed: () {
                 // Navigate to add apartment screen
               },
@@ -38,26 +28,20 @@ class ApartmentsScreen extends StatelessWidget {
           itemBuilder: (context, index) {
             final apartment = apartments[index];
             return Card(
-              margin: const EdgeInsets.all(8),
+              margin: EdgeInsets.all(8),
               child: ListTile(
-                leading: Image.asset(apartment.imageUrl,
-                    width: 60, fit: BoxFit.cover),
+                leading: Image.asset(apartment.imageUrl, width: 60, fit: BoxFit.cover),
                 title: Text(apartment.name),
-                subtitle:
-                    Text("${apartment.city} - ${apartment.price} ج.م / شهر"),
+                subtitle: Text("${apartment.city} - ${apartment.price} ج.م / شهر"),
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    IconButton(
-                        icon: const Icon(Icons.edit),
-                        onPressed: () {
-                          // Navigate to edit screen
-                        }),
-                    IconButton(
-                        icon: const Icon(Icons.delete),
-                        onPressed: () {
-                          // Delete confirmation
-                        }),
+                    IconButton(icon: Icon(Icons.edit), onPressed: () {
+                      // Navigate to edit screen
+                    }),
+                    IconButton(icon: Icon(Icons.delete), onPressed: () {
+                      // Delete confirmation
+                    }),
                   ],
                 ),
               ),
