@@ -30,7 +30,7 @@ class RecommendationsScreen extends StatelessWidget {
                       onPressed: () {
                         // Show tenant profile
                       },
-                      child: Text("عرض الملف"),
+                      child:  Text("عرض الملف"),
                     ),
                   ],
                 ),

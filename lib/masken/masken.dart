@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class ApartmentsScreen extends StatelessWidget {
   final List<Apartment> apartments = [
-    Apartment(name: "شقة فاخرة", city: "القاهرة", price: 5000, imageUrl: "assets/apartment1.jpg"),
-    Apartment(name: "شقة متوسطة", city: "الإسكندرية", price: 3000, imageUrl: "assets/apartment2.jpg"),
+    Apartment(name: "شقة فاخرة", city: "القاهرة", price: 5000, imageUrl: "assets/images/2021_8_7_21_14_40_320.jpg"),
+    Apartment(name: "شقة متوسطة", city: "الإسكندرية", price: 3000, imageUrl: "assets/images/2021_8_7_21_14_40_320.jpg"),
   ];
 
   @override
