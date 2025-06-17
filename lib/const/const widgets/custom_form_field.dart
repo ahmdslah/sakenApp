@@ -9,6 +9,9 @@ class CustomFormField extends StatelessWidget {
   final String hintText;
   final bool isPassword;
   final bool isName;
+  final bool isphone;
+  final bool search;
+
   final TextEditingController? controller;
   final String? Function(String?)? validator;
 
@@ -21,6 +24,9 @@ class CustomFormField extends StatelessWidget {
     required this.validator,
     this.isPassword = false,
     this.isName = false,
+    this.isphone=false,
+    this.search=false,
+
   });
 
   final double height;
@@ -48,13 +54,14 @@ class CustomFormField extends StatelessWidget {
               contentPadding: const EdgeInsets.symmetric(horizontal: 20),
               hintText: hintText,
               hintTextDirection: TextDirection.rtl,
-              hintStyle: const TextStyle(fontSize: 22),
+              hintStyle: const TextStyle(fontSize: 15),
               prefixIcon: Icon(
                 isPassword
-                    ? Icons.lock_outline
+                    ? Icons.lock
                     : isName
-                        ? Icons.person_outline
-                        : Icons.email_outlined,
+                    ? Icons.person_outline:
+                isphone?Icons.edit:search?null:
+                Icons.email_outlined,
                 color: font1,
               ),
               suffixIcon: InkWell(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ContractScreen extends StatelessWidget {
-  const ContractScreen({Key? key}) : super(key: key);
+  const ContractScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,9 +47,9 @@ class ContractScreen extends StatelessWidget {
               const SizedBox(height: 32),
               const Text(
                 'الشروط والأحكام:\n'
-                    '1. يلتزم المستأجر بالحفاظ على العقار.\n'
-                    '2. يتم دفع الإيجار في بداية كل شهر.\n'
-                    '3. لا يحق للمستأجر تأجير العقار للغير بدون إذن المالك.',
+                '1. يلتزم المستأجر بالحفاظ على العقار.\n'
+                '2. يتم دفع الإيجار في بداية كل شهر.\n'
+                '3. لا يحق للمستأجر تأجير العقار للغير بدون إذن المالك.',
                 style: TextStyle(fontSize: 16),
               ),
             ],

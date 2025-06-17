@@ -1,0 +1,1 @@
+C:\Users\user\flutter\saken_mobile\build\app\intermediates\cxx\Debug\2t1kx2o2\obj\arm64-v8a

@@ -1,0 +1,63 @@
+# Build output
+out/
+build/
+
+# Generated files
+*.g.dart
+*.freezed.dart
+*.gr.dart
+*.gen.dart
+*.part
+*.inject.dart
+*.gql.dart
+*.graphql.dart
+
+# Dependency directories
+.dart_tool/
+.packages
+pubspec.lock  # Optional: ignore for dynamic dependency resolution
+
+
+
+# Miscellaneous
+.flutter-plugins
+.flutter-plugins-dependencies
+.idea/  # If not using Android Studio/IntelliJ
+*.iml   # IntelliJ project files
+# Generated files
+.dart_tool/
+flutter_build/
+*.dill
+*.stamp
+*.d
+native_assets.yaml
+package_config.json
+package_config_subset
+version
+outputs.json
+build/
+.gradle/
+*.apk
+*.ap_
+*.aar
+local.properties
+app/
+intermediates/
+compressed_assets/
+dex/
+flutter/
+merged_*/
+packaged_*/
+project_dex_archive/
+*.jar
+*.flat
+output-metadata.json
+manifest-merge*.txt
+*.bin
+*_output.json
+.idea/
+*.iml
+ios/Runner/GeneratedPluginRegistrant.m
+macos/Flutter/GeneratedPluginRegistrant.swift
+linux/flutter/generated_*
+windows/flutter/generated_*
