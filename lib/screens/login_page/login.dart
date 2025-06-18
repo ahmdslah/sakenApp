@@ -24,22 +24,33 @@ class Login extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginState>(listener: (context, state) {
       if (state is LoginLoading) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
-          // نتاكد ان مفيش دايلوج مفتوح قبل
           if (ModalRoute.of(context)?.isCurrent ?? false) {
             showBlurLoading(context);
           }
         });
       } else if (state is LoginFaild) {
         WidgetsBinding.instance.addPostFrameCallback((_) async {
-          await Future.delayed(Duration(milliseconds: 100)); // تأخير بسيط
-          Navigator.of(context, rootNavigator: true).pop(); // قفل اللودينج
+          if (Navigator.of(context, rootNavigator: true).canPop()) {
+            Navigator.of(context, rootNavigator: true).pop(); // قفل اللودينج
+          }
+          await Future.delayed(Duration(milliseconds: 100));
           Get.snackbar("Login Failed", state.errMessage);
         });
-      } else if (state is LoginSuccess) {
+      } else if (state is LoginUserSuccess) {
         WidgetsBinding.instance.addPostFrameCallback((_) async {
-          await Future.delayed(Duration(milliseconds: 100)); // تأخير بسيط
-          Navigator.of(context, rootNavigator: true).pop(); // قفل اللودينج
-          Navigator.pushReplacementNamed(context, Routes.homeScreen);
+          if (Navigator.of(context, rootNavigator: true).canPop()) {
+            Navigator.of(context, rootNavigator: true).pop();
+          }
+          await Future.delayed(Duration(milliseconds: 100));
+          WidgetsBinding.instance.addPostFrameCallback((_) {});
+        });
+      } else if (state is LoginAdminSuccess) {
+        WidgetsBinding.instance.addPostFrameCallback((_) async {
+          if (Navigator.of(context, rootNavigator: true).canPop()) {
+            Navigator.of(context, rootNavigator: true).pop();
+          }
+          await Future.delayed(Duration(milliseconds: 100));
+          WidgetsBinding.instance.addPostFrameCallback((_) {});
         });
       }
     }, builder: (context, state) {

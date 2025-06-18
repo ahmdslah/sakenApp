@@ -103,6 +103,6 @@ Future<String> getUsername() async {
   final userDoc =
       await FirebaseFirestore.instance.collection('users').doc(uid).get();
 
-  String name = userDoc.data()?['userName'];
-  return name;
+  String? name = userDoc.data()?['userName'];
+  return name!;
 }
