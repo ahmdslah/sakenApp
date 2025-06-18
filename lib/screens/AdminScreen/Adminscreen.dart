@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:saken_mobile/const/const%20widgets/Custom_btn.dart';
 import 'package:saken_mobile/const/const%20widgets/custom_form_field.dart';
+import 'package:saken_mobile/property%20ui/proprety%20ui.dart';
 import 'package:saken_mobile/screens/home_page/TabBarWidgets/renterwidget.dart';
 import 'package:saken_mobile/screens/home_page/TabBarWidgets/sakanwidget.dart';
 import 'package:saken_mobile/screens/home_page/TabBarWidgets/tenentwidget.dart';
@@ -96,7 +98,7 @@ class _AdminScreenState extends State<AdminScreen> {
                         ])),
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {Get.to(AddPropertyScreen());},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: font1,
                   foregroundColor: font1,
