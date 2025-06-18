@@ -5,6 +5,7 @@ import 'package:saken_mobile/saken_cubit/form_cubit/custom_form_cubit.dart';
 import 'package:saken_mobile/saken_cubit/splash_cubit/splash_cubit.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:saken_mobile/screens/AdminScreen/Adminscreen.dart';
 import 'package:saken_mobile/screens/home_page/screen/home_screen.dart';
 import 'package:saken_mobile/screens/login_page/cubit/login_cubit.dart';
 import 'package:saken_mobile/screens/login_page/login.dart';
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
           Routes.homeScreen: (context) => HomeScreen(),
           Routes.editInfo: (context) => EditInfo(),
           Routes.settings: (context) => Settings(),
+          Routes.admin: (context) => AdminScreen(),
         },
         builder: (context, child) {
           return Directionality(
