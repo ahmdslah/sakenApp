@@ -22,10 +22,15 @@ class LoginCubit extends Cubit<LoginState> {
   }) async {
     emit(LoginLoading());
     try {
-      emit(LoginLoading());
-      final credential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
-      emit(LoginSuccess());
+      if (email == 'admin@saken.com' && password == 'admin1234') {
+        final credential = await FirebaseAuth.instance
+            .signInWithEmailAndPassword(email: email, password: password);
+        emit(LoginAdminSuccess());
+      } else {
+        final credential = await FirebaseAuth.instance
+            .signInWithEmailAndPassword(email: email, password: password);
+        emit(LoginUserSuccess());
+      }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         emit(LoginFaild(errMessage: 'No user found for that email.'));

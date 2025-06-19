@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saken_mobile/const/const%20widgets/Custom_btn.dart';
 import 'package:saken_mobile/const/const%20widgets/custom_form_field.dart';
 import 'package:saken_mobile/property%20ui/proprety%20ui.dart';
+import 'package:saken_mobile/screens/AdminScreen/settingswidget/settingswidget.dart';
 import 'package:saken_mobile/screens/home_page/TabBarWidgets/renterwidget.dart';
 import 'package:saken_mobile/screens/home_page/TabBarWidgets/sakanwidget.dart';
 import 'package:saken_mobile/screens/home_page/TabBarWidgets/tenentwidget.dart';
+import 'package:saken_mobile/screens/login_page/cubit/login_cubit.dart';
 
 import '../../const/const.dart';
 
@@ -28,6 +32,19 @@ class _AdminScreenState extends State<AdminScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {
+              BlocProvider.of<LoginCubit>(context).signOut();
+            },
+            icon: Icon(Icons.logout)),
+        title: Center(
+            child: Text(
+          "لوحة تحكم الادمن",
+          style: TextStyle(color: font1, fontFamily: "Cairo"),
+        )),
+        actions: [IconButton(onPressed: (){Get.to(AdminSettings());}, icon:Icon(Icons.settings,color: font1,))],
+      ),
       body: DefaultTabController(
         length: 2,
         child: Padding(

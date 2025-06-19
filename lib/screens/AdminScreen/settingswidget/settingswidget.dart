@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:saken_mobile/const/const%20widgets/Custom_btn.dart';
 import 'package:saken_mobile/const/const.dart';
+import 'package:saken_mobile/masken/masken.dart';
 import 'package:saken_mobile/screens/AdminScreen/Adminscreen.dart';
 
 class AdminSettings extends StatelessWidget {
@@ -27,7 +28,7 @@ class AdminSettings extends StatelessWidget {
             height: 50,
           ),
           CustomBtn("Admin Options", isadmin: true, function: () {
-            Get.to(AdminScreen());
+            Get.to( ApartmentsScreen());
           }),
           const SizedBox(
             height: 50,
