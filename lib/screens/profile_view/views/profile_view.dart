@@ -1,10 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:saken_mobile/const/Routes.dart';
 import 'package:saken_mobile/const/const.dart';
 import 'package:saken_mobile/screens/profile_view/cubit/image_picker_cubit.dart';
@@ -138,7 +136,7 @@ class _ProfileViewState extends State<ProfileView> {
                                       Navigator.pushNamed(
                                           context, Routes.editInfo);
                                     },
-                                    child: Text(
+                                    child: const Text(
                                       "تعديل المعلومات",
                                       style: TextStyle(
                                           fontSize: 25,
@@ -149,7 +147,7 @@ class _ProfileViewState extends State<ProfileView> {
                                       Navigator.pushNamed(
                                           context, Routes.settings);
                                     },
-                                    child: Text(
+                                    child: const Text(
                                       "الاعدادات",
                                       style: TextStyle(
                                           fontSize: 25,

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:saken_mobile/const/const%20widgets/DialogUtils.dart';
 import 'package:saken_mobile/const/const%20widgets/loading.dart';
-import 'package:saken_mobile/const/routes.dart';
 import 'package:saken_mobile/screens/login_page/login.dart';
 import 'package:saken_mobile/screens/signup_page/cubit/sign_up_cubit.dart';
 
@@ -18,6 +16,8 @@ class SignUp extends StatelessWidget {
   final TextEditingController _passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
+  SignUp({super.key});
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -32,13 +32,13 @@ class SignUp extends StatelessWidget {
         });
       } else if (state is SignUpFaild) {
         WidgetsBinding.instance.addPostFrameCallback((_) async {
-          await Future.delayed(Duration(milliseconds: 100)); // تأخير بسيط
+          await Future.delayed(const Duration(milliseconds: 100)); // تأخير بسيط
           Navigator.of(context, rootNavigator: true).pop(); // قفل اللودينج
           Get.snackbar("Login Failed", state.errorrMessage);
         });
       } else if (state is SignUpSuccess) {
         WidgetsBinding.instance.addPostFrameCallback((_) async {
-          await Future.delayed(Duration(milliseconds: 100)); // تأخير بسيط
+          await Future.delayed(const Duration(milliseconds: 100)); // تأخير بسيط
           Navigator.of(context, rootNavigator: true).pop(); // قفل اللودينج
         });
       }

@@ -7,7 +7,7 @@ void showBlurLoading(BuildContext context) {
     barrierDismissible: false,
     barrierLabel: "Loading",
     barrierColor: Colors.transparent, // لون خفيف للشفافية
-    transitionDuration: Duration(milliseconds: 200),
+    transitionDuration: const Duration(milliseconds: 200),
     pageBuilder: (_, __, ___) {
       return BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5), // هنا الضباب
@@ -15,8 +15,8 @@ void showBlurLoading(BuildContext context) {
           child: Container(
             width: 80,
             height: 80,
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
+            padding: const EdgeInsets.all(10),
+            decoration: const BoxDecoration(
               color: Colors.white,
               shape: BoxShape.circle,
               boxShadow: [
@@ -26,7 +26,7 @@ void showBlurLoading(BuildContext context) {
                 ),
               ],
             ),
-            child: CircularProgressIndicator(
+            child: const CircularProgressIndicator(
               strokeWidth: 6,
               valueColor: AlwaysStoppedAnimation<Color>(Colors.deepPurple),
             ),

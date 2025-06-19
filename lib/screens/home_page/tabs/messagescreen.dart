@@ -41,44 +41,44 @@ class MessagesTab extends StatelessWidget {
                 ],
               ),
             ),
-            SingleChildScrollView(
+            const SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
                     messagecard(),
-                    const SizedBox(
+                    SizedBox(
                       width: 10,
                     ),
                     messagecard(),
-                    const SizedBox(
+                    SizedBox(
                       width: 10,
                     ),
                     messagecard(),
-                    const SizedBox(
+                    SizedBox(
                       width: 10,
                     ),
                     messagecard(),
-                    const SizedBox(
+                    SizedBox(
                       width: 10,
                     ),
                     messagecard(),
-                    const SizedBox(
+                    SizedBox(
                       width: 10,
                     ),
                     messagecard(),
-                    const SizedBox(
+                    SizedBox(
                       width: 10,
                     ),
                     messagecard(),
-                    const SizedBox(
+                    SizedBox(
                       width: 10,
                     ),
                     messagecard(),
-                    const SizedBox(
+                    SizedBox(
                       width: 10,
                     ),
                     messagecard(),
-                    const SizedBox(
+                    SizedBox(
                       width: 10,
                     ),
                   ],
@@ -86,35 +86,35 @@ class MessagesTab extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            MessageRow(),
+            const MessageRow(),
             const SizedBox(
               height: 30,
             ),
-            MessageRow(),
+            const MessageRow(),
             const SizedBox(
               height: 30,
             ),
-            MessageRow(),
+            const MessageRow(),
             const SizedBox(
               height: 30,
             ),
-            MessageRow(),
+            const MessageRow(),
             const SizedBox(
               height: 30,
             ),
-            MessageRow(),
+            const MessageRow(),
             const SizedBox(
               height: 30,
             ),
-            MessageRow(),
+            const MessageRow(),
             const SizedBox(
               height: 30,
             ),
-            MessageRow(),
+            const MessageRow(),
             const SizedBox(
               height: 30,
             ),
-            MessageRow(),
+            const MessageRow(),
           ],
         ),
       ),

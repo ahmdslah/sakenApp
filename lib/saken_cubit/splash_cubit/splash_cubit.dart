@@ -19,9 +19,9 @@ class SplashCubit extends Cubit<SplashState> {
 
           print(user.email);
           print("------------------------------");
-          Get.offAll(AdminScreen());
+          Get.offAll(const AdminScreen());
         } else {
-          Get.offAll(HomeScreen());
+          Get.offAll(const HomeScreen());
         }
       });
     });

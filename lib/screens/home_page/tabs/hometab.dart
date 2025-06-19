@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:saken_mobile/const/const%20widgets/apartmint_card.dart';
 import 'package:saken_mobile/const/const%20widgets/category.dart';
 
 class HomeTab extends StatelessWidget {
@@ -20,22 +18,23 @@ class HomeTab extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "تطبيق ساكن يرحب بك, ${name}",
-          style: TextStyle(color: Color(0xff378B48), fontFamily: "Cairo"),
+          "تطبيق ساكن يرحب بك, $name",
+          style: const TextStyle(color: Color(0xff378B48), fontFamily: "Cairo"),
         ),
       ),
       body: Column(children: [
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
         ListTile(
-          title: Text("الموقع"),
-          subtitle: Text("محافظة، حي او اسم الشارع"),
+          title: const Text("الموقع"),
+          subtitle: const Text("محافظة، حي او اسم الشارع"),
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
-              IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
+              IconButton(
+                  onPressed: () {}, icon: const Icon(Icons.notifications)),
+              IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
             ],
           ),
         ),
@@ -43,7 +42,7 @@ class HomeTab extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: Row(
             children: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.filter_alt)),
+              IconButton(onPressed: () {}, icon: const Icon(Icons.filter_alt)),
               Expanded(
                 child: TextField(
                   controller: search,
@@ -52,7 +51,7 @@ class HomeTab extends StatelessWidget {
                   },
                   decoration: InputDecoration(
                     hintText: 'ابحث عن سكن ، شقة مناسبة...',
-                    prefixIcon: Icon(Icons.search),
+                    prefixIcon: const Icon(Icons.search),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),

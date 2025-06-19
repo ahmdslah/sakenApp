@@ -7,6 +7,7 @@ class EditRequestScreen extends StatelessWidget {
   final String notes;
 
   EditRequestScreen({
+    super.key,
     required this.selectedProperty,
     required this.startDate,
     required this.notes,
@@ -21,30 +22,30 @@ class EditRequestScreen extends StatelessWidget {
     final notesController = TextEditingController(text: notes);
 
     return Scaffold(
-      appBar: AppBar(title: Text('تعديل الطلب')),
+      appBar: AppBar(title: const Text('تعديل الطلب')),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
           child: Column(
             children: [
               TextFormField(
                 controller: propertyController,
-                decoration: InputDecoration(labelText: 'العقار'),
+                decoration: const InputDecoration(labelText: 'العقار'),
                 readOnly: true,
               ),
               TextFormField(
                 controller: dateController,
-                decoration: InputDecoration(labelText: 'تاريخ البدء'),
+                decoration: const InputDecoration(labelText: 'تاريخ البدء'),
               ),
               TextFormField(
                 controller: notesController,
-                decoration: InputDecoration(labelText: 'ملاحظات'),
+                decoration: const InputDecoration(labelText: 'ملاحظات'),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {},
-                child: Text('تحديث'),
+                child: const Text('تحديث'),
               ),
             ],
           ),

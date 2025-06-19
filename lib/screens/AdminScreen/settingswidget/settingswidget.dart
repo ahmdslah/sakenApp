@@ -22,19 +22,19 @@ class AdminSettings extends StatelessWidget {
       body: Column(
         children: [
           CustomBtn("Check In/Out Guests", isinout: true, function: () {
-            Get.to(AdminScreen());
+            Get.to(const AdminScreen());
           }),
           const SizedBox(
             height: 50,
           ),
           CustomBtn("All Requests", isadmin: true, function: () {
-            Get.to( ApartmentsScreen());
+            Get.to(ApartmentsScreen());
           }),
           const SizedBox(
             height: 50,
           ),
           CustomBtn("Settings", issetting: true, function: () {
-            Get.to(AdminScreen());
+            Get.to(const AdminScreen());
           })
         ],
       ),

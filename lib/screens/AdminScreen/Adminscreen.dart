@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:saken_mobile/const/const%20widgets/Custom_btn.dart';
-import 'package:saken_mobile/const/const%20widgets/custom_form_field.dart';
 import 'package:saken_mobile/property%20ui/proprety%20ui.dart';
 import 'package:saken_mobile/screens/AdminScreen/settingswidget/settingswidget.dart';
 import 'package:saken_mobile/screens/home_page/TabBarWidgets/renterwidget.dart';
 import 'package:saken_mobile/screens/home_page/TabBarWidgets/sakanwidget.dart';
-import 'package:saken_mobile/screens/home_page/TabBarWidgets/tenentwidget.dart';
 import 'package:saken_mobile/screens/login_page/cubit/login_cubit.dart';
 
 import '../../const/const.dart';
@@ -37,13 +33,22 @@ class _AdminScreenState extends State<AdminScreen> {
             onPressed: () {
               BlocProvider.of<LoginCubit>(context).signOut();
             },
-            icon: Icon(Icons.logout)),
-        title: Center(
+            icon: const Icon(Icons.logout)),
+        title: const Center(
             child: Text(
           "لوحة تحكم الادمن",
           style: TextStyle(color: font1, fontFamily: "Cairo"),
         )),
-        actions: [IconButton(onPressed: (){Get.to(AdminSettings());}, icon:Icon(Icons.settings,color: font1,))],
+        actions: [
+          IconButton(
+              onPressed: () {
+                Get.to(const AdminSettings());
+              },
+              icon: const Icon(
+                Icons.settings,
+                color: font1,
+              ))
+        ],
       ),
       body: DefaultTabController(
         length: 2,
@@ -115,7 +120,9 @@ class _AdminScreenState extends State<AdminScreen> {
                         ])),
               ),
               ElevatedButton(
-                onPressed: () {Get.to(AddPropertyScreen());},
+                onPressed: () {
+                  Get.to(const AddPropertyScreen());
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: font1,
                   foregroundColor: font1,
@@ -129,7 +136,7 @@ class _AdminScreenState extends State<AdminScreen> {
                       : selected == 1
                           ? "اضافة مستخدم"
                           : "اضافة بند ",
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 16,
                       fontWeight: FontWeight.w700),

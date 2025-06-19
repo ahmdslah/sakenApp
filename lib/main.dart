@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saken_mobile/const/routes.dart';
+import 'package:saken_mobile/masken/masaken_details.dart';
 import 'package:saken_mobile/saken_cubit/form_cubit/custom_form_cubit.dart';
 import 'package:saken_mobile/saken_cubit/splash_cubit/splash_cubit.dart';
 import 'package:get/get.dart';
@@ -49,13 +50,14 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: const SplashScreen(),
         routes: {
-          Routes.splash: (context) => SplashScreen(),
+          Routes.splash: (context) => const SplashScreen(),
           Routes.login: (context) => Login(),
           Routes.signup: (context) => SignUp(),
-          Routes.homeScreen: (context) => HomeScreen(),
-          Routes.editInfo: (context) => EditInfo(),
-          Routes.settings: (context) => Settings(),
-          Routes.admin: (context) => AdminScreen(),
+          Routes.homeScreen: (context) => const HomeScreen(),
+          Routes.editInfo: (context) => const EditInfo(),
+          Routes.settings: (context) => const Settings(),
+          Routes.admin: (context) => const AdminScreen(),
+          Routes.sakanDetails: (context) => MasakenDetails(),
         },
         builder: (context, child) {
           return Directionality(

@@ -37,7 +37,7 @@ class UserCard extends StatelessWidget {
                   width: 50,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Container(
@@ -52,7 +52,7 @@ class UserCard extends StatelessWidget {
                     children: [
                       Text(
                         usermodel.renters[index].username,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 10,
                             fontWeight: FontWeight.w500,
                             color: Colors.black),
@@ -61,7 +61,7 @@ class UserCard extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Container(
@@ -76,12 +76,12 @@ class UserCard extends StatelessWidget {
                     children: [
                       Text(
                         "${usermodel.renters[index].userrole}-${usermodel.renters[index].rate}",
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 8.7,
                             fontWeight: FontWeight.w500,
                             color: Colors.black),
                       ),
-                      Icon(
+                      const Icon(
                         Icons.star_border,
                         weight: 1,
                       )
