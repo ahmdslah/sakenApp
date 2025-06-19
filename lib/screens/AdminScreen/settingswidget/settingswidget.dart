@@ -27,7 +27,7 @@ class AdminSettings extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
-          CustomBtn("Admin Options", isadmin: true, function: () {
+          CustomBtn("All Requests", isadmin: true, function: () {
             Get.to( ApartmentsScreen());
           }),
           const SizedBox(
