@@ -17,7 +17,7 @@ class chatscreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(Icons.arrow_forward))
+                icon: const Icon(Icons.arrow_forward))
           ],
           leading: Padding(
             padding: const EdgeInsets.all(8.0),

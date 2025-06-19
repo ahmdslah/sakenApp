@@ -17,21 +17,24 @@ class MyRequestsScreen extends StatelessWidget {
     },
   ];
 
+  MyRequestsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('طلباتي')),
+      appBar: AppBar(title: const Text('طلباتي')),
       body: ListView.builder(
         itemCount: requests.length,
         itemBuilder: (context, index) {
           final request = requests[index];
           return Card(
-            margin: EdgeInsets.all(8.0),
+            margin: const EdgeInsets.all(8.0),
             child: ListTile(
               title: Text(request['property'] ?? ''),
-              subtitle: Text('التاريخ: ${request['date']}\nالحالة: ${request['status']}'),
+              subtitle: Text(
+                  'التاريخ: ${request['date']}\nالحالة: ${request['status']}'),
               trailing: IconButton(
-                icon: Icon(Icons.edit),
+                icon: const Icon(Icons.edit),
                 onPressed: () {
                   Navigator.push(
                     context,

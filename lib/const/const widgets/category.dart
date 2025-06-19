@@ -19,12 +19,12 @@ class Category extends StatelessWidget {
                 icon,
                 size: 40,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Text(
                 catName!,
-                style: TextStyle(fontSize: 24),
+                style: const TextStyle(fontSize: 24),
               )
             ],
           ),

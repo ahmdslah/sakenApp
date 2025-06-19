@@ -204,14 +204,14 @@ class _EditInfoState extends State<EditInfo> {
                 "جهات الاتصال",
                 iscontact: true,
                 function: () {
-                  Get.to(AdminScreen());
+                  Get.to(const AdminScreen());
                 },
               ),
               const SizedBox(
                 height: 5,
               ),
               CustomBtn("الموقع", function: () {
-                Get.to(AdminScreen());
+                Get.to(const AdminScreen());
               }),
               const SizedBox(
                 height: 20,
@@ -228,7 +228,7 @@ class _EditInfoState extends State<EditInfo> {
                             borderRadius: BorderRadius.circular(50),
                             side: const BorderSide(color: font1)),
                       ),
-                      child: Text("حفظ الاعدادات")))
+                      child: const Text("حفظ الاعدادات")))
             ],
           ),
         ),

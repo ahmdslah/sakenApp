@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:saken_mobile/const/const%20widgets/User_Card.dart';
-import 'package:saken_mobile/screens/chatscreen/chatscreen.dart';
+import 'package:saken_mobile/masken/masaken_details.dart';
 import 'package:saken_mobile/screens/home_page/tabs/favscreen.dart';
 import 'package:saken_mobile/screens/home_page/tabs/hometab.dart';
 import 'package:saken_mobile/screens/home_page/tabs/messagescreen.dart';
-import 'package:saken_mobile/screens/home_page/tabs/profilescreen.dart';
 import 'package:saken_mobile/screens/home_page/tabs/recomendationscreen.dart';
-import 'package:saken_mobile/screens/profile_screen/edit_info/edit_info.dart';
-import 'package:saken_mobile/screens/profile_screen/settings/settings.dart';
 import 'package:saken_mobile/screens/profile_view/views/profile_view.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -22,10 +18,10 @@ class _HomeScreenState extends State<HomeScreen> {
   int selectedindex = 0;
   List<Widget> tabs = [
     HomeTab(),
-    RecommendationTab(),
-    FavTab(),
+    const RecommendationTab(),
+    const FavTab(),
     MessagesTab(),
-    ProfileView(),
+    const ProfileView(),
   ];
   @override
   void initState() {

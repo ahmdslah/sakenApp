@@ -6,6 +6,6 @@ class Routes {
   static const String editInfo = 'editInfo';
   static const String settings = 'settings';
   static const String admin = 'admin';
-  // static const String login = 'login';
+  static const String sakanDetails = 'sakanDetails';
   // static const String login = 'login';
 }
