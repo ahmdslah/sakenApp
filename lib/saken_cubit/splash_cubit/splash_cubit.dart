@@ -5,6 +5,8 @@ import 'package:saken_mobile/saken_cubit/splash_cubit/splash_state.dart';
 import 'package:saken_mobile/screens/AdminScreen/Adminscreen.dart';
 import 'package:saken_mobile/screens/home_page/screen/home_screen.dart';
 import 'package:saken_mobile/screens/login_page/login.dart';
+import 'package:saken_mobile/screens/welcome_screens/policy.dart';
+import 'package:saken_mobile/screens/welcome_screens/welcome1.dart';
 
 class SplashCubit extends Cubit<SplashState> {
   SplashCubit() : super(SplashInitial());
@@ -13,7 +15,7 @@ class SplashCubit extends Cubit<SplashState> {
     Future.delayed(const Duration(seconds: 2), () {
       FirebaseAuth.instance.authStateChanges().listen((User? user) {
         if (user == null) {
-          Get.offAll(Login());
+          Get.offAll(Policy());
         } else if (user.email == "admin@saken.com") {
           print("------------------------------");
 

@@ -14,6 +14,9 @@ import 'package:saken_mobile/screens/profile_screen/edit_info/edit_info.dart';
 import 'package:saken_mobile/screens/profile_screen/settings/settings.dart';
 import 'package:saken_mobile/screens/signup_page/cubit/sign_up_cubit.dart';
 import 'package:saken_mobile/screens/signup_page/sign_up.dart';
+import 'package:saken_mobile/screens/welcome_screens/welcome1.dart';
+import 'package:saken_mobile/screens/welcome_screens/welcome2.dart';
+import 'package:saken_mobile/screens/welcome_screens/welcome3.dart';
 import 'firebase_options.dart';
 import 'screens/splash_screen/splash_screen.dart';
 
@@ -46,6 +49,10 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: GetMaterialApp(
+        theme: ThemeData(
+            fontFamily: "Cairo",
+            scaffoldBackgroundColor: Colors.white,
+            appBarTheme: AppBarTheme(color: Colors.white)),
         locale: const Locale('ar'),
         debugShowCheckedModeBanner: false,
         home: const SplashScreen(),
@@ -58,6 +65,9 @@ class MyApp extends StatelessWidget {
           Routes.settings: (context) => const Settings(),
           Routes.admin: (context) => const AdminScreen(),
           Routes.sakanDetails: (context) => MasakenDetails(),
+          Routes.welcome1: (context) => Welcome1(),
+          Routes.welcome2: (context) => Welcome2(),
+          Routes.welcome3: (context) => Welcome3(),
         },
         builder: (context, child) {
           return Directionality(
