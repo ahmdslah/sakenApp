@@ -127,7 +127,9 @@ class Login extends StatelessWidget {
                               fontSize: 17,
                               fontWeight: FontWeight.w600,
                             )),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(context, Routes.reset);
+                        },
                       ),
                     ),
                     SizedBox(
