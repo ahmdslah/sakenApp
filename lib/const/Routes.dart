@@ -7,5 +7,7 @@ class Routes {
   static const String settings = 'settings';
   static const String admin = 'admin';
   static const String sakanDetails = 'sakanDetails';
+  static const String identityConfirmation = 'identityConfirmation';
+
   // static const String login = 'login';
 }

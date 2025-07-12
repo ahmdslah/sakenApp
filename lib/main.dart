@@ -7,6 +7,10 @@ import 'package:saken_mobile/saken_cubit/splash_cubit/splash_cubit.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:saken_mobile/screens/AdminScreen/Adminscreen.dart';
+import 'package:saken_mobile/screens/Identity%20confirmation%20Screen/views/identity_confirmation_screen.dart';
+import 'package:saken_mobile/screens/New%20pass%20Screen/views/new_pass_screen.dart';
+import 'package:saken_mobile/screens/Reset%20pass/views/reset_pass.dart';
+import 'package:saken_mobile/screens/Success%20Screen/views/success_screen.dart';
 import 'package:saken_mobile/screens/home_page/screen/home_screen.dart';
 import 'package:saken_mobile/screens/login_page/cubit/login_cubit.dart';
 import 'package:saken_mobile/screens/login_page/login.dart';
@@ -48,7 +52,7 @@ class MyApp extends StatelessWidget {
       child: GetMaterialApp(
         locale: const Locale('ar'),
         debugShowCheckedModeBanner: false,
-        home: const SplashScreen(),
+        home: const ResetPass(),
         routes: {
           Routes.splash: (context) => const SplashScreen(),
           Routes.login: (context) => Login(),
@@ -58,6 +62,9 @@ class MyApp extends StatelessWidget {
           Routes.settings: (context) => const Settings(),
           Routes.admin: (context) => const AdminScreen(),
           Routes.sakanDetails: (context) => MasakenDetails(),
+          IdentityConfirmationScreen.id : (context)=>const IdentityConfirmationScreen(),
+          NewPassScreen.id:(context)=> const NewPassScreen(),
+          SuccessScreen.id:(context)=> const SuccessScreen(),
         },
         builder: (context, child) {
           return Directionality(
