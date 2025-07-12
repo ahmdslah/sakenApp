@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saken_mobile/const/const%20widgets/loading.dart';
+import 'package:saken_mobile/const/routes.dart';
 import 'package:saken_mobile/screens/login_page/cubit/login_cubit.dart';
 
 import '../../const/const widgets/custom_form_field.dart';
@@ -52,6 +53,16 @@ class Login extends StatelessWidget {
       }
     }, builder: (context, state) {
       return Scaffold(
+        appBar: AppBar(
+          actions: [
+            TextButton(
+              child: Text("تخطي"),
+              onPressed: () {
+                Navigator.popAndPushNamed(context, Routes.homeScreen);
+              },
+            ),
+          ],
+        ),
         backgroundColor: Colors.white,
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .05),
@@ -62,45 +73,16 @@ class Login extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      "${path}logo.png",
-                    ),
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          "ساكن ",
-                          style: TextStyle(
-                            fontSize: 26,
-                            color: font2,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        Text(
-                          "اهلا بك في تطبيق",
-                          style: TextStyle(
-                            fontSize: 26,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: height * .025,
-                    ),
-                    const Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        "تسجيل الدخول",
-                        style: TextStyle(
-                          fontSize: 26,
-                          fontWeight: FontWeight.bold,
-                          color: font1,
-                        ),
+                    Text(
+                      "تسجيل الدخول",
+                      style: TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                        color: font1,
                       ),
                     ),
                     SizedBox(
-                      height: height * .017,
+                      height: height * .1,
                     ),
                     CustomFormField(
                       height: height,
@@ -137,14 +119,15 @@ class Login extends StatelessWidget {
                         return null;
                       },
                     ),
-                    const Align(
+                    Align(
                       alignment: Alignment.centerLeft,
-                      child: Text(
-                        "نسيت كلمة المرور ؟",
-                        style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w600,
-                        ),
+                      child: TextButton(
+                        child: Text("نسيت كلمة المرور ؟",
+                            style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w600,
+                            )),
+                        onPressed: () {},
                       ),
                     ),
                     SizedBox(
@@ -152,7 +135,7 @@ class Login extends StatelessWidget {
                     ),
                     InkWell(
                       child: Container(
-                        height: height * .073,
+                        height: height * .063,
                         width: width * .9,
                         decoration: BoxDecoration(
                           color: font1,
@@ -163,7 +146,7 @@ class Login extends StatelessWidget {
                             "تسجيل الدخول",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 24,
+                              fontSize: 20,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -182,7 +165,7 @@ class Login extends StatelessWidget {
                     const Text(
                       "او التسجيل عبر ",
                       style: TextStyle(
-                        fontSize: 22,
+                        fontSize: 18,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -190,15 +173,25 @@ class Login extends StatelessWidget {
                       height: height * .02,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const CircleAvatar(
-                          radius: 25,
-                          backgroundColor: Colors.transparent,
-                          backgroundImage: AssetImage("${path}facebook.png"),
+                        GestureDetector(
+                          onTap: () {
+                            print("s");
+                          },
+                          child: const CircleAvatar(
+                            radius: 25,
+                            backgroundColor: Colors.transparent,
+                            backgroundImage: AssetImage("${path}facebook.png"),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 20,
                         ),
                         GestureDetector(
-                          onTap: () async {},
+                          onTap: () {
+                            print("A");
+                          },
                           child: const CircleAvatar(
                             radius: 25,
                             backgroundColor: Colors.transparent,
@@ -208,7 +201,7 @@ class Login extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: height * .025,
+                      height: height * .045,
                     ),
                     InkWell(
                       child: const Text(
