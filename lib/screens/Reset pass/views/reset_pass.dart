@@ -6,15 +6,18 @@ import 'package:saken_mobile/screens/Reset%20pass/widgets/text_field_reset_pass.
 
 class ResetPass extends StatelessWidget {
   const ResetPass({super.key});
-
+  static String id = '/resetPass';
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back),
+        leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back)),
       ),
-      body:  Padding(
+      body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: SingleChildScrollView(
           child: Column(
@@ -42,7 +45,9 @@ class ResetPass extends StatelessWidget {
                 ),
               ),
               TextFieldResetPass(),
-              NextButton(route: IdentityConfirmationScreen.id,),
+              NextButton(
+                route: IdentityConfirmationScreen.id,
+              ),
             ],
           ),
         ),

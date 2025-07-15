@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:saken_mobile/New%20Screens/New%20Signup/views/new_sign_up.dart';
 import 'package:saken_mobile/const/const.dart';
 import 'package:saken_mobile/const/routes.dart';
 
@@ -71,7 +72,7 @@ class Welcome3 extends StatelessWidget {
                         backgroundColor: WidgetStateProperty.all(font1),
                       ),
                       onPressed: () {
-                        Navigator.pushReplacementNamed(context, Routes.signup);
+                        Navigator.pushReplacementNamed(context, NewSignUp.id);
                       },
                       child: Text(
                         "انشاء حساب",

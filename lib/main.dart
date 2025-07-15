@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:saken_mobile/New%20Screens/New%20Signup/views/new_sign_up.dart';
 import 'package:saken_mobile/const/routes.dart';
 import 'package:saken_mobile/masken/masaken_details.dart';
 import 'package:saken_mobile/saken_cubit/form_cubit/custom_form_cubit.dart';
@@ -59,7 +60,7 @@ class MyApp extends StatelessWidget {
             appBarTheme: AppBarTheme(color: Colors.white)),
         locale: const Locale('ar'),
         debugShowCheckedModeBanner: false,
-        home: const ResetPass(),
+        home: const SplashScreen(),
         routes: {
           Routes.splash: (context) => const SplashScreen(),
           Routes.login: (context) => Login(),
@@ -72,9 +73,13 @@ class MyApp extends StatelessWidget {
           Routes.welcome1: (context) => Welcome1(),
           Routes.welcome2: (context) => Welcome2(),
           Routes.welcome3: (context) => Welcome3(),
-          IdentityConfirmationScreen.id : (context)=>const IdentityConfirmationScreen(),
-          NewPassScreen.id:(context)=> const NewPassScreen(),
-          SuccessScreen.id:(context)=> const SuccessScreen(),
+          IdentityConfirmationScreen.id: (context) =>
+              const IdentityConfirmationScreen(),
+          NewPassScreen.id: (context) => const NewPassScreen(),
+          SuccessScreen.id: (context) => const SuccessScreen(),
+          ResetPass.id: (context) => const ResetPass(),
+          NewSignUp.id: (context) => const NewSignUp(),
+          Login.id:(context)=> Login(),
         },
         builder: (context, child) {
           return Directionality(

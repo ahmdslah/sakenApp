@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:saken_mobile/New%20Screens/New%20Signup/views/new_sign_up.dart';
 import 'package:saken_mobile/const/const%20widgets/loading.dart';
 import 'package:saken_mobile/const/routes.dart';
+import 'package:saken_mobile/screens/Reset%20pass/views/reset_pass.dart';
 import 'package:saken_mobile/screens/login_page/cubit/login_cubit.dart';
 
 import '../../const/const widgets/custom_form_field.dart';
@@ -15,6 +17,7 @@ class Login extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+  static String id = '/login';
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -128,7 +131,7 @@ class Login extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                             )),
                         onPressed: () {
-                          Navigator.pushReplacementNamed(context, Routes.reset);
+                          Navigator.pushNamed(context, ResetPass.id);
                         },
                       ),
                     ),
@@ -215,7 +218,7 @@ class Login extends StatelessWidget {
                         ),
                       ),
                       onTap: () {
-                        Get.to(SignUp());
+                        Get.to(NewSignUp());
                       },
                     ),
                   ],
