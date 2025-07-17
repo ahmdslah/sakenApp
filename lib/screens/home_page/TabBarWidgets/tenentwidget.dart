@@ -21,4 +21,4 @@ class tenantwidget extends StatelessWidget {
       itemCount: usermodel.tenents.length,
     );
   }
-}//
+} //

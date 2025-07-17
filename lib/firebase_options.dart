@@ -63,9 +63,10 @@ class DefaultFirebaseOptions {
     messagingSenderId: '54737180655',
     projectId: 'saken2',
     storageBucket: 'saken2.firebasestorage.app',
-    androidClientId: '54737180655-vgijrg0khfhhgs831a0afbsnub72349m.apps.googleusercontent.com',
-    iosClientId: '54737180655-rle5hff7k12il3ejkfuo2eleviq0nksg.apps.googleusercontent.com',
+    androidClientId:
+        '54737180655-vgijrg0khfhhgs831a0afbsnub72349m.apps.googleusercontent.com',
+    iosClientId:
+        '54737180655-rle5hff7k12il3ejkfuo2eleviq0nksg.apps.googleusercontent.com',
     iosBundleId: 'com.example.sakenMobile',
   );
-
 }

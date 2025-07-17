@@ -6,9 +6,9 @@ class CustomTextFieldLName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-       onTapOutside: (event) {
-          FocusManager.instance.primaryFocus!.unfocus();
-        },
+      onTapOutside: (event) {
+        FocusManager.instance.primaryFocus!.unfocus();
+      },
       decoration: InputDecoration(
           hintText: ' الاسم التاني/الأخير',
           hintStyle: TextStyle(

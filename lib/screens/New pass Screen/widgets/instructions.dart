@@ -5,11 +5,11 @@ class Instructions extends StatelessWidget {
   final String text;
   @override
   Widget build(BuildContext context) {
-    return  Align(
+    return Align(
       alignment: Alignment.centerRight,
       child: Text(
         text,
-        style:const TextStyle(
+        style: const TextStyle(
           fontSize: 13,
           color: Color(0xff444746),
         ),

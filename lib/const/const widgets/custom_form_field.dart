@@ -24,9 +24,8 @@ class CustomFormField extends StatelessWidget {
     required this.validator,
     this.isPassword = false,
     this.isName = false,
-    this.isphone=false,
-    this.search=false,
-
+    this.isphone = false,
+    this.search = false,
   });
 
   final double height;
@@ -59,9 +58,12 @@ class CustomFormField extends StatelessWidget {
                 isPassword
                     ? Icons.lock
                     : isName
-                    ? Icons.person_outline:
-                isphone?Icons.edit:search?null:
-                Icons.email_outlined,
+                        ? Icons.person_outline
+                        : isphone
+                            ? Icons.edit
+                            : search
+                                ? null
+                                : Icons.email_outlined,
                 color: font1,
               ),
               suffixIcon: InkWell(

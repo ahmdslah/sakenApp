@@ -6,9 +6,9 @@ class CustomTextFieldEmail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-       onTapOutside: (event) {
-          FocusManager.instance.primaryFocus!.unfocus();
-        },
+      onTapOutside: (event) {
+        FocusManager.instance.primaryFocus!.unfocus();
+      },
       decoration: InputDecoration(
           hintText: 'البريد الإلكتروني أو رقم الهاتف',
           hintStyle: TextStyle(

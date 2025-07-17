@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:saken_mobile/screens/AdminScreen/Adminscreen.dart';
 import 'package:saken_mobile/screens/Identity%20confirmation%20Screen/views/identity_confirmation_screen.dart';
+import 'package:saken_mobile/screens/New%20pass%20Screen/helpers/dio_helper.dart';
 import 'package:saken_mobile/screens/New%20pass%20Screen/views/new_pass_screen.dart';
 import 'package:saken_mobile/screens/Reset%20pass/views/reset_pass.dart';
 import 'package:saken_mobile/screens/Success%20Screen/views/success_screen.dart';
@@ -27,6 +28,7 @@ import 'screens/splash_screen/splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  DioHelper.init();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -79,7 +81,7 @@ class MyApp extends StatelessWidget {
           SuccessScreen.id: (context) => const SuccessScreen(),
           ResetPass.id: (context) => const ResetPass(),
           NewSignUp.id: (context) => const NewSignUp(),
-          Login.id:(context)=> Login(),
+          Login.id: (context) => Login(),
         },
         builder: (context, child) {
           return Directionality(

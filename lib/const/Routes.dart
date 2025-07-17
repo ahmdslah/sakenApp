@@ -15,5 +15,4 @@ class Routes {
   static const String identityConfirmation = 'identityConfirmation';
 
   // static const String login = 'login';
-
 }

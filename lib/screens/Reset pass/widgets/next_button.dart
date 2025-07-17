@@ -3,7 +3,7 @@ import 'package:saken_mobile/const/const.dart';
 
 class NextButton extends StatelessWidget {
   const NextButton({super.key, required this.route});
-final String route;
+  final String route;
   @override
   Widget build(BuildContext context) {
     return Padding(

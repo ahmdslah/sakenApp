@@ -22,40 +22,28 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    return BlocConsumer<LoginCubit, LoginState>(listener: (context, state) {
-      if (state is LoginLoading) {
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          if (ModalRoute.of(context)?.isCurrent ?? false) {
-            showBlurLoading(context);
-          }
-        });
-      } else if (state is LoginFaild) {
-        WidgetsBinding.instance.addPostFrameCallback((_) async {
-          if (Navigator.of(context, rootNavigator: true).canPop()) {
-            Navigator.of(context, rootNavigator: true).pop(); // قفل اللودينج
-          }
-          await Future.delayed(const Duration(milliseconds: 100));
-          Get.snackbar("Login Failed", state.errMessage);
-        });
-      } else if (state is LoginUserSuccess) {
-        WidgetsBinding.instance.addPostFrameCallback((_) async {
-          if (Navigator.of(context, rootNavigator: true).canPop()) {
-            Navigator.of(context, rootNavigator: true).pop();
-          }
-          await Future.delayed(const Duration(milliseconds: 100));
-          WidgetsBinding.instance.addPostFrameCallback((_) {});
-        });
-      } else if (state is LoginAdminSuccess) {
-        WidgetsBinding.instance.addPostFrameCallback((_) async {
-          if (Navigator.of(context, rootNavigator: true).canPop()) {
-            Navigator.of(context, rootNavigator: true).pop();
-          }
-          await Future.delayed(const Duration(milliseconds: 100));
-          WidgetsBinding.instance.addPostFrameCallback((_) {});
-        });
-      }
-    }, builder: (context, state) {
-      return Scaffold(
+    return BlocListener<LoginCubit, LoginState>(
+      listener: (context, state) {
+        if (state is LoginnErorr) {
+         WidgetsBinding.instance.addPostFrameCallback((_) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(state.error),
+            backgroundColor: Colors.red,
+          ),
+        );
+      });
+        }
+        else if (state is LoginnSuccess){
+           Get.snackbar(
+            "Success",
+            'تم تسجيل الدخول بنجاح',
+            backgroundColor: Colors.green,
+            colorText: Colors.white,
+          );
+        }
+      },
+      child: Scaffold(
         appBar: AppBar(
           actions: [
             TextButton(
@@ -158,8 +146,7 @@ class Login extends StatelessWidget {
                         ),
                       ),
                       onTap: () {
-                        BlocProvider.of<LoginCubit>(context).signIn(
-                            context: context,
+                        BlocProvider.of<LoginCubit>(context).login(
                             email: _emailController.text,
                             password: _passwordController.text);
                       },
@@ -227,7 +214,7 @@ class Login extends StatelessWidget {
             ),
           ),
         ),
-      );
-    });
+      ),
+    );
   }
 }

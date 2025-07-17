@@ -15,13 +15,13 @@ class TextFieldResetPass extends StatelessWidget {
           hintText: 'البريد الالكتروني او رقم الهاتف',
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide:const BorderSide(
+            borderSide: const BorderSide(
               color: Colors.grey,
             ),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide:const BorderSide(
+            borderSide: const BorderSide(
               color: Colors.grey,
             ),
           ),

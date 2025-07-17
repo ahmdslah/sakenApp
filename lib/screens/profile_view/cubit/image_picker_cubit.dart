@@ -9,7 +9,7 @@ part 'image_picker_state.dart';
 class ImagePickerCubit extends Cubit<ImagePickerState> {
   Uint8List? selectedImage;
   ImagePickerCubit() : super(ImagePickerInitial());
-   Future<void> pickkImage() async {
+  Future<void> pickkImage() async {
     final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 
@@ -19,9 +19,6 @@ class ImagePickerCubit extends Cubit<ImagePickerState> {
 
       selectedImage = imageData; // تحديث الصورة في واجهة المستخدم
       emit(ImagePicked());
-
-   
     }
   }
 }
-

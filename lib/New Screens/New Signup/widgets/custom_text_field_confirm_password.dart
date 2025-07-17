@@ -6,9 +6,9 @@ class CustomTextFieldConfirmPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-       onTapOutside: (event) {
-          FocusManager.instance.primaryFocus!.unfocus();
-        },
+      onTapOutside: (event) {
+        FocusManager.instance.primaryFocus!.unfocus();
+      },
       decoration: InputDecoration(
           hintText: 'تأكيد كلمة المرور',
           hintStyle: TextStyle(
