@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:saken_mobile/New%20Screens/home/widgets/menue_drawer.dart';
 import 'package:saken_mobile/const/const%20widgets/category.dart';
 
 class HomeTab extends StatelessWidget {
   HomeTab({super.key, this.name});
   String? name;
   TextEditingController search = TextEditingController();
-
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     getUsername().then((value) {
@@ -16,7 +17,10 @@ class HomeTab extends StatelessWidget {
     });
 
     return Scaffold(
+      key: scaffoldKey,
+      drawer: const MenueDrawer(),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(
           "تطبيق ساكن يرحب بك, $name",
           style: const TextStyle(color: Color(0xff378B48), fontFamily: "Cairo"),
@@ -34,7 +38,11 @@ class HomeTab extends StatelessWidget {
             children: [
               IconButton(
                   onPressed: () {}, icon: const Icon(Icons.notifications)),
-              IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
+              IconButton(
+                  onPressed: () {
+                    scaffoldKey.currentState?.openDrawer();
+                  },
+                  icon: const Icon(Icons.more_vert)),
             ],
           ),
         ),
