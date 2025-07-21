@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saken_mobile/New%20Screens/New%20Signup/views/new_sign_up.dart';
+import 'package:saken_mobile/New%20Screens/housing%20profile%20screen/views/housing_profile_screen.dart';
 import 'package:saken_mobile/const/routes.dart';
 import 'package:saken_mobile/masken/masaken_details.dart';
 import 'package:saken_mobile/saken_cubit/form_cubit/custom_form_cubit.dart';
@@ -62,7 +63,7 @@ class MyApp extends StatelessWidget {
             appBarTheme: AppBarTheme(color: Colors.white)),
         locale: const Locale('ar'),
         debugShowCheckedModeBanner: false,
-        home: const SplashScreen(),
+        home: const HousingProfileScreen(),
         routes: {
           Routes.splash: (context) => const SplashScreen(),
           Routes.login: (context) => Login(),
