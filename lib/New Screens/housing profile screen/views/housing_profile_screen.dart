@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:saken_mobile/New%20Screens/housing%20profile%20screen/views/housing_profile_booking.dart';
+import 'package:saken_mobile/New%20Screens/housing%20profile%20screen/views/housing_profile_costs.dart';
+import 'package:saken_mobile/New%20Screens/housing%20profile%20screen/views/housing_profile_link.dart';
 import 'package:saken_mobile/New%20Screens/housing%20profile%20screen/views/housing_profile_preview.dart';
 import 'package:saken_mobile/New%20Screens/housing%20profile%20screen/views/housing_profile_preview_result.dart';
 import 'package:saken_mobile/New%20Screens/housing%20profile%20screen/widgets/housing_profile_booking_result.dart';
@@ -46,9 +48,9 @@ class _HousingProfileScreenState extends State<HousingProfileScreen> {
                 },
               );
       case 'تكاليف':
-        return const Text('محتوى التكاليف');
+        return const HousingProfileCosts();
       case 'مشاركة':
-        return const Text('محتوى المشاركة');
+        return const HousingProfileLink();
       default:
         return const SizedBox.shrink();
     }
