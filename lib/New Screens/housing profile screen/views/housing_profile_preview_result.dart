@@ -29,7 +29,7 @@ class HousingProfilePreviewResult extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
-                  color: Color(0xffFFA500),
+                  color:const Color(0xffFFA500),
                 )),
             child: Padding(
               padding: const EdgeInsets.only(
@@ -37,7 +37,7 @@ class HousingProfilePreviewResult extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Center(
+                const  Center(
                     child: Text(
                       'بيانات الطلب',
                       style: TextStyle(
@@ -46,33 +46,33 @@ class HousingProfilePreviewResult extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                const  SizedBox(
                     height: 15,
                   ),
-                  OrderDetails(
+                const  OrderDetails(
                     text: 'رقم الطلب : ',
                     result: '  #ABC123',
                   ),
-                  SizedBox(
+                 const SizedBox(
                     height: 15,
                   ),
-                  OrderDetails(
+                 const OrderDetails(
                     text: 'موعد المعاينة :',
                     result: '  14/1 - 6:00 pm',
                   ),
-                  SizedBox(
+                 const SizedBox(
                     height: 15,
                   ),
-                  OrderDetails(
+                 const OrderDetails(
                     text: 'المأجر : ',
                     result: '  محمد أحمد',
                   ),
-                  SizedBox(
+                 const SizedBox(
                     height: 15,
                   ),
                   Container(
                     width: double.infinity,
-                    decoration: BoxDecoration(
+                    decoration:const BoxDecoration(
                       color: Color(0xffF8F8F8),
                     ),
                     child: Padding(
@@ -84,16 +84,16 @@ class HousingProfilePreviewResult extends StatelessWidget {
                             height: 178,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
-                              image: DecorationImage(
+                              image:const DecorationImage(
                                 image: AssetImage('assets/images/roomm.jpg'),
                                 fit: BoxFit.cover,
                               ),
                             ),
                           ),
-                          SizedBox(
+                        const  SizedBox(
                             height: 7,
                           ),
-                          Row(
+                         const Row(
                             children: [
                               Text('شقة'),
                               Spacer(),
@@ -106,10 +106,10 @@ class HousingProfilePreviewResult extends StatelessWidget {
                               )
                             ],
                           ),
-                          SizedBox(
+                        const  SizedBox(
                             height: 5,
                           ),
-                          Row(
+                        const  Row(
                             children: [
                               Icon(
                                 Icons.location_on_outlined,
@@ -121,10 +121,10 @@ class HousingProfilePreviewResult extends StatelessWidget {
                               Text('حي شرق, اسكندرية')
                             ],
                           ),
-                          SizedBox(
+                        const  SizedBox(
                             height: 7,
                           ),
-                          Row(
+                         const Row(
                             children: [
                               Icon(Icons.calendar_month_outlined),
                               SizedBox(

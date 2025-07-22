@@ -118,6 +118,7 @@ class _HousingProfilePreviewState extends State<HousingProfilePreview> {
               },
               decoration: InputDecoration(
                   hintText: 'رقم الهاتف',
+                  suffixIcon: Icon(Icons.phone_outlined),
                   hintStyle: TextStyle(
                     color: Colors.grey,
                     fontSize: 14,

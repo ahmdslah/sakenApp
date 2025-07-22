@@ -1,11 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:saken_mobile/New%20Screens/housing%20profile%20screen/views/housing_profile_booking.dart';
 import 'package:saken_mobile/New%20Screens/housing%20profile%20screen/views/housing_profile_preview.dart';
 import 'package:saken_mobile/New%20Screens/housing%20profile%20screen/views/housing_profile_preview_result.dart';
+import 'package:saken_mobile/New%20Screens/housing%20profile%20screen/widgets/housing_profile_booking_result.dart';
 import 'package:saken_mobile/New%20Screens/housing%20profile%20screen/widgets/housing_profile_details.dart';
 
 class HousingProfileScreen extends StatefulWidget {
-  const HousingProfileScreen({super.key,});
+  const HousingProfileScreen({
+    super.key,
+  });
 
   @override
   State<HousingProfileScreen> createState() => _HousingProfileScreenState();
@@ -13,7 +17,8 @@ class HousingProfileScreen extends StatefulWidget {
 
 class _HousingProfileScreenState extends State<HousingProfileScreen> {
   String selected = 'تفاصيل';
-bool previewSubmitted = false;
+  bool previewSubmitted = false;
+  bool bookingSubmited = false;
   final List<String> tabs = ['تفاصيل', 'معاينة', 'حجز', 'تكاليف', 'مشاركة'];
 
   Widget getTabContent(String selected) {
@@ -22,16 +27,24 @@ bool previewSubmitted = false;
         return const HousingProfileDetails();
       case 'معاينة':
         return previewSubmitted
-          ? const HousingProfilePreviewResult()
-          : HousingProfilePreview(
-              onSubmit: () {
-                setState(() {
-                  previewSubmitted = true;
-                });
-              },
-            );
+            ? const HousingProfilePreviewResult()
+            : HousingProfilePreview(
+                onSubmit: () {
+                  setState(() {
+                    previewSubmitted = true;
+                  });
+                },
+              );
       case 'حجز':
-        return const Text('محتوى الحجز');
+        return bookingSubmited
+            ? const HousingProfileBookingResult()
+            : HousingProfileBooking(
+                onSubmit: () {
+                  setState(() {
+                    bookingSubmited = true;
+                  });
+                },
+              );
       case 'تكاليف':
         return const Text('محتوى التكاليف');
       case 'مشاركة':
