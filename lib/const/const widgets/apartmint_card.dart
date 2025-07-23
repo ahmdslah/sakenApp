@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:saken_mobile/New%20Screens/housing%20profile%20screen/views/housing_profile_screen.dart';
 import 'package:saken_mobile/const/const.dart';
 
 class ApartmentCard extends StatelessWidget {
@@ -7,103 +10,108 @@ class ApartmentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 171,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
-        color:const Color(0xffF8F8F8),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Container(
-              width: double.infinity,
-              height: 107,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                image: const DecorationImage(
-                  image: AssetImage('assets/images/Room.png'),
-                  fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+        Get.to(HousingProfileScreen());
+      },
+      child: Container(
+        width: 171,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5),
+          color: const Color(0xffF8F8F8),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              Container(
+                width: double.infinity,
+                height: 107,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  image: const DecorationImage(
+                    image: AssetImage('assets/images/Room.png'),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            const Row(
-              children: [
-                Text('شقة للايجار'),
-                Spacer(),
-                Icon(Icons.more_horiz_outlined),
-              ],
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            const Row(
-              children: [
-                Icon(
-                  Icons.location_on_outlined,
-                  size: 20,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  'حي شرق, اسكندرية',
-                  style: TextStyle(
-                    fontSize: 12,
+              const SizedBox(
+                height: 8,
+              ),
+              const Row(
+                children: [
+                  Text('شقة للايجار'),
+                  Spacer(),
+                  Icon(Icons.more_horiz_outlined),
+                ],
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              const Row(
+                children: [
+                  Icon(
+                    Icons.location_on_outlined,
+                    size: 20,
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            const Row(
-              children: [
-                Icon(Icons.bed_outlined),
-                SizedBox(
-                  width: 5,
-                ),
-                Text('2 غرفة'),
-                Spacer(),
-                Icon(
-                  Icons.bathroom_outlined,
-                  size: 20,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text('1 حمام'),
-              ],
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            const Row(
-              children: [
-                Text(
-                  '4000\$',
-                  style: TextStyle(
-                    color: kPrimaryColor,
-                    fontWeight: FontWeight.bold,
+                  SizedBox(
+                    width: 5,
                   ),
-                ),
-                Spacer(),
-                Text('4.5'),
-                SizedBox(
-                  width: 3,
-                ),
-                Icon(
-                  CupertinoIcons.star_fill,
-                  color: Colors.amber,
-                  size: 14,
-                ),
-              ],
-            )
-          ],
+                  Text(
+                    'حي شرق, اسكندرية',
+                    style: TextStyle(
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              const Row(
+                children: [
+                  Icon(Icons.bed_outlined),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text('2 غرفة'),
+                  Spacer(),
+                  Icon(
+                    Icons.bathroom_outlined,
+                    size: 20,
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text('1 حمام'),
+                ],
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              const Row(
+                children: [
+                  Text(
+                    '4000\$',
+                    style: TextStyle(
+                      color: kPrimaryColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Spacer(),
+                  Text('4.5'),
+                  SizedBox(
+                    width: 3,
+                  ),
+                  Icon(
+                    CupertinoIcons.star_fill,
+                    color: Colors.amber,
+                    size: 14,
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

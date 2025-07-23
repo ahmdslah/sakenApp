@@ -7,27 +7,32 @@ class Category extends StatelessWidget {
   String? catName;
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return Container(
+      height: 48,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Color(0xffF8F8F8),
+      ),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(20),
-          onTap: ontap,
-          child: Row(
-            children: [
-              Icon(
-                icon,
-                size: 40,
+        padding: const EdgeInsets.symmetric(horizontal: 15.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              size: 20,
+              color: Color(0xffA5A5A5),
+            ),
+            SizedBox(
+              width: 8,
+            ),
+            Text(
+              catName!,
+              style: TextStyle(
+                color: Color(0xffA5A5A5),
               ),
-              const SizedBox(
-                width: 10,
-              ),
-              Text(
-                catName!,
-                style: const TextStyle(fontSize: 24),
-              )
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );
