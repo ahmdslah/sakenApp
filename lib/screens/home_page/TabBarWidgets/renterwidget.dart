@@ -8,17 +8,14 @@ class RenterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            childAspectRatio: 1 / 1.8,
-            mainAxisSpacing: 2,
-            crossAxisSpacing: 2),
-        itemBuilder: (context, index) => fav
-            ? UserCard()
-            : UserCard(
-                isfav: false,
-              ),
-        itemCount: usermodel.renters.length);
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 1 / 1.4,
+          mainAxisSpacing: 8,
+          crossAxisSpacing: 8),
+      itemBuilder: (context, index) => UserCard(),
+      itemCount: 8,
+    );
   }
 //usermodel.renters.length
 }

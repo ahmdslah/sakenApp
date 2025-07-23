@@ -1,96 +1,72 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:saken_mobile/const/Models/usermodel.dart';
 
 class UserCard extends StatelessWidget {
-  int index = 0;
-  bool isfav;
-  UserCard({super.key, this.isfav = true});
+  const UserCard({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      child: Container(
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: Colors.grey),
-            color: const Color(0xffF5F5F5)),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Stack(
-                children: [
-                  Align(
-                      alignment: Alignment.topLeft,
-                      child: isfav
-                          ? SvgPicture.asset("assets/images/Vector.svg")
-                          : SvgPicture.asset("assets/images/fav.svg")),
-                ],
+    return Container(
+      width: 171,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5),
+        color: const Color(0xffF8F8F8),
+      ),
+      child:const Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(
+              Icons.favorite_outline,
+              color: Colors.grey,
+              size: 20,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: CircleAvatar(
+                radius: 35,
+                backgroundImage: AssetImage('assets/images/profile.jpg'),
               ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(50),
-                child: Image.asset(
-                  "assets/images/Image AR.png",
-                  fit: BoxFit.cover,
-                  height: 50,
-                  width: 50,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              children: [
+                Text('احمد محمد'),
+                Spacer(),
+                Icon(Icons.more_horiz),
+              ],
+            ),
+            SizedBox(
+              height: 6,
+            ),
+            Text(
+              'صاحب عقار',
+              style: TextStyle(
+                fontSize: 10,
+              ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Row(
+              children: [
+                Text('4.5'),
+                SizedBox(
+                  width: 3,
                 ),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    border: Border.all(color: Colors.grey),
-                    color: Colors.white),
-                child: Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        usermodel.renters[index].username,
-                        style: const TextStyle(
-                            fontSize: 10,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black),
-                      )
-                    ],
-                  ),
+                Icon(
+                  CupertinoIcons.star_fill,
+                  color: Colors.amber,
+                  size: 12,
                 ),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    border: Border.all(color: Colors.grey),
-                    color: Colors.white),
-                child: Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        "${usermodel.renters[index].userrole}-${usermodel.renters[index].rate}",
-                        style: const TextStyle(
-                            fontSize: 8.7,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black),
-                      ),
-                      const Icon(
-                        Icons.star_border,
-                        weight: 1,
-                      )
-                    ],
-                  ),
-                ),
-              )
-            ],
-          ),
+              ],
+            )
+          ],
         ),
       ),
     );

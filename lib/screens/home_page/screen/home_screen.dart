@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:saken_mobile/const/const.dart';
 import 'package:saken_mobile/masken/masaken_details.dart';
 import 'package:saken_mobile/screens/home_page/tabs/favscreen.dart';
 import 'package:saken_mobile/screens/home_page/tabs/hometab.dart';
@@ -43,28 +45,63 @@ class _HomeScreenState extends State<HomeScreen> {
           showSelectedLabels: true,
           showUnselectedLabels: true,
           unselectedItemColor: Colors.grey,
-          selectedItemColor: Colors.blueAccent,
+          selectedItemColor: kPrimaryColor,
           items: [
             BottomNavigationBarItem(
-                icon: SvgPicture.asset("assets/images/home.svg"),
-                activeIcon: SvgPicture.asset("assets/images/homes.svg"),
+                icon: Icon(
+                  Icons.home_outlined,
+                  size: 30,
+                ),
+                activeIcon: Icon(
+                  Icons.home,
+                  color: kPrimaryColor,
+                  size: 30,
+                ),
                 label: "الرئيسيه"),
             BottomNavigationBarItem(
-                icon: SvgPicture.asset("assets/images/rec.svg"),
-                activeIcon: SvgPicture.asset("assets/images/recs.svg"),
+                icon: Icon(
+                  CupertinoIcons.star,
+                  size: 30,
+                ),
+                activeIcon: Icon(
+                  CupertinoIcons.star_fill,
+                  color: kPrimaryColor,
+                  size: 30,
+                ),
                 label: "الترشيحات"),
             BottomNavigationBarItem(
-                icon: SvgPicture.asset("assets/images/fav.svg"),
-                activeIcon: SvgPicture.asset("assets/images/favs.svg"),
+                icon: Icon(
+                  Icons.favorite_outline,
+                  size: 30,
+                ),
+                activeIcon: Icon(
+                  Icons.favorite,
+                  color: kPrimaryColor,
+                  size: 30,
+                ),
                 label: "التفضيلات"),
             BottomNavigationBarItem(
-                icon: SvgPicture.asset("assets/images/message.svg"),
-                activeIcon: SvgPicture.asset("assets/images/messages.svg"),
+                icon: Icon(
+                  Icons.message_outlined,
+                  size: 30,
+                ),
+                activeIcon: Icon(
+                  Icons.message,
+                  color: kPrimaryColor,
+                  size: 30,
+                ),
                 label: "الرسائل"),
             BottomNavigationBarItem(
-                icon: SvgPicture.asset("assets/images/profile.svg"),
-                activeIcon: SvgPicture.asset("assets/images/profile.svg"),
-                label: "الملف الشخصي"),
+                icon: Icon(
+                  CupertinoIcons.profile_circled,
+                  size: 30,
+                ),
+                activeIcon: Icon(
+                  CupertinoIcons.profile_circled,
+                  size: 30,
+                  color: kPrimaryColor,
+                ),
+                label: "الشخصي"),
           ]),
       body: tabs[selectedindex],
     );

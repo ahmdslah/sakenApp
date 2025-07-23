@@ -63,7 +63,7 @@ class MyApp extends StatelessWidget {
             appBarTheme: AppBarTheme(color: Colors.white)),
         locale: const Locale('ar'),
         debugShowCheckedModeBanner: false,
-        home: const HousingProfileScreen(),
+        home: const SplashScreen(),
         routes: {
           Routes.splash: (context) => const SplashScreen(),
           Routes.login: (context) => Login(),

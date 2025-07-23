@@ -11,20 +11,16 @@ class sakanwidget extends StatelessWidget {
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          childAspectRatio: 1 / 1.3,
-          mainAxisSpacing: 2,
-          crossAxisSpacing: 2),
+          childAspectRatio: 1 / 1.4,
+          mainAxisSpacing: 8,
+          crossAxisSpacing: 8),
       itemBuilder: (context, index) => GestureDetector(
         onTap: () {
           Navigator.pushNamed(context, Routes.sakanDetails);
         },
-        child: fav
-            ? ApartmentCard()
-            : ApartmentCard(
-                isfavorite: false,
-              ),
+        child: ApartmentCard(),
       ),
-      itemCount: apartmentmodel.apartments.length,
+      itemCount: 8,
     );
   }
 }
