@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -10,8 +11,20 @@ class SignUpCubit extends Cubit<SignUpState> {
   final TextEditingController userNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
   FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  sigbIn() {
+    try {
+      final response =
+          Dio().post("http://saken.intern24.org/api/Auth/Login", data: {
+        "email": emailController.text,
+        "password": passwordController.text,
+        "role": "User"
+      });
+    } catch (e) {
+      print(e.toString());
+    }
+  }
 
   void signUp({
     required BuildContext context,
@@ -20,7 +33,7 @@ class SignUpCubit extends Cubit<SignUpState> {
     required String userName,
   }) async {
     emit(SignUpLoading());
-
+    //! firebase try
     try {
       final credential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
