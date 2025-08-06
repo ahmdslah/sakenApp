@@ -1,19 +1,19 @@
-class HigestPriceModel {
-  final int? id;
-  final dynamic title;
-  final String? address;
-  final double? pricePerMeter;
-  final int? areaInMeters;
-  final int? floor;
-  final String? housingType;
-  final String? furnishingStatus;
-  final dynamic rentalType;
-  final int? rate;
-  final String? photoUrl;
-  final String? ownerName;
-  final dynamic ownerId;
+class SakanModel {
+  int? id;
+  String? title;
+  String? address;
+  double? pricePerMeter;
+  int? areaInMeters;
+  int? floor;
+  String? housingType;
+  String? furnishingStatus;
+  String? rentalType;
+  dynamic rate;
+  String? photoUrl;
+  String? ownerName;
+  String? ownerId;
 
-  HigestPriceModel({
+  SakanModel({
     this.id,
     this.title,
     this.address,
@@ -29,25 +29,27 @@ class HigestPriceModel {
     this.ownerId,
   });
 
-  factory HigestPriceModel.fromJson(Map<String, dynamic> json) {
-    return HigestPriceModel(
+  factory SakanModel.fromJson(
+      Map<String, dynamic> json) {
+    return SakanModel(
       id: json['id'] as int?,
-      title: json['title'] as dynamic,
+      title: json['title'] as String?,
       address: json['address'] as String?,
       pricePerMeter: (json['pricePerMeter'] as num?)?.toDouble(),
       areaInMeters: json['areaInMeters'] as int?,
       floor: json['floor'] as int?,
       housingType: json['housingType'] as String?,
       furnishingStatus: json['furnishingStatus'] as String?,
-      rentalType: json['rentalType'] as dynamic,
-      rate: json['rate'] as int?,
+      rentalType: json['rentalType'] as String?,
+      rate: json['rate'] as dynamic,
       photoUrl: json['photoUrl'] as String?,
       ownerName: json['ownerName'] as String?,
-      ownerId: json['ownerId'] as dynamic,
+      ownerId: json['ownerId'] as String?,
     );
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic>
+      toJson() {
     return {
       'id': id,
       'title': title,

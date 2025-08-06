@@ -8,7 +8,7 @@ part 'higest_price_state.dart';
 class HigestPriceCubit extends Cubit<HigestPriceState> {
   HigestPriceCubit() : super(HigestPriceInitial());
 
-   List<HigestPriceModel> hiestPriceList = [];
+  List<HigestPriceModel> hiestPriceList = [];
   final HigestPriceModel higestPriceModel = HigestPriceModel();
 
   Future<void> getItems() async {

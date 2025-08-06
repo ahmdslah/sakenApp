@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:saken_mobile/const/const.dart';
+import 'package:saken_mobile/screens/home_page/models/sakan_model/sakan_model.dart';
 
 class SakanDetailsInHome extends StatelessWidget {
   const SakanDetailsInHome({
-    super.key,
+    super.key, required this.item,
   });
-
+  final SakanModel item;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,8 +27,11 @@ class SakanDetailsInHome extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
-                    image: const DecorationImage(
-                      image: AssetImage('assets/images/roomm.jpg'),
+                    image: DecorationImage(
+                      image: item.photoUrl != null && item.photoUrl!.isNotEmpty
+                          ? NetworkImage(item.photoUrl!)
+                          : const AssetImage('assets/images/roomm.jpg')
+                              as ImageProvider,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -80,24 +84,24 @@ class SakanDetailsInHome extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 8),
-            const Row(
+            Row(
               children: [
-                Text('شقة'),
+                Text(item.housingType ?? ''),
                 Spacer(),
                 Text(
-                  '2500 ج.م/شهر',
+                  '${item.pricePerMeter} ج.م/شهر',
                   style: TextStyle(color: kPrimaryColor),
                 ),
               ],
             ),
-            const Row(
+            Row(
               children: [
                 Icon(
                   Icons.location_on_outlined,
                   size: 20,
                 ),
                 Text(
-                  'حي شرق, اسكندرية',
+                  item.address ?? '',
                   style: TextStyle(
                     fontSize: 12,
                   ),
@@ -107,13 +111,13 @@ class SakanDetailsInHome extends StatelessWidget {
             const SizedBox(
               height: 8,
             ),
-            const Row(
+             Row(
               children: [
                 Icon(Icons.bed_outlined),
                 SizedBox(
                   width: 5,
                 ),
-                Text('2 غرفة'),
+                Text('${item.floor} غرفة'),
                 Spacer(),
                 Icon(
                   Icons.bookmark,

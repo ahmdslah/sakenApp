@@ -6,7 +6,7 @@ import 'package:saken_mobile/screens/home_page/models/higest_price_model/higest_
 class HigestPrice extends StatelessWidget {
   const HigestPrice({super.key, required this.item});
   final HigestPriceModel item;
-   @override
+  @override
   Widget build(BuildContext context) {
     return Container(
       width: 260,

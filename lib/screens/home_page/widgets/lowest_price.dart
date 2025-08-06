@@ -115,7 +115,7 @@ class LowestPrice extends StatelessWidget {
                 // SizedBox(
                 //   width: 5,
                 // ),
-                // Text('2 غرفة'),
+                // Text('${item.floor} غرفة'),
                 Spacer(),
                 Icon(
                   Icons.bookmark,

@@ -16,6 +16,7 @@ import 'package:saken_mobile/screens/Reset%20pass/views/reset_pass.dart';
 import 'package:saken_mobile/screens/Success%20Screen/views/success_screen.dart';
 import 'package:saken_mobile/screens/home_page/cubit/higest_price_cubit.dart';
 import 'package:saken_mobile/screens/home_page/cubit/lowest_price_cubit.dart';
+import 'package:saken_mobile/screens/home_page/cubit/sakan_cubit.dart';
 import 'package:saken_mobile/screens/home_page/screen/home_screen.dart';
 import 'package:saken_mobile/screens/login_page/cubit/login_cubit.dart';
 import 'package:saken_mobile/screens/login_page/login.dart';
@@ -62,6 +63,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => HigestPriceCubit()..getItems(),
+        ),
+         BlocProvider(
+          create: (context) => SakanCubit()..getItems(),
         ),
       ],
       child: GetMaterialApp(

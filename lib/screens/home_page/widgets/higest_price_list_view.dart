@@ -9,7 +9,7 @@ class HigestPriceListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SizedBox(
+    return SizedBox(
       height: 240,
       child: BlocBuilder<HigestPriceCubit, HigestPriceState>(
         builder: (context, state) {
