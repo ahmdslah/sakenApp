@@ -6,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saken_mobile/New%20Screens/home/widgets/menue_drawer.dart';
 import 'package:saken_mobile/const/const%20widgets/category.dart';
 import 'package:saken_mobile/const/const.dart';
+import 'package:saken_mobile/screens/home_page/widgets/active_offer_list_view.dart';
 import 'package:saken_mobile/screens/home_page/widgets/higest_price_list_view.dart';
 import 'package:saken_mobile/screens/home_page/widgets/lowest_price_list_view.dart';
 import 'package:saken_mobile/screens/home_page/widgets/rentering_list_view.dart';
@@ -288,7 +289,7 @@ class HomeTab extends StatelessWidget {
               const SizedBox(
                 height: 8,
               ),
-              const SakanListView(),
+              const ActiveOfferListView(),
               // ApartmentCard()
             ]),
           ),

@@ -5,7 +5,8 @@ import 'package:saken_mobile/screens/home_page/models/sakan_model/sakan_model.da
 
 class SakanDetailsInHome extends StatelessWidget {
   const SakanDetailsInHome({
-    super.key, required this.item,
+    super.key,
+    required this.item,
   });
   final SakanModel item;
   @override
@@ -111,7 +112,7 @@ class SakanDetailsInHome extends StatelessWidget {
             const SizedBox(
               height: 8,
             ),
-             Row(
+            Row(
               children: [
                 Icon(Icons.bed_outlined),
                 SizedBox(

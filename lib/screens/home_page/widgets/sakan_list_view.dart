@@ -18,8 +18,7 @@ class SakanListView extends StatelessWidget {
           } else if (state is SakanErorr) {
             return const Center(child: Text("Failed to load data"));
           } else if (state is SakanSuccess) {
-            final items =
-                state.sakan.where((item) => item != null).toList();
+            final items = state.sakan.where((item) => item != null).toList();
 
             if (items.isEmpty) {
               return const Center(child: Text("No properties available"));
@@ -27,7 +26,8 @@ class SakanListView extends StatelessWidget {
 
             return ListView.separated(
               scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) => SakanDetailsInHome(item: items[index]),
+              itemBuilder: (context, index) =>
+                  SakanDetailsInHome(item: items[index]),
               separatorBuilder: (context, index) => const SizedBox(width: 10),
               itemCount: items.length,
             );

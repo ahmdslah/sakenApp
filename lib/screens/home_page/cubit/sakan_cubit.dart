@@ -24,9 +24,9 @@ class SakanCubit extends Cubit<SakanState> {
         SakanErorr('Invalid response format');
       }
     } catch (e) {
-      if(sakanList.isNotEmpty){
+      if (sakanList.isNotEmpty) {
         emit(SakanSuccess(sakanList));
-      }else{
+      } else {
         SakanErorr('Invalid response format');
       }
     }

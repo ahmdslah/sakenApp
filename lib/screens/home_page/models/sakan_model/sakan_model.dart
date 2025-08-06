@@ -29,8 +29,7 @@ class SakanModel {
     this.ownerId,
   });
 
-  factory SakanModel.fromJson(
-      Map<String, dynamic> json) {
+  factory SakanModel.fromJson(Map<String, dynamic> json) {
     return SakanModel(
       id: json['id'] as int?,
       title: json['title'] as String?,
@@ -48,8 +47,7 @@ class SakanModel {
     );
   }
 
-  Map<String, dynamic>
-      toJson() {
+  Map<String, dynamic> toJson() {
     return {
       'id': id,
       'title': title,
