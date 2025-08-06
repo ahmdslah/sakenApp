@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:saken_mobile/screens/home_page/cubit/higest_price_cubit.dart';
 import 'package:saken_mobile/screens/home_page/cubit/lowest_price_cubit.dart';
-import 'package:saken_mobile/screens/home_page/widgets/lowest_price.dart';
+import 'package:saken_mobile/screens/home_page/widgets/higest_price.dart';
 
-class LowestPriceListView extends StatelessWidget {
-  const LowestPriceListView({super.key});
+class HigestPriceListView extends StatelessWidget {
+  const HigestPriceListView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return  SizedBox(
       height: 240,
-      child: BlocBuilder<LowestPriceCubit, LowestPriceState>(
+      child: BlocBuilder<HigestPriceCubit, HigestPriceState>(
         builder: (context, state) {
-          if (state is LowestPriceLoading) {
+          if (state is HigestPriceLoading) {
             return const Center(child: CircularProgressIndicator());
-          } else if (state is LowestPriceErorr) {
+          } else if (state is HigestPriceError) {
             return const Center(child: Text("Failed to load data"));
-          } else if (state is LowestPriceSuccess) {
+          } else if (state is HigestPriceSuccess) {
             // Filter out completely invalid items if needed
             final items =
-                state.lowestPrice.where((item) => item != null).toList();
+                state.higestPrice.where((item) => item != null).toList();
 
             if (items.isEmpty) {
               return const Center(child: Text("No properties available"));
@@ -27,7 +28,7 @@ class LowestPriceListView extends StatelessWidget {
 
             return ListView.separated(
               scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) => LowestPrice(item: items[index]),
+              itemBuilder: (context, index) => HigestPrice(item: items[index]),
               separatorBuilder: (context, index) => const SizedBox(width: 10),
               itemCount: items.length,
             );

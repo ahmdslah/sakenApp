@@ -17,5 +17,4 @@ final class LowestPriceErorr extends LowestPriceState {
   final String erorr;
 
   LowestPriceErorr(this.erorr);
-
 }

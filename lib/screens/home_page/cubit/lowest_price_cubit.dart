@@ -24,9 +24,9 @@ class LowestPriceCubit extends Cubit<LowestPriceState> {
         emit(LowestPriceErorr('Invalid response format'));
       }
     } catch (e) {
-      if(lowestPriceList.isNotEmpty){
+      if (lowestPriceList.isNotEmpty) {
         emit(LowestPriceSuccess(lowestPriceList));
-      }else{
+      } else {
         emit(LowestPriceErorr('Invalid response format'));
       }
     }
