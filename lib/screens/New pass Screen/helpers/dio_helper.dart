@@ -8,8 +8,8 @@ class DioHelper {
   static void init() {
     _dio = Dio(BaseOptions(
         baseUrl: 'http://saken.intern24.org/api/',
-            followRedirects: true,  // أضف هذا
-    maxRedirects: 5,
+        followRedirects: true, // أضف هذا
+        maxRedirects: 5,
         validateStatus: (status) => status! < 500,
         receiveTimeout: const Duration(seconds: 90),
         headers: {'lang': 'ar', 'Content-Type': 'application/json'}));

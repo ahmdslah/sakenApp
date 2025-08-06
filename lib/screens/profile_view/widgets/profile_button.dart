@@ -5,7 +5,8 @@ import 'package:saken_mobile/const/const.dart';
 class ProfileButton extends StatelessWidget {
   final String text;
   const ProfileButton({
-    super.key, required this.text,
+    super.key,
+    required this.text,
   });
 
   @override

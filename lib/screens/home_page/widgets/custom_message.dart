@@ -12,10 +12,10 @@ class CustomMessage extends StatelessWidget {
       height: 81,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color:const Color(0xffF8F8F8),
+        color: const Color(0xffF8F8F8),
       ),
-      child:const Padding(
-        padding:  EdgeInsets.all(8.0),
+      child: const Padding(
+        padding: EdgeInsets.all(8.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [

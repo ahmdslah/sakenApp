@@ -10,8 +10,8 @@ class TenantsListView extends StatelessWidget {
       height: 171,
       child: ListView.separated(
           scrollDirection: Axis.horizontal,
-          itemBuilder: (c, i) =>const TenantsDetailsInHome(),
-          separatorBuilder: (c, i) =>const SizedBox(
+          itemBuilder: (c, i) => const TenantsDetailsInHome(),
+          separatorBuilder: (c, i) => const SizedBox(
                 width: 10,
               ),
           itemCount: 8),

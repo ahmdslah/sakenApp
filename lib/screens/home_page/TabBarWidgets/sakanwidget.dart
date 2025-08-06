@@ -19,7 +19,7 @@ class sakanwidget extends StatelessWidget {
         onTap: () {
           Navigator.pushNamed(context, Routes.sakanDetails);
         },
-        child: ApartmentCard(fav: fav), 
+        child: ApartmentCard(fav: fav),
       ),
       itemCount: 8,
     );

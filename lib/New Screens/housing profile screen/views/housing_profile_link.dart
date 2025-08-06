@@ -15,7 +15,7 @@ class HousingProfileLink extends StatelessWidget {
           borderRadius: BorderRadius.circular(3),
           color: kPrimaryColor,
         ),
-        child:const Center(
+        child: const Center(
           child: Text(
             'نسخ الرابط',
             style: TextStyle(

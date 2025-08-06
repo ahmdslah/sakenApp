@@ -12,7 +12,7 @@ class UserCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(5),
         color: const Color(0xffF8F8F8),
       ),
-      child:const Padding(
+      child: const Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

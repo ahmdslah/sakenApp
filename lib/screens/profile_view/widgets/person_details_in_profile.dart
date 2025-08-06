@@ -3,7 +3,9 @@ import 'package:saken_mobile/const/const.dart';
 
 class PersonDetailsInProfile extends StatelessWidget {
   const PersonDetailsInProfile({
-    super.key, required this.text1, required this.text2,
+    super.key,
+    required this.text1,
+    required this.text2,
   });
   final String text1;
   final String text2;

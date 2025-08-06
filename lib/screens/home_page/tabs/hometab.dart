@@ -6,9 +6,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saken_mobile/New%20Screens/home/widgets/menue_drawer.dart';
 import 'package:saken_mobile/const/const%20widgets/category.dart';
 import 'package:saken_mobile/const/const.dart';
-import 'package:saken_mobile/screens/home_page/widgets/rentering_details_in_home.dart';
+import 'package:saken_mobile/screens/home_page/widgets/lowest_price_list_view.dart';
 import 'package:saken_mobile/screens/home_page/widgets/rentering_list_view.dart';
-import 'package:saken_mobile/screens/home_page/widgets/sakan_details_in_home.dart';
 import 'package:saken_mobile/screens/home_page/widgets/sakan_list_view.dart';
 import 'package:saken_mobile/screens/home_page/widgets/tenants_list_view.dart';
 
@@ -221,10 +220,10 @@ class HomeTab extends StatelessWidget {
                 height: 10,
               ),
               const RenteringListView(),
-             const SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-             const Row(
+              const Row(
                 children: [
                   Text('المستأجرين'),
                   Spacer(),
@@ -234,14 +233,14 @@ class HomeTab extends StatelessWidget {
                   ),
                 ],
               ),
-             const SizedBox(
+              const SizedBox(
                 height: 8,
               ),
-             const TenantsListView(),
-            const  SizedBox(
+              const TenantsListView(),
+              const SizedBox(
                 height: 10,
               ),
-             const Row(
+              const Row(
                 children: [
                   Text('الاقل سعراً'),
                   Spacer(),
@@ -251,14 +250,14 @@ class HomeTab extends StatelessWidget {
                   ),
                 ],
               ),
-             const SizedBox(
+              const SizedBox(
                 height: 8,
               ),
-            const  SakanListView(),
-            const  SizedBox(
+              const LowestPriceListView(),
+              const SizedBox(
                 height: 10,
               ),
-            const  Row(
+              const Row(
                 children: [
                   Text('الاعلي تقييماً'),
                   Spacer(),
@@ -268,14 +267,14 @@ class HomeTab extends StatelessWidget {
                   ),
                 ],
               ),
-             const SizedBox(
+              const SizedBox(
                 height: 8,
               ),
-            const  SakanListView(),
-            const  SizedBox(
+              const SakanListView(),
+              const SizedBox(
                 height: 10,
               ),
-            const  Row(
+              const Row(
                 children: [
                   Text('عروض مميزة'),
                   Spacer(),
@@ -285,10 +284,10 @@ class HomeTab extends StatelessWidget {
                   ),
                 ],
               ),
-             const SizedBox(
+              const SizedBox(
                 height: 8,
               ),
-            const  SakanListView(),
+              const SakanListView(),
               // ApartmentCard()
             ]),
           ),
