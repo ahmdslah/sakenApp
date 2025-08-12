@@ -221,10 +221,10 @@ class HomeTab extends StatelessWidget {
                 height: 10,
               ),
               const RenteringListView(),
-             const SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-             const Row(
+              const Row(
                 children: [
                   Text('المستأجرين'),
                   Spacer(),
@@ -234,14 +234,14 @@ class HomeTab extends StatelessWidget {
                   ),
                 ],
               ),
-             const SizedBox(
+              const SizedBox(
                 height: 8,
               ),
-             const TenantsListView(),
-            const  SizedBox(
+              const TenantsListView(),
+              const SizedBox(
                 height: 10,
               ),
-             const Row(
+              const Row(
                 children: [
                   Text('الاقل سعراً'),
                   Spacer(),
@@ -251,14 +251,14 @@ class HomeTab extends StatelessWidget {
                   ),
                 ],
               ),
-             const SizedBox(
+              const SizedBox(
                 height: 8,
               ),
-            const  SakanListView(),
-            const  SizedBox(
+              const SakanListView(),
+              const SizedBox(
                 height: 10,
               ),
-            const  Row(
+              const Row(
                 children: [
                   Text('الاعلي تقييماً'),
                   Spacer(),
@@ -268,14 +268,14 @@ class HomeTab extends StatelessWidget {
                   ),
                 ],
               ),
-             const SizedBox(
+              const SizedBox(
                 height: 8,
               ),
-            const  SakanListView(),
-            const  SizedBox(
+              const SakanListView(),
+              const SizedBox(
                 height: 10,
               ),
-            const  Row(
+              const Row(
                 children: [
                   Text('عروض مميزة'),
                   Spacer(),
@@ -285,10 +285,10 @@ class HomeTab extends StatelessWidget {
                   ),
                 ],
               ),
-             const SizedBox(
+              const SizedBox(
                 height: 8,
               ),
-            const  SakanListView(),
+              const SakanListView(),
               // ApartmentCard()
             ]),
           ),
@@ -304,5 +304,9 @@ Future<String> getUsername() async {
       await FirebaseFirestore.instance.collection('users').doc(uid).get();
 
   String? name = userDoc.data()?['userName'];
-  return name!;
+  if (name != null) {
+    return name;
+  } else {
+    return "";
+  }
 }

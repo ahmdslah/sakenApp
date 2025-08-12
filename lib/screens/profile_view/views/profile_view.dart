@@ -21,9 +21,6 @@ class ProfileView extends StatefulWidget {
 }
 
 class _ProfileViewState extends State<ProfileView> {
-  final currentUser = FirebaseAuth.instance.currentUser!;
-  final userCollections = FirebaseFirestore.instance.collection('users');
-
   Future<void> editField(String field) async {
     String newValue = "";
     await showDialog(
@@ -67,10 +64,6 @@ class _ProfileViewState extends State<ProfileView> {
                 ),
               ],
             ));
-
-    if (newValue.trim().isNotEmpty) {
-      await userCollections.doc(currentUser.uid).update({field: newValue});
-    }
   }
 
   @override
@@ -81,155 +74,122 @@ class _ProfileViewState extends State<ProfileView> {
           BlocProvider(create: (_) => ImagePickerCubit()),
         ],
         child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: font1,
-            centerTitle: true,
-            title: const Text(
-              'Profile page',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w500,
+            appBar: AppBar(
+              backgroundColor: font1,
+              centerTitle: true,
+              title: const Text(
+                'Profile page',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
-          ),
-          body: StreamBuilder<DocumentSnapshot>(
-            stream: FirebaseFirestore.instance
-                .collection('users')
-                .doc(currentUser.uid)
-                .snapshots(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                final userData =
-                    snapshot.data!.data() as Map<String, dynamic>? ?? {};
-                return BlocBuilder<ProfileEditCubit, ProfileEditState>(
-                  builder: (context, state) {
-                    final cubit = context.read<ProfileEditCubit>();
-
-                    return SingleChildScrollView(
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 25, left: 25),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const SizedBox(
-                              height: 40,
-                            ),
-                            const CustomImageProfile(),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Center(
-                              child: Text(
-                                currentUser.email!,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(color: Colors.grey[700]),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 50,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                TextButton(
-                                    onPressed: () {
-                                      Navigator.pushNamed(
-                                          context, Routes.editInfo);
-                                    },
-                                    child: const Text(
-                                      "تعديل المعلومات",
-                                      style: TextStyle(
-                                          fontSize: 25,
-                                          color: Color(0xff005555)),
-                                    )),
-                                TextButton(
-                                    onPressed: () {
-                                      Navigator.pushNamed(
-                                          context, Routes.settings);
-                                    },
-                                    child: const Text(
-                                      "الاعدادات",
-                                      style: TextStyle(
-                                          fontSize: 25,
-                                          color: Color(0xff005555)),
-                                    )),
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 50,
-                            ),
-                            Text(
-                              'تغيير اسم المستخدم',
-                              style: TextStyle(color: Colors.grey[900]),
-                            ),
-                            MyTextBox(
-                              text: userData['userName'] ?? 'No username',
-                              sectionName: 'اسم المستخدم',
-                              onPressed: () => editField('userName'),
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            Text(
-                              'تغيير كلمة المرور',
-                              style: TextStyle(
-                                color: Colors.grey[900],
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            CustomTextField(
-                              hintText: 'كلمة المرور القديمه',
-                              controller: cubit.oldPasswordController,
-                              isPassword: true,
-                              fieldKey: 'oldPassword',
-                            ),
-                            const SizedBox(
-                              height: 15,
-                            ),
-                            CustomTextField(
-                              hintText: 'كلمة المرور الجديده',
-                              controller: cubit.newPasswordController,
-                              isPassword: true,
-                              fieldKey: 'newPassword',
-                            ),
-                            const SizedBox(
-                              height: 15,
-                            ),
-                            CustomTextField(
-                              hintText: 'تأكيد كلمة المرور',
-                              controller: cubit.confirmPasswordController,
-                              isPassword: true,
-                              fieldKey: 'confirmPassword',
-                            ),
-                            const SizedBox(
-                              height: 30,
-                            ),
-                            const CustomSaveEditButton(),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const CustomLogoutButton(),
-                            const SizedBox(
-                              height: 15,
-                            ),
-                          ],
-                        ),
+            body: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.only(right: 25, left: 25),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    const CustomImageProfile(),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Center(
+                      child: Text(
+                        "currentUser.email!",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.grey[700]),
                       ),
-                    );
-                  },
-                );
-              } else if (snapshot.hasError) {
-                return Center(
-                  child: Text('Erorr${snapshot.error}'),
-                );
-              }
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            },
-          ),
-        ));
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, Routes.editInfo);
+                            },
+                            child: const Text(
+                              "تعديل المعلومات",
+                              style: TextStyle(
+                                  fontSize: 25, color: Color(0xff005555)),
+                            )),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, Routes.settings);
+                            },
+                            child: const Text(
+                              "الاعدادات",
+                              style: TextStyle(
+                                  fontSize: 25, color: Color(0xff005555)),
+                            )),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    Text(
+                      'تغيير اسم المستخدم',
+                      style: TextStyle(color: Colors.grey[900]),
+                    ),
+                    MyTextBox(
+                      text: 'userName',
+                      sectionName: 'اسم المستخدم',
+                      onPressed: () => editField('userName'),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      'تغيير كلمة المرور',
+                      style: TextStyle(
+                        color: Colors.grey[900],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    CustomTextField(
+                      hintText: 'كلمة المرور القديمه',
+                      isPassword: true,
+                      fieldKey: 'oldPassword',
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    CustomTextField(
+                      hintText: 'كلمة المرور الجديده',
+                      isPassword: true,
+                      fieldKey: 'newPassword',
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    CustomTextField(
+                      hintText: 'تأكيد كلمة المرور',
+                      isPassword: true,
+                      fieldKey: 'confirmPassword',
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    const CustomSaveEditButton(),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const CustomLogoutButton(),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                  ],
+                ),
+              ),
+            )));
   }
 }
