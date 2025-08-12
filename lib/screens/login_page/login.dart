@@ -25,17 +25,16 @@ class Login extends StatelessWidget {
     return BlocListener<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginnErorr) {
-         WidgetsBinding.instance.addPostFrameCallback((_) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(state.error),
-            backgroundColor: Colors.red,
-          ),
-        );
-      });
-        }
-        else if (state is LoginnSuccess){
-           Get.snackbar(
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.error),
+                backgroundColor: Colors.red,
+              ),
+            );
+          });
+        } else if (state is LoginnSuccess) {
+          Get.snackbar(
             "Success",
             'تم تسجيل الدخول بنجاح',
             backgroundColor: Colors.green,

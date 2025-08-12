@@ -22,13 +22,15 @@ final class SigningOutLoading extends LoginState {}
 final class SigningOutSuccess extends LoginState {}
 
 final class LoginnLoading extends LoginState {}
+
 final class LoginnSuccess extends LoginState {
   final SignInModel model;
 
   LoginnSuccess(this.model);
 }
+
 final class LoginnErorr extends LoginState {
-   final String error;
+  final String error;
 
   LoginnErorr(this.error);
 }

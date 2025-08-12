@@ -1,17 +1,13 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:saken_mobile/const/Routes.dart';
+import 'package:get/state_manager.dart';
 import 'package:saken_mobile/const/const.dart';
-import 'package:saken_mobile/screens/profile_view/cubit/image_picker_cubit.dart';
-import 'package:saken_mobile/screens/profile_view/cubit/profile_edit_cubit.dart';
-import 'package:saken_mobile/screens/profile_view/widgets/custom_image_profile.dart';
-import 'package:saken_mobile/screens/profile_view/widgets/custom_logout_button.dart';
-import 'package:saken_mobile/screens/profile_view/widgets/custom_save_edit_button.dart';
-import 'package:saken_mobile/screens/profile_view/widgets/custom_text_field.dart';
-import 'package:saken_mobile/screens/profile_view/widgets/text_box.dart';
+import 'package:saken_mobile/screens/profile_view/views/all_offerd_accomodation.dart';
+import 'package:saken_mobile/screens/profile_view/widgets/offerd_accomodation_in_profile.dart';
+import 'package:saken_mobile/screens/profile_view/widgets/person_details_in_profile.dart';
+import 'package:saken_mobile/screens/profile_view/widgets/profile_button.dart';
+import 'package:saken_mobile/screens/profile_view/widgets/profile_rate.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({super.key});
@@ -21,175 +17,290 @@ class ProfileView extends StatefulWidget {
 }
 
 class _ProfileViewState extends State<ProfileView> {
-  Future<void> editField(String field) async {
-    String newValue = "";
-    await showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-              backgroundColor: Colors.grey[900],
-              title: Text(
-                'Edit$field',
-                style: const TextStyle(color: Colors.white),
-              ),
-              content: TextField(
-                autofocus: true,
-                style: const TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                  hintText: 'Enter new $field',
-                  hintStyle: const TextStyle(color: Colors.grey),
-                ),
-                onChanged: (value) {
-                  newValue = value;
-                  setState(() {});
-                },
-              ),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  child: const Text(
-                    'Cancel',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop(newValue);
-                  },
-                  child: const Text(
-                    'Save',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ],
-            ));
-  }
-
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-        providers: [
-          BlocProvider(create: (_) => ProfileEditCubit()),
-          BlocProvider(create: (_) => ImagePickerCubit()),
-        ],
-        child: Scaffold(
-            appBar: AppBar(
-              backgroundColor: font1,
-              centerTitle: true,
-              title: const Text(
-                'Profile page',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
+    return Scaffold(
+      appBar: AppBar(),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Center(
+                  child: CircleAvatar(
+                    radius: 50,
+                    backgroundImage: AssetImage(
+                      'assets/images/profile profile.jpg',
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            body: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.only(right: 25, left: 25),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                const SizedBox(
+                  height: 10,
+                ),
+                const Center(
+                  child: Text(
+                    'مؤجر',
+                    style: TextStyle(
+                      color: Color(0xff4C4C4C),
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(
-                      height: 40,
+                    ProfileRate(
+                      color: Colors.amber,
+                      icon: CupertinoIcons.star_fill,
                     ),
-                    const CustomImageProfile(),
-                    const SizedBox(
-                      height: 10,
+                    ProfileRate(
+                      color: Colors.amber,
+                      icon: CupertinoIcons.star_fill,
                     ),
-                    Center(
-                      child: Text(
-                        "currentUser.email!",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.grey[700]),
-                      ),
+                    ProfileRate(
+                      color: Colors.amber,
+                      icon: CupertinoIcons.star_fill,
                     ),
-                    const SizedBox(
-                      height: 50,
+                    ProfileRate(
+                      color: Colors.amber,
+                      icon: CupertinoIcons.star_fill,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, Routes.editInfo);
-                            },
-                            child: const Text(
-                              "تعديل المعلومات",
-                              style: TextStyle(
-                                  fontSize: 25, color: Color(0xff005555)),
-                            )),
-                        TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, Routes.settings);
-                            },
-                            child: const Text(
-                              "الاعدادات",
-                              style: TextStyle(
-                                  fontSize: 25, color: Color(0xff005555)),
-                            )),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    Text(
-                      'تغيير اسم المستخدم',
-                      style: TextStyle(color: Colors.grey[900]),
-                    ),
-                    MyTextBox(
-                      text: 'userName',
-                      sectionName: 'اسم المستخدم',
-                      onPressed: () => editField('userName'),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                      'تغيير كلمة المرور',
-                      style: TextStyle(
-                        color: Colors.grey[900],
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    CustomTextField(
-                      hintText: 'كلمة المرور القديمه',
-                      isPassword: true,
-                      fieldKey: 'oldPassword',
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    CustomTextField(
-                      hintText: 'كلمة المرور الجديده',
-                      isPassword: true,
-                      fieldKey: 'newPassword',
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    CustomTextField(
-                      hintText: 'تأكيد كلمة المرور',
-                      isPassword: true,
-                      fieldKey: 'confirmPassword',
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    const CustomSaveEditButton(),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const CustomLogoutButton(),
-                    const SizedBox(
-                      height: 15,
+                    ProfileRate(
+                      icon: CupertinoIcons.star,
+                      color: Colors.grey,
                     ),
                   ],
                 ),
-              ),
-            )));
+                const SizedBox(
+                  height: 7,
+                ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ProfileButton(
+                      text: 'اضافة سكن جديد',
+                    ),
+                    ProfileButton(
+                      text: 'تعديل الملف الشخصي',
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                const Text(
+                  'نبذة عني',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                const Text(
+                  'السلام عليكم انا اسلام عيسي مدرس مدرسة الثانوية بنات بالاسكندرية متزوج ومعي طفلين ........',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 12,
+                  ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    PersonDetailsInProfile(
+                      text1: 'الوظيفة',
+                      text2: 'مدرس',
+                    ),
+                    PersonDetailsInProfile(
+                      text1: 'السكن المعروض',
+                      text2: '5',
+                    ),
+                    PersonDetailsInProfile(
+                      text1: 'مكان السكن',
+                      text2: 'الاسكندرية',
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                const Text('السكن المعروض'),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    OfferdAccomodationInProfilee(),
+                    OfferdAccomodationInProfilee(),
+                    OfferdAccomodationInProfilee(),
+                  ],
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: [
+                    Spacer(),
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(AllOfferdAccomodation());
+                      },
+                      child: Text(
+                        'مشاهدة الكل',
+                        style: TextStyle(
+                          color: Color(0xff4C4C4C),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                Row(
+                  children: [
+                    const Text('الاراء'),
+                    const SizedBox(
+                      width: 7,
+                    ),
+                    ProfileRate(
+                      icon: CupertinoIcons.star_fill,
+                      color: Colors.amber,
+                    ),
+                    ProfileRate(
+                      icon: CupertinoIcons.star_fill,
+                      color: Colors.amber,
+                    ),
+                    ProfileRate(
+                      icon: CupertinoIcons.star_fill,
+                      color: Colors.amber,
+                    ),
+                    ProfileRate(
+                      icon: CupertinoIcons.star_fill,
+                      color: Colors.amber,
+                    ),
+                    ProfileRate(
+                      icon: CupertinoIcons.star_fill,
+                      color: Colors.amber,
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: [
+                    const CircleAvatar(
+                      backgroundImage: AssetImage('assets/images/profile.jpg'),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: SizedBox(
+                        height: 42,
+                        child: TextFormField(
+                          onTapOutside: (event) {
+                            FocusManager.instance.primaryFocus!.unfocus();
+                          },
+                          decoration: InputDecoration(
+                            hintText: 'اضف تعليق',
+                            hintStyle: const TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                                borderSide: const BorderSide(
+                                  color: kPrimaryColor,
+                                )),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: const BorderSide(
+                                color: kPrimaryColor,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  children: [
+                    const CircleAvatar(
+                      backgroundImage: AssetImage('assets/images/profile1.jpg'),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          border: Border.all(color: kPrimaryColor),
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.only(
+                            top: 15,
+                            right: 15,
+                            left: 15,
+                            bottom: 10,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'محمد : مستاجر',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 7,
+                              ),
+                              Text(
+                                'شخص محترم',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Spacer(),
+                                  Text(
+                                    '12:00 Am',
+                                    style: TextStyle(
+                                      fontSize: 9,
+                                      color: Color(0xff878787),
+                                    ),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -16,7 +16,7 @@ class HousingProfileCosts extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
-                  color:const Color(0xffFFA500),
+                  color: const Color(0xffFFA500),
                 )),
             child: const Padding(
               padding: EdgeInsets.all(8.0),
@@ -46,7 +46,7 @@ class HousingProfileCosts extends StatelessWidget {
               ),
             ),
           ),
-         const SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Container(
@@ -55,9 +55,9 @@ class HousingProfileCosts extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
                 border: Border.all(
-                  color:const Color(0xffFFA500),
+                  color: const Color(0xffFFA500),
                 )),
-            child:const Center(
+            child: const Center(
               child: Text(
                 'المجموع : 15000 ج.م',
                 style: TextStyle(

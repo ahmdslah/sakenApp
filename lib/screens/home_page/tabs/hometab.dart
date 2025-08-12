@@ -6,9 +6,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saken_mobile/New%20Screens/home/widgets/menue_drawer.dart';
 import 'package:saken_mobile/const/const%20widgets/category.dart';
 import 'package:saken_mobile/const/const.dart';
-import 'package:saken_mobile/screens/home_page/widgets/rentering_details_in_home.dart';
+import 'package:saken_mobile/screens/home_page/widgets/active_offer_list_view.dart';
+import 'package:saken_mobile/screens/home_page/widgets/higest_price_list_view.dart';
+import 'package:saken_mobile/screens/home_page/widgets/lowest_price_list_view.dart';
 import 'package:saken_mobile/screens/home_page/widgets/rentering_list_view.dart';
-import 'package:saken_mobile/screens/home_page/widgets/sakan_details_in_home.dart';
 import 'package:saken_mobile/screens/home_page/widgets/sakan_list_view.dart';
 import 'package:saken_mobile/screens/home_page/widgets/tenants_list_view.dart';
 
@@ -254,7 +255,11 @@ class HomeTab extends StatelessWidget {
               const SizedBox(
                 height: 8,
               ),
+<<<<<<< HEAD
               const SakanListView(),
+=======
+              const LowestPriceListView(),
+>>>>>>> e4893c23dfe0bac82ec7d1c284eb5bf3b917ae67
               const SizedBox(
                 height: 10,
               ),
@@ -271,7 +276,11 @@ class HomeTab extends StatelessWidget {
               const SizedBox(
                 height: 8,
               ),
+<<<<<<< HEAD
               const SakanListView(),
+=======
+              const HigestPriceListView(),
+>>>>>>> e4893c23dfe0bac82ec7d1c284eb5bf3b917ae67
               const SizedBox(
                 height: 10,
               ),
@@ -288,7 +297,11 @@ class HomeTab extends StatelessWidget {
               const SizedBox(
                 height: 8,
               ),
+<<<<<<< HEAD
               const SakanListView(),
+=======
+              const ActiveOfferListView(),
+>>>>>>> e4893c23dfe0bac82ec7d1c284eb5bf3b917ae67
               // ApartmentCard()
             ]),
           ),

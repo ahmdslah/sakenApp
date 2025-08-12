@@ -1,14 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:saken_mobile/const/const.dart';
-import 'package:saken_mobile/screens/home_page/models/sakan_model/sakan_model.dart';
+import 'package:saken_mobile/screens/home_page/models/higest_price_model/higest_price_model.dart';
 
-class SakanDetailsInHome extends StatelessWidget {
-  const SakanDetailsInHome({
-    super.key,
-    required this.item,
-  });
-  final SakanModel item;
+class HigestPrice extends StatelessWidget {
+  const HigestPrice({super.key, required this.item});
+  final HigestPriceModel item;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -112,13 +109,13 @@ class SakanDetailsInHome extends StatelessWidget {
             const SizedBox(
               height: 8,
             ),
-            Row(
+            const Row(
               children: [
-                Icon(Icons.bed_outlined),
-                SizedBox(
-                  width: 5,
-                ),
-                Text('${item.floor} غرفة'),
+                // Icon(Icons.bed_outlined),
+                // SizedBox(
+                //   width: 5,
+                // ),
+                // Text('2 غرفة'),
                 Spacer(),
                 Icon(
                   Icons.bookmark,

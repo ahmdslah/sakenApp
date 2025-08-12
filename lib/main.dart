@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saken_mobile/New%20Screens/New%20Signup/views/new_sign_up.dart';
-import 'package:saken_mobile/New%20Screens/housing%20profile%20screen/views/housing_profile_screen.dart';
 import 'package:saken_mobile/const/routes.dart';
 import 'package:saken_mobile/masken/masaken_details.dart';
 import 'package:saken_mobile/saken_cubit/form_cubit/custom_form_cubit.dart';
@@ -14,6 +13,10 @@ import 'package:saken_mobile/screens/New%20pass%20Screen/helpers/dio_helper.dart
 import 'package:saken_mobile/screens/New%20pass%20Screen/views/new_pass_screen.dart';
 import 'package:saken_mobile/screens/Reset%20pass/views/reset_pass.dart';
 import 'package:saken_mobile/screens/Success%20Screen/views/success_screen.dart';
+import 'package:saken_mobile/screens/home_page/cubit/active_offer_cubit.dart';
+import 'package:saken_mobile/screens/home_page/cubit/higest_price_cubit.dart';
+import 'package:saken_mobile/screens/home_page/cubit/lowest_price_cubit.dart';
+import 'package:saken_mobile/screens/home_page/cubit/sakan_cubit.dart';
 import 'package:saken_mobile/screens/home_page/screen/home_screen.dart';
 import 'package:saken_mobile/screens/login_page/cubit/login_cubit.dart';
 import 'package:saken_mobile/screens/login_page/login.dart';
@@ -54,6 +57,18 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => CustomFormCubit(),
+        ),
+        BlocProvider(
+          create: (context) => LowestPriceCubit()..getItems(),
+        ),
+        BlocProvider(
+          create: (context) => HigestPriceCubit()..getItems(),
+        ),
+        BlocProvider(
+          create: (context) => SakanCubit()..getItems(),
+        ),
+          BlocProvider(
+          create: (context) => ActiveOfferCubit()..getItems(),
         ),
       ],
       child: GetMaterialApp(
