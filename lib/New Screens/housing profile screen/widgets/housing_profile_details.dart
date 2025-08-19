@@ -103,7 +103,7 @@ class _HousingProfileDetailsState extends State<HousingProfileDetails> {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
         Container(
@@ -111,7 +111,7 @@ class _HousingProfileDetailsState extends State<HousingProfileDetails> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-              color: Color(0xffFFA500),
+              color: const Color(0xffFFA500),
             ),
           ),
           child: Padding(
@@ -119,27 +119,27 @@ class _HousingProfileDetailsState extends State<HousingProfileDetails> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   'المستأجرين المستهدفين',
                   style: TextStyle(
                     color: Color(0xff378B48),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                BasicInformation(text: 'أفراد / أسر - نوعهم'),
-                SizedBox(
+                const BasicInformation(text: 'أفراد / أسر - نوعهم'),
+                const SizedBox(
                   height: 10,
                 ),
-                BasicInformation(text: 'التقييم'),
-                SizedBox(
+                const BasicInformation(text: 'التقييم'),
+                const SizedBox(
                   height: 10,
                 ),
                 if (isExpanded2) ...[
-                  BasicInformation(text: 'وصف العميل'),
-                  SizedBox(
+                  const BasicInformation(text: 'وصف العميل'),
+                  const SizedBox(
                     height: 10,
                   ),
                   Container(
@@ -148,7 +148,7 @@ class _HousingProfileDetailsState extends State<HousingProfileDetails> {
                       borderRadius: BorderRadius.circular(5),
                       color: const Color(0xffF8F8F8),
                     ),
-                    child: Padding(
+                    child: const Padding(
                       padding: EdgeInsets.all(7),
                       child: Wrap(
                         children: [
@@ -223,26 +223,26 @@ class _HousingProfileDetailsState extends State<HousingProfileDetails> {
             )
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
-        CommentDetails(
+        const CommentDetails(
           text: 'مستأجر - باحث',
           detail: 'شقة جيدة ولكن غالية',
           rate: '4.5',
         ),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
-        CommentDetails(
+        const CommentDetails(
           text: 'مؤجر - سمسار يؤجر السكن فقط',
           detail: 'شقة جيدة ومريحة',
           rate: '5',
         ),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
-        CommentDetails(
+        const CommentDetails(
           text: 'مستأجر - ساكن',
           detail: 'شقة كويسة بس في الدور السادس ومفيش أسانسير',
           rate: '4',

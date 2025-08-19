@@ -1,71 +1,33 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
-
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
+import 'package:saken_mobile/core/api/api_consumer.dart';
+import 'package:saken_mobile/core/api/end_points.dart';
+import 'package:saken_mobile/core/cache/cache_helper.dart';
 import 'package:saken_mobile/screens/New%20pass%20Screen/helpers/dio_helper.dart';
 import 'package:saken_mobile/screens/home_page/screen/home_screen.dart';
-import 'package:saken_mobile/screens/login_page/login.dart';
 import 'package:saken_mobile/screens/login_page/models/sign_in_model.dart';
 
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   SignInModel? model;
-  LoginCubit() : super(LoginInitial());
+  LoginCubit(this.api) : super(LoginInitial());
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  final ApiConsumer api;
 
-  void signIn({
-    required BuildContext context,
-    required String email,
-    required String password,
-  }) async {
-    emit(LoginLoading());
-    try {
-      if (email == 'admin@saken.com' && password == 'admin1234') {
-        final credential = await FirebaseAuth.instance
-            .signInWithEmailAndPassword(email: email, password: password);
-        emit(LoginAdminSuccess());
-      } else {
-        final credential = await FirebaseAuth.instance
-            .signInWithEmailAndPassword(email: email, password: password);
-        emit(LoginUserSuccess());
-      }
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        emit(LoginFaild(errMessage: 'No user found for that email.'));
-
-        print('No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        emit(LoginFaild(errMessage: 'Wrong password provided for that user.'));
-
-        print('Wrong password provided for that user.');
-      }
-    } catch (ex) {
-      emit(LoginFaild(errMessage: 'Couldnt signin please try again later'));
-    }
-  }
-
-  void signOut() async {
-    emit(SigningOutLoading());
-    GoogleSignIn().disconnect();
-    FirebaseAuth.instance.signOut();
-    emit(SigningOutSuccess());
-    Get.offAll(Login());
-  }
-
+  String? token;
   void clearFields() {
     emailController.clear();
     passwordController.clear();
   }
 
   void login({required String email, required String password}) async {
-    emit(LoginnLoading());
+    emit(LoginLoading());
     try {
       final response = await DioHelper.postUrls(
         Url: 'Auth/Login',
@@ -75,10 +37,11 @@ class LoginCubit extends Cubit<LoginState> {
           'role': 'Owner',
         },
       );
-
       print('Response Status Code: ${response.statusCode}');
       print('Response Data: ${response.data}');
-
+      token = response.data[ApiKeys.token];
+      saveToken(token!);
+      print("===== Token Is: $token");
       if (response.data is! Map<String, dynamic>) {
         throw Exception('Invalid response format');
       }
@@ -88,7 +51,7 @@ class LoginCubit extends Cubit<LoginState> {
       if (response.statusCode == 200 &&
           responseData["isAuthenticated"] == true) {
         model = SignInModel.fromJson(responseData);
-        Get.offAll(HomeScreen());
+        Get.offAll(() => const HomeScreen());
         emit(LoginnSuccess(model!));
       } else {
         final msg = responseData["message"] ??
@@ -111,5 +74,9 @@ class LoginCubit extends Cubit<LoginState> {
       print('Unexpected Error: $e');
       emit(LoginnErorr('البريد الإلكتروني أو كلمة المرور غير صحيحة'));
     }
+  }
+
+  saveToken(String token) {
+    CacheHelper().saveData(key: "token", value: token);
   }
 }

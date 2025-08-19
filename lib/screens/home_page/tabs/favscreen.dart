@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:saken_mobile/const/const%20widgets/custom_form_field.dart';
 import 'package:saken_mobile/const/const.dart';
 import 'package:saken_mobile/screens/home_page/TabBarWidgets/renterwidget.dart';
 import 'package:saken_mobile/screens/home_page/TabBarWidgets/sakanwidget.dart';
@@ -136,7 +135,7 @@ class _FavTabState extends State<FavTab> {
                     child: TabBarView(
                         physics: const NeverScrollableScrollPhysics(),
                         children: [
-                          sakanwidget(fav: true),
+                          const sakanwidget(fav: true),
                           RenterWidget(fav: true),
                           tenantwidget(fav: true)
                         ])),

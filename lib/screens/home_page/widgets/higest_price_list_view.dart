@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saken_mobile/screens/home_page/cubit/higest_price_cubit.dart';
-import 'package:saken_mobile/screens/home_page/cubit/lowest_price_cubit.dart';
 import 'package:saken_mobile/screens/home_page/widgets/higest_price.dart';
 
 class HigestPriceListView extends StatelessWidget {

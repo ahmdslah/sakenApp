@@ -13,7 +13,7 @@ class tenantwidget extends StatelessWidget {
           childAspectRatio: 1 / 1.8,
           mainAxisSpacing: 2,
           crossAxisSpacing: 2),
-      itemBuilder: (context, index) => UserCard(),
+      itemBuilder: (context, index) => const UserCard(),
       itemCount: usermodel.tenents.length,
     );
   }

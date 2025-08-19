@@ -3,15 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:saken_mobile/New%20Screens/home/widgets/menue_drawer.dart';
 import 'package:saken_mobile/const/const%20widgets/category.dart';
 import 'package:saken_mobile/const/const.dart';
+import 'package:saken_mobile/core/api/end_points.dart';
+import 'package:saken_mobile/core/cache/cache_helper.dart';
+import 'package:saken_mobile/core/functions/check.dart';
 import 'package:saken_mobile/screens/home_page/widgets/active_offer_list_view.dart';
 import 'package:saken_mobile/screens/home_page/widgets/higest_price_list_view.dart';
 import 'package:saken_mobile/screens/home_page/widgets/lowest_price_list_view.dart';
 import 'package:saken_mobile/screens/home_page/widgets/rentering_list_view.dart';
 import 'package:saken_mobile/screens/home_page/widgets/sakan_list_view.dart';
 import 'package:saken_mobile/screens/home_page/widgets/tenants_list_view.dart';
+import 'package:saken_mobile/screens/login_page/login.dart';
 
 class HomeTab extends StatelessWidget {
   HomeTab({super.key, this.name});
@@ -46,7 +51,11 @@ class HomeTab extends StatelessWidget {
                   ),
                   const Spacer(),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      print(CacheHelper().getData(data: ApiKeys.token));
+                      print(CheckToken().isTokenExpired(
+                          CacheHelper().getData(data: ApiKeys.token)));
+                    },
                     icon: const Icon(
                       Icons.notifications_outlined,
                       color: kPrimaryColor,
@@ -60,7 +69,15 @@ class HomeTab extends StatelessWidget {
                       Icons.more_vert,
                       color: kPrimaryColor,
                     ),
-                  )
+                  ),
+                  IconButton(
+                      onPressed: () {
+                        CacheHelper()
+                            .saveData(key: ApiKeys.token, value: "notLogin");
+                        Get.offAll(() => Login());
+                        print(CacheHelper().getData(data: ApiKeys.token));
+                      },
+                      icon: const Icon(Icons.logout)),
                 ],
               ),
               const SizedBox(
@@ -255,11 +272,7 @@ class HomeTab extends StatelessWidget {
               const SizedBox(
                 height: 8,
               ),
-<<<<<<< HEAD
-              const SakanListView(),
-=======
               const LowestPriceListView(),
->>>>>>> e4893c23dfe0bac82ec7d1c284eb5bf3b917ae67
               const SizedBox(
                 height: 10,
               ),
@@ -276,11 +289,7 @@ class HomeTab extends StatelessWidget {
               const SizedBox(
                 height: 8,
               ),
-<<<<<<< HEAD
-              const SakanListView(),
-=======
               const HigestPriceListView(),
->>>>>>> e4893c23dfe0bac82ec7d1c284eb5bf3b917ae67
               const SizedBox(
                 height: 10,
               ),
@@ -297,11 +306,7 @@ class HomeTab extends StatelessWidget {
               const SizedBox(
                 height: 8,
               ),
-<<<<<<< HEAD
-              const SakanListView(),
-=======
               const ActiveOfferListView(),
->>>>>>> e4893c23dfe0bac82ec7d1c284eb5bf3b917ae67
               // ApartmentCard()
             ]),
           ),

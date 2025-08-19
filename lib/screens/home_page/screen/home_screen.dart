@@ -1,12 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:saken_mobile/const/const.dart';
+import 'package:saken_mobile/core/api/end_points.dart';
+import 'package:saken_mobile/core/cache/cache_helper.dart';
+import 'package:saken_mobile/core/functions/check.dart';
 import 'package:saken_mobile/masken/masaken_details.dart';
 import 'package:saken_mobile/screens/home_page/tabs/favscreen.dart';
 import 'package:saken_mobile/screens/home_page/tabs/hometab.dart';
 import 'package:saken_mobile/screens/home_page/tabs/messagescreen.dart';
 import 'package:saken_mobile/screens/home_page/tabs/recomendationscreen.dart';
+import 'package:saken_mobile/screens/login_page/cubit/login_cubit.dart';
+import 'package:saken_mobile/screens/profile_view/views/not_login_profile_veiw.dart';
 import 'package:saken_mobile/screens/profile_view/views/profile_view.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -22,8 +28,10 @@ class _HomeScreenState extends State<HomeScreen> {
     HomeTab(),
     const RecommendationTab(),
     const FavTab(),
-    MessagesTab(),
-    const ProfileView(),
+    const MessagesTab(),
+    CheckToken().isTokenExpired(ApiKeys.token)
+        ? ProfileView()
+        : NotLoginProfileVeiw()
   ];
   @override
   void initState() {
@@ -46,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
           showUnselectedLabels: true,
           unselectedItemColor: Colors.grey,
           selectedItemColor: kPrimaryColor,
-          items: [
+          items: const [
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.home_outlined,

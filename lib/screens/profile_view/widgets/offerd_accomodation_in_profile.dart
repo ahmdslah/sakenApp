@@ -12,7 +12,7 @@ class OfferdAccomodationInProfilee extends StatelessWidget {
       height: 80,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(4),
-          image: DecorationImage(
+          image: const DecorationImage(
             image: AssetImage(
               'assets/images/Room.png',
             ),

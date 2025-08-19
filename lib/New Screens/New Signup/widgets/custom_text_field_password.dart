@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CustomTextFieldPassword extends StatelessWidget {
-  const CustomTextFieldPassword({super.key});
+class CustomTextField extends StatelessWidget {
+  String hint;
+  TextEditingController? controller;
+
+  CustomTextField({super.key, required this.hint, this.controller}) {
+    hint = hint;
+    controller = controller;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -10,8 +16,8 @@ class CustomTextFieldPassword extends StatelessWidget {
         FocusManager.instance.primaryFocus!.unfocus();
       },
       decoration: InputDecoration(
-          hintText: 'كلمة المرور',
-          hintStyle: TextStyle(
+          hintText: hint,
+          hintStyle: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w400,
             color: Colors.grey,
@@ -28,6 +34,7 @@ class CustomTextFieldPassword extends StatelessWidget {
               color: Colors.grey,
             ),
           )),
+      controller: controller,
     );
   }
 }

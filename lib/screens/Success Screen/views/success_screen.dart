@@ -17,10 +17,10 @@ class SuccessScreen extends StatelessWidget {
             Center(
               child: Image.asset('assets/images/success.png'),
             ),
-            SizedBox(
+            const SizedBox(
               height: 70,
             ),
-            Text(
+            const Text(
               'تم تغيير كلمة المرور بنجاح',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -28,7 +28,7 @@ class SuccessScreen extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            SuccessButton(),
+            const SuccessButton(),
           ],
         ),
       ),

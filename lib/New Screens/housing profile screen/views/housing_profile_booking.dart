@@ -28,7 +28,7 @@ class _HousingProfileBookingState extends State<HousingProfileBooking> {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
-                  color: Color(0xffFFA500),
+                  color: const Color(0xffFFA500),
                 )),
             child: const Padding(
               padding: EdgeInsets.only(right: 7, top: 5, bottom: 10),
@@ -62,7 +62,7 @@ class _HousingProfileBookingState extends State<HousingProfileBooking> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           const Center(
@@ -103,12 +103,12 @@ class _HousingProfileBookingState extends State<HousingProfileBooking> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
               border: Border.all(
-                color: Color(0xff378B48),
+                color: const Color(0xff378B48),
               ),
             ),
             child: Center(
               child: Text(
-                '${_dates.isNotEmpty && _dates.first != null ? _dates.first!.day.toString() + '/' + _dates.first!.month.toString() : 'لم يتم التحديد'} - $_selectedHour:00 $_selectedAmPm',
+                '${_dates.isNotEmpty && _dates.first != null ? '${_dates.first!.day}/${_dates.first!.month}' : 'لم يتم التحديد'} - $_selectedHour:00 $_selectedAmPm',
                 style: const TextStyle(
                   color: Color(0xff378B48),
                 ),
@@ -118,16 +118,16 @@ class _HousingProfileBookingState extends State<HousingProfileBooking> {
           const SizedBox(
             height: 20,
           ),
-          Divider(),
+          const Divider(),
           const SizedBox(
             height: 20,
           ),
-          ChooseBookingDuration(),
-          SizedBox(
+          const ChooseBookingDuration(),
+          const SizedBox(
             height: 20,
           ),
-          Divider(),
-          SizedBox(
+          const Divider(),
+          const SizedBox(
             height: 20,
           ),
           const Text(
@@ -137,7 +137,7 @@ class _HousingProfileBookingState extends State<HousingProfileBooking> {
               color: Color(0xff378B48),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           SizedBox(
@@ -148,18 +148,18 @@ class _HousingProfileBookingState extends State<HousingProfileBooking> {
               },
               decoration: InputDecoration(
                   hintText: 'الاسم كامل',
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     color: Colors.grey,
                     fontSize: 14,
                   ),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Colors.grey,
                       ))),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           SizedBox(
@@ -169,20 +169,20 @@ class _HousingProfileBookingState extends State<HousingProfileBooking> {
                 FocusManager.instance.primaryFocus!.unfocus();
               },
               decoration: InputDecoration(
-                  suffixIcon: Icon(Icons.phone_outlined),
+                  suffixIcon: const Icon(Icons.phone_outlined),
                   hintText: 'رقم الهاتف',
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     color: Colors.grey,
                     fontSize: 14,
                   ),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Colors.grey,
                       ))),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           GestureDetector(
@@ -194,9 +194,9 @@ class _HousingProfileBookingState extends State<HousingProfileBooking> {
               height: 50,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(3),
-                color: Color(0xff378B48),
+                color: const Color(0xff378B48),
               ),
-              child: Center(
+              child: const Center(
                 child: Text(
                   'إرسال طلب المعاينة',
                   style: TextStyle(

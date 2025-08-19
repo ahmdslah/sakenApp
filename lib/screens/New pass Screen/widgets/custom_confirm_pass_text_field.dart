@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:saken_mobile/screens/Reset%20pass/cubit/reset_cubit.dart';
 
 class CustomConfirmPassTextField extends StatelessWidget {
   const CustomConfirmPassTextField({super.key});
@@ -9,6 +11,7 @@ class CustomConfirmPassTextField extends StatelessWidget {
       onTapOutside: (event) {
         FocusManager.instance.primaryFocus!.unfocus();
       },
+      controller: context.read<ResetCubit>().confirmPassword,
       decoration: InputDecoration(
         hintText: 'تاكيد كلمة المرور',
         enabledBorder: OutlineInputBorder(

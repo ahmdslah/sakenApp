@@ -135,7 +135,7 @@ class _FavTabState extends State<RecommendationTab> {
                     child: TabBarView(
                         physics: const NeverScrollableScrollPhysics(),
                         children: [
-                          sakanwidget(fav: false),
+                          const sakanwidget(fav: false),
                           RenterWidget(fav: false),
                           tenantwidget(fav: false)
                         ])),

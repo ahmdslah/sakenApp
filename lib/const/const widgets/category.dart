@@ -11,7 +11,7 @@ class Category extends StatelessWidget {
       height: 48,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Color(0xffF8F8F8),
+        color: const Color(0xffF8F8F8),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -21,14 +21,14 @@ class Category extends StatelessWidget {
             Icon(
               icon,
               size: 20,
-              color: Color(0xffA5A5A5),
+              color: const Color(0xffA5A5A5),
             ),
-            SizedBox(
+            const SizedBox(
               width: 8,
             ),
             Text(
               catName!,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Color(0xffA5A5A5),
               ),
             )

@@ -15,7 +15,7 @@ class MasakenDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(color: font1),
+        leading: const BackButton(color: font1),
         title: Text(
           'شقة دور تالت الحي السادس',
           style: TextStyle(
@@ -73,8 +73,8 @@ class MasakenDetails extends StatelessWidget {
             const SizedBox(height: 10),
 
             // العنوان الكامل
-            Row(
-              children: const [
+            const Row(
+              children: [
                 Icon(Icons.location_on_outlined, color: Colors.grey),
                 SizedBox(width: 5),
                 Expanded(child: Text('الحي السادس، مدينة نصر، القاهرة'))
@@ -83,8 +83,8 @@ class MasakenDetails extends StatelessWidget {
             const SizedBox(height: 10),
 
             // المساحة
-            Row(
-              children: const [
+            const Row(
+              children: [
                 Icon(Icons.square_foot, color: Colors.grey),
                 SizedBox(width: 5),
                 Text('المساحة: 160 متر'),
@@ -93,8 +93,8 @@ class MasakenDetails extends StatelessWidget {
             const SizedBox(height: 10),
 
             // عدد الغرف والحمامات
-            Row(
-              children: const [
+            const Row(
+              children: [
                 Icon(Icons.bed, color: Colors.grey),
                 SizedBox(width: 5),
                 Text('3 غرف نوم'),
@@ -107,8 +107,8 @@ class MasakenDetails extends StatelessWidget {
             const SizedBox(height: 10),
 
             // السعر
-            Row(
-              children: const [
+            const Row(
+              children: [
                 Icon(Icons.monetization_on_outlined, color: Colors.grey),
                 SizedBox(width: 5),
                 Text('الإيجار الشهري: 5000 جنيه'),

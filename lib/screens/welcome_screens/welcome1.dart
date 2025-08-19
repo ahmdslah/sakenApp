@@ -10,7 +10,7 @@ class Welcome1 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(actions: [
         TextButton(
-          child: Text("تخطي"),
+          child: const Text("تخطي"),
           onPressed: () {
             Navigator.popAndPushNamed(context, Routes.login);
           },
@@ -22,7 +22,7 @@ class Welcome1 extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset("assets/images/welcome1.jpg"),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
@@ -35,28 +35,28 @@ class Welcome1 extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               "تطبيق ساكن يرحب بكم",
               style: TextStyle(color: font1, fontSize: 18),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            Text(
+            const Text(
               "اعثر علي سكن مناسب",
               style: TextStyle(fontSize: 16, color: font2),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 14),
                 "قم بالتصفية حسب الأثاث والموقع و نوع الكسن مفروش ام لا والسعر وتواصل مع المؤجر بشكل مباشر!"),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Padding(
@@ -72,7 +72,7 @@ class Welcome1 extends StatelessWidget {
                             Navigator.pushReplacementNamed(
                                 context, Routes.welcome2);
                           },
-                          child: Text(
+                          child: const Text(
                             "التالي",
                             style: TextStyle(color: Colors.white),
                           ))),

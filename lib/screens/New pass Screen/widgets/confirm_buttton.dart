@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saken_mobile/const/const.dart';
+import 'package:saken_mobile/screens/Reset%20pass/cubit/reset_cubit.dart';
 import 'package:saken_mobile/screens/Success%20Screen/views/success_screen.dart';
 
 class ConfirmButtton extends StatelessWidget {
@@ -11,7 +13,13 @@ class ConfirmButtton extends StatelessWidget {
       padding: const EdgeInsets.only(top: 50.0),
       child: GestureDetector(
         onTap: () {
-          Navigator.pushNamed(context, SuccessScreen.id);
+          if (context.read<ResetCubit>().password.text ==
+              context.read<ResetCubit>().confirmPassword.text) {
+            context.read<ResetCubit>().resetPassword();
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text("كلمة السر غير متطابقة")));
+          }
         },
         child: Container(
           height: 48,

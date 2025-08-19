@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 import 'package:saken_mobile/const/const.dart';
 import 'package:saken_mobile/screens/profile_view/views/all_offerd_accomodation.dart';
 import 'package:saken_mobile/screens/profile_view/widgets/offerd_accomodation_in_profile.dart';
@@ -150,12 +149,12 @@ class _ProfileViewState extends State<ProfileView> {
                 ),
                 Row(
                   children: [
-                    Spacer(),
+                    const Spacer(),
                     GestureDetector(
                       onTap: () {
-                        Get.to(AllOfferdAccomodation());
+                        Get.to(const AllOfferdAccomodation());
                       },
-                      child: Text(
+                      child: const Text(
                         'مشاهدة الكل',
                         style: TextStyle(
                           color: Color(0xff4C4C4C),

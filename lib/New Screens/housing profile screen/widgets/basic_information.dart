@@ -7,7 +7,7 @@ class BasicInformation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        CircleAvatar(
+        const CircleAvatar(
           backgroundColor: Colors.amber,
           radius: 6,
           child: CircleAvatar(
@@ -15,12 +15,12 @@ class BasicInformation extends StatelessWidget {
             backgroundColor: Colors.white,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 7,
         ),
         Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w100,
           ),

@@ -85,22 +85,22 @@ class LowestPrice extends StatelessWidget {
             Row(
               children: [
                 Text(item.housingType ?? ''),
-                Spacer(),
+                const Spacer(),
                 Text(
                   '${item.pricePerMeter} ج.م/شهر',
-                  style: TextStyle(color: kPrimaryColor),
+                  style: const TextStyle(color: kPrimaryColor),
                 ),
               ],
             ),
             Row(
               children: [
-                Icon(
+                const Icon(
                   Icons.location_on_outlined,
                   size: 20,
                 ),
                 Text(
                   item.address ?? '',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 12,
                   ),
                 ),

@@ -87,7 +87,7 @@ class _HousingProfileScreenState extends State<HousingProfileScreen> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
                           border: Border.all(
-                            color: Color(0xffFF2D55),
+                            color: const Color(0xffFF2D55),
                           ),
                         ),
                         child: const Center(
@@ -200,7 +200,7 @@ class _HousingProfileScreenState extends State<HousingProfileScreen> {
                   ),
                   const SizedBox(height: 20),
                   getTabContent(selected),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                 ],

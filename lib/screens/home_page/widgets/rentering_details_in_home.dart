@@ -12,7 +12,7 @@ class RenteringDetailsInHome extends StatelessWidget {
       width: 109,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: Color(0xffF8F8F8),
+        color: const Color(0xffF8F8F8),
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),

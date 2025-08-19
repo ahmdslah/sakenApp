@@ -11,7 +11,7 @@ class Welcome3 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(actions: [
         TextButton(
-          child: Text("تخطي"),
+          child: const Text("تخطي"),
           onPressed: () {
             Navigator.popAndPushNamed(context, Routes.login);
           },
@@ -23,7 +23,7 @@ class Welcome3 extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset("assets/images/welcome3.png"),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
@@ -36,30 +36,30 @@ class Welcome3 extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               "تطبيق ساكن يرحب بكم",
               style: TextStyle(color: font1, fontSize: 18),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            Text(
+            const Text(
               "تفقد  بسهولة انواع السكن المعروض حسب اهتماماتك و تواصل مع المالك و المستأجرين  ",
               style: TextStyle(fontSize: 16, color: font2),
               textAlign: TextAlign.center,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 14),
               "انت علي بعد خطوات لتعثر علي سكن مناسب عبر التواصل مع المؤجر",
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Padding(
@@ -74,20 +74,20 @@ class Welcome3 extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushReplacementNamed(context, NewSignUp.id);
                       },
-                      child: Text(
+                      child: const Text(
                         "انشاء حساب",
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Expanded(
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,
-                        side: BorderSide(
+                        side: const BorderSide(
                           color: font1,
                           width: 2,
                         ),
@@ -95,7 +95,7 @@ class Welcome3 extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushReplacementNamed(context, Routes.login);
                       },
-                      child: Text(
+                      child: const Text(
                         "تسجيل دخول",
                         style: TextStyle(color: font1),
                       ),
@@ -108,7 +108,7 @@ class Welcome3 extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, Routes.homeScreen);
                 },
-                child: Text(
+                child: const Text(
                   "تصفح الشقق المعروضة",
                   style: TextStyle(color: font2),
                 ))

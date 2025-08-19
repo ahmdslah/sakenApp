@@ -24,14 +24,14 @@ class PersonDetailsInProfile extends StatelessWidget {
         children: [
           Text(
             text1,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 12,
             ),
           ),
           Text(
             text2,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 12,
             ),

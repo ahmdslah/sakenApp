@@ -5,7 +5,7 @@ import 'package:saken_mobile/screens/home_page/models/active_offer_model/active_
 
 class ActiveOffer extends StatelessWidget {
   const ActiveOffer({super.key, required this.item});
-final ActiveOfferModel item;
+  final ActiveOfferModel item;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -85,22 +85,22 @@ final ActiveOfferModel item;
             Row(
               children: [
                 Text(item.title ?? ''),
-                Spacer(),
+                const Spacer(),
                 Text(
                   '${item.discountedPrice} ج.م/شهر',
-                  style: TextStyle(color: kPrimaryColor),
+                  style: const TextStyle(color: kPrimaryColor),
                 ),
               ],
             ),
             Row(
               children: [
-                Icon(
+                const Icon(
                   Icons.location_on_outlined,
                   size: 20,
                 ),
                 Text(
                   item.address ?? '',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 12,
                   ),
                 ),
@@ -109,15 +109,15 @@ final ActiveOfferModel item;
             const SizedBox(
               height: 8,
             ),
-             Row(
+            Row(
               children: [
-                Icon(Icons.bed_outlined),
-                SizedBox(
+                const Icon(Icons.bed_outlined),
+                const SizedBox(
                   width: 5,
                 ),
                 Text('${item.rooms} غرفة'),
-                Spacer(),
-                Icon(
+                const Spacer(),
+                const Icon(
                   Icons.bookmark,
                   color: Colors.amber,
                 ),

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saken_mobile/property%20ui/proprety%20ui.dart';
 import 'package:saken_mobile/screens/AdminScreen/settingswidget/settingswidget.dart';
 import 'package:saken_mobile/screens/home_page/TabBarWidgets/renterwidget.dart';
 import 'package:saken_mobile/screens/home_page/TabBarWidgets/sakanwidget.dart';
-import 'package:saken_mobile/screens/login_page/cubit/login_cubit.dart';
 
 import '../../const/const.dart';
 
@@ -29,11 +27,7 @@ class _AdminScreenState extends State<AdminScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              BlocProvider.of<LoginCubit>(context).signOut();
-            },
-            icon: const Icon(Icons.logout)),
+        leading: IconButton(onPressed: () {}, icon: const Icon(Icons.logout)),
         title: const Center(
             child: Text(
           "لوحة تحكم الادمن",
@@ -115,7 +109,7 @@ class _AdminScreenState extends State<AdminScreen> {
                     child: TabBarView(
                         physics: const NeverScrollableScrollPhysics(),
                         children: [
-                          sakanwidget(fav: false),
+                          const sakanwidget(fav: false),
                           RenterWidget(fav: false)
                         ])),
               ),

@@ -11,7 +11,7 @@ class CustomTextFieldEmail extends StatelessWidget {
       },
       decoration: InputDecoration(
           hintText: 'البريد الإلكتروني أو رقم الهاتف',
-          hintStyle: TextStyle(
+          hintStyle: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w400,
             color: Colors.grey,

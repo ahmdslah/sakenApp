@@ -11,9 +11,7 @@ class CustomLogoutButton extends StatelessWidget {
       builder: (context, state) {
         final cubit = context.read<LoginCubit>();
         return GestureDetector(
-          onTap: () {
-            cubit.signOut();
-          },
+          onTap: () {},
           child: Container(
             width: double.infinity,
             height: 50,

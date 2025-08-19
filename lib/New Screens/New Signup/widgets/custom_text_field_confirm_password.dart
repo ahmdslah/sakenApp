@@ -11,7 +11,7 @@ class CustomTextFieldConfirmPassword extends StatelessWidget {
       },
       decoration: InputDecoration(
           hintText: 'تأكيد كلمة المرور',
-          hintStyle: TextStyle(
+          hintStyle: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w400,
             color: Colors.grey,

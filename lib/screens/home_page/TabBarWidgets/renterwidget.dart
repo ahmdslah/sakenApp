@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:saken_mobile/const/Models/usermodel.dart';
 import 'package:saken_mobile/const/const%20widgets/User_Card.dart';
 
 class RenterWidget extends StatelessWidget {
@@ -13,7 +12,7 @@ class RenterWidget extends StatelessWidget {
           childAspectRatio: 1 / 1.4,
           mainAxisSpacing: 8,
           crossAxisSpacing: 8),
-      itemBuilder: (context, index) => UserCard(),
+      itemBuilder: (context, index) => const UserCard(),
       itemCount: 8,
     );
   }

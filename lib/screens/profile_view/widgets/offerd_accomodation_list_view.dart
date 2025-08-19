@@ -8,8 +8,8 @@ class OfferdAccomodationListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.separated(
-        itemBuilder: (c, i) => OfferdAccomodationDetails(),
-        separatorBuilder: (c, i) => SizedBox(
+        itemBuilder: (c, i) => const OfferdAccomodationDetails(),
+        separatorBuilder: (c, i) => const SizedBox(
           height: 10,
         ),
         itemCount: 10,

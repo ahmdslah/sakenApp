@@ -5,10 +5,10 @@ class ProfileRate extends StatelessWidget {
   Color? color;
   IconData? icon;
   ProfileRate({
-    Key? key,
+    super.key,
     this.color,
     this.icon,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

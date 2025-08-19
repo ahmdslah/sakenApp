@@ -63,12 +63,12 @@ class _HousingProfilePreviewState extends State<HousingProfilePreview> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
               border: Border.all(
-                color: Color(0xff378B48),
+                color: const Color(0xff378B48),
               ),
             ),
             child: Center(
               child: Text(
-                '${_dates.isNotEmpty && _dates.first != null ? _dates.first!.day.toString() + '/' + _dates.first!.month.toString() : 'لم يتم التحديد'} - $_selectedHour:00 $_selectedAmPm',
+                '${_dates.isNotEmpty && _dates.first != null ? '${_dates.first!.day}/${_dates.first!.month}' : 'لم يتم التحديد'} - $_selectedHour:00 $_selectedAmPm',
                 style: const TextStyle(
                   color: Color(0xff378B48),
                 ),
@@ -85,7 +85,7 @@ class _HousingProfilePreviewState extends State<HousingProfilePreview> {
               color: Color(0xff378B48),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           SizedBox(
@@ -96,18 +96,18 @@ class _HousingProfilePreviewState extends State<HousingProfilePreview> {
               },
               decoration: InputDecoration(
                   hintText: 'الاسم كامل',
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     color: Colors.grey,
                     fontSize: 14,
                   ),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Colors.grey,
                       ))),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           SizedBox(
@@ -118,19 +118,19 @@ class _HousingProfilePreviewState extends State<HousingProfilePreview> {
               },
               decoration: InputDecoration(
                   hintText: 'رقم الهاتف',
-                  suffixIcon: Icon(Icons.phone_outlined),
-                  hintStyle: TextStyle(
+                  suffixIcon: const Icon(Icons.phone_outlined),
+                  hintStyle: const TextStyle(
                     color: Colors.grey,
                     fontSize: 14,
                   ),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Colors.grey,
                       ))),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           GestureDetector(
@@ -142,9 +142,9 @@ class _HousingProfilePreviewState extends State<HousingProfilePreview> {
               height: 50,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(3),
-                color: Color(0xff378B48),
+                color: const Color(0xff378B48),
               ),
-              child: Center(
+              child: const Center(
                 child: Text(
                   'إرسال طلب المعاينة',
                   style: TextStyle(

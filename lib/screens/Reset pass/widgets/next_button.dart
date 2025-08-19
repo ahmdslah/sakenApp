@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saken_mobile/const/const.dart';
+import 'package:saken_mobile/screens/Reset%20pass/cubit/reset_cubit.dart';
 
 class NextButton extends StatelessWidget {
-  const NextButton({super.key, required this.route});
+  const NextButton({
+    super.key,
+    required this.route,
+  });
   final String route;
   @override
   Widget build(BuildContext context) {
@@ -10,7 +15,9 @@ class NextButton extends StatelessWidget {
       padding: const EdgeInsets.only(top: 160),
       child: GestureDetector(
         onTap: () {
-          Navigator.pushNamed(context, route);
+          if (context.read<ResetCubit>().code.text.length == 8) {
+            Navigator.pushNamed(context, route);
+          }
         },
         child: Container(
           height: 48,

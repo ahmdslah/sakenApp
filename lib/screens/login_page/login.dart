@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saken_mobile/New%20Screens/New%20Signup/views/new_sign_up.dart';
-import 'package:saken_mobile/const/const%20widgets/loading.dart';
 import 'package:saken_mobile/const/routes.dart';
 import 'package:saken_mobile/screens/Reset%20pass/views/reset_pass.dart';
 import 'package:saken_mobile/screens/login_page/cubit/login_cubit.dart';
@@ -9,8 +8,6 @@ import 'package:saken_mobile/screens/login_page/cubit/login_cubit.dart';
 import '../../const/const widgets/custom_form_field.dart';
 import '../../const/const.dart';
 import 'package:get/get.dart';
-
-import '../signup_page/sign_up.dart';
 
 class Login extends StatelessWidget {
   Login({super.key});
@@ -46,7 +43,7 @@ class Login extends StatelessWidget {
         appBar: AppBar(
           actions: [
             TextButton(
-              child: Text("تخطي"),
+              child: const Text("تخطي"),
               onPressed: () {
                 Navigator.popAndPushNamed(context, Routes.homeScreen);
               },
@@ -63,7 +60,7 @@ class Login extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "تسجيل الدخول",
                       style: TextStyle(
                         fontSize: 26,
@@ -112,7 +109,7 @@ class Login extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: TextButton(
-                        child: Text("نسيت كلمة المرور ؟",
+                        child: const Text("نسيت كلمة المرور ؟",
                             style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.w600,
@@ -176,7 +173,7 @@ class Login extends StatelessWidget {
                             backgroundImage: AssetImage("${path}facebook.png"),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 20,
                         ),
                         GestureDetector(
@@ -204,7 +201,7 @@ class Login extends StatelessWidget {
                         ),
                       ),
                       onTap: () {
-                        Get.to(NewSignUp());
+                        Get.offAll(() => const NewSignUp());
                       },
                     ),
                   ],

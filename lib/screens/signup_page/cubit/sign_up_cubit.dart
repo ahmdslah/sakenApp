@@ -1,16 +1,15 @@
-import 'package:bloc/bloc.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dio/dio.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/utils.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:saken_mobile/core/api/api_keys.dart';
+import 'package:saken_mobile/core/api/api_consumer.dart';
+import 'package:saken_mobile/core/api/end_points.dart';
+import 'package:saken_mobile/core/errors/exceptions.dart';
 
 part 'sign_up_state.dart';
 
 class SignUpCubit extends Cubit<SignUpState> {
-  SignUpCubit() : super(SignUpInitial());
+  SignUpCubit(this.api) : super(SignUpInitial());
+  final ApiConsumer api;
   final TextEditingController fNameController = TextEditingController();
   final TextEditingController lNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
@@ -18,25 +17,49 @@ class SignUpCubit extends Cubit<SignUpState> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
   XFile? photo;
-  signUp() {
+
+  uploadimagepacker(XFile image) {
+    photo = image;
+    emit(uploadimagepackerstate());
+  }
+
+  clearAllControllers() {
+    fNameController.clear();
+    lNameController.clear();
+    emailController.clear();
+    passwordController.clear();
+    confirmPasswordController.clear();
+  }
+
+  signUp() async {
     try {
-      final response = Dio().post(
-        "http://saken.intern24.org/api/Auth/register",
+      emit(SignUpLoading());
+      final response = await api.post(
+        EndPoints.register,
+        isFormData: true,
         data: {
-          ApiKeys.fullName:
-              "${fNameController.text.trim()} ${lNameController.text.trim()}",
-          ApiKeys.email: emailController.text.trim(),
-          ApiKeys.phoneNumber: emailController.text.trim(),
-          ApiKeys.password: passwordController.text.trim(),
-          ApiKeys.confirmPassword: confirmPasswordController.text.trim(),
-          ApiKeys.address: "",
-          ApiKeys.photo: photo,
+          ApiKeys.fullName: "${fNameController.text}${lNameController.text}",
+          ApiKeys.email: emailController.text,
+          ApiKeys.password: passwordController.text,
+          ApiKeys.confirmPassword: confirmPasswordController.text,
+          ApiKeys.phoneNumber: " ",
+          ApiKeys.photo: " ",
           ApiKeys.role: "Owner",
+          ApiKeys.address: "hurgada"
         },
       );
-      print(response);
+      clearAllControllers();
+      removeImage();
+      emit(SignUpSuccess(message: response[ApiKeys.message]));
+    } on ServerExeption catch (e) {
+      emit(SignUpFaild(errorrMessage: e.errorModel.message!));
     } catch (e) {
-      print(e.toString());
+      emit(SignUpFaild(errorrMessage: e.toString()));
     }
+  }
+
+  removeImage() {
+    photo = null;
+    emit(removeimage());
   }
 }

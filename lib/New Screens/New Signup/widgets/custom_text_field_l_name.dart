@@ -11,7 +11,7 @@ class CustomTextFieldLName extends StatelessWidget {
       },
       decoration: InputDecoration(
           hintText: ' الاسم التاني/الأخير',
-          hintStyle: TextStyle(
+          hintStyle: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w400,
             color: Colors.grey,

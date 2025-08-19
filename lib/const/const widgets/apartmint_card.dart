@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:saken_mobile/New%20Screens/housing%20profile%20screen/views/housing_profile_screen.dart';
 import 'package:saken_mobile/const/const.dart';
 
@@ -13,7 +12,7 @@ class ApartmentCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(HousingProfileScreen());
+        Get.to(const HousingProfileScreen());
       },
       child: Container(
         width: 171,
@@ -48,12 +47,12 @@ class ApartmentCard extends StatelessWidget {
                           shape: BoxShape.circle,
                         ),
                         child: fav
-                            ? Icon(
+                            ? const Icon(
                                 CupertinoIcons.heart_fill,
                                 size: 18,
                                 color: Colors.red,
                               )
-                            : Icon(
+                            : const Icon(
                                 CupertinoIcons.heart,
                                 size: 18,
                                 color: Colors.grey,

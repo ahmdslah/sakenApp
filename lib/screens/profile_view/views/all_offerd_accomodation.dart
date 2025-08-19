@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 import 'package:saken_mobile/const/const.dart';
-import 'package:saken_mobile/screens/profile_view/widgets/offerd_accomodation_details.dart';
 import 'package:saken_mobile/screens/profile_view/widgets/offerd_accomodation_list_view.dart';
 import 'package:saken_mobile/screens/profile_view/widgets/profile_rate.dart';
 
@@ -93,7 +91,7 @@ class AllOfferdAccomodation extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              OfferdAccomodationListView(),
+              const OfferdAccomodationListView(),
             ],
           ),
         ),

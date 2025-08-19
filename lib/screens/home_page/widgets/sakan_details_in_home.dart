@@ -88,22 +88,22 @@ class SakanDetailsInHome extends StatelessWidget {
             Row(
               children: [
                 Text(item.housingType ?? ''),
-                Spacer(),
+                const Spacer(),
                 Text(
                   '${item.pricePerMeter} ج.م/شهر',
-                  style: TextStyle(color: kPrimaryColor),
+                  style: const TextStyle(color: kPrimaryColor),
                 ),
               ],
             ),
             Row(
               children: [
-                Icon(
+                const Icon(
                   Icons.location_on_outlined,
                   size: 20,
                 ),
                 Text(
                   item.address ?? '',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 12,
                   ),
                 ),
@@ -114,13 +114,13 @@ class SakanDetailsInHome extends StatelessWidget {
             ),
             Row(
               children: [
-                Icon(Icons.bed_outlined),
-                SizedBox(
+                const Icon(Icons.bed_outlined),
+                const SizedBox(
                   width: 5,
                 ),
                 Text('${item.floor} غرفة'),
-                Spacer(),
-                Icon(
+                const Spacer(),
+                const Icon(
                   Icons.bookmark,
                   color: Colors.amber,
                 ),

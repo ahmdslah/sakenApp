@@ -13,7 +13,7 @@ class CustomCommentTextField extends StatelessWidget {
       },
       decoration: InputDecoration(
           hintText: 'اكتب رأيك بناء على تجربتك مع هذا السكن ..... ',
-          hintStyle: TextStyle(
+          hintStyle: const TextStyle(
             color: Colors.grey,
             fontSize: 14,
           ),

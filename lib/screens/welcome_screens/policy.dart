@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:saken_mobile/const/const.dart';
 import 'package:saken_mobile/const/routes.dart';
+import 'package:saken_mobile/core/cache/cache_helper.dart';
 
 class Policy extends StatefulWidget {
-  Policy({super.key});
+  const Policy({super.key});
 
   @override
   State<Policy> createState() => _PolicyState();
@@ -20,15 +21,15 @@ class _PolicyState extends State<Policy> {
         padding: const EdgeInsets.only(left: 20.0, right: 20),
         child: Column(
           children: [
-            Text(
+            const Text(
               "سياسة الخصوصية و الامان",
               style: TextStyle(
                   color: font1, fontWeight: FontWeight.bold, fontSize: 22),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               "تطبيق ساكن مجرد منصة تسهل الوصول لسكن بسعر مناسب ولا تشرف على المعاملات بين المستخدمين على التطبيق وبعضهم البعض لذا فهي ليست مسئولة عن أي عمليات نصب أو احتيال من أي من المستخدمين على التطبيق "
               "ولكن بمجرد التأكد من أي مستخدم ثبت عليه عملية نصب أو احتيال فسوف يتم حظره من التطبيق على الفور."
               "\n"
@@ -58,7 +59,7 @@ class _PolicyState extends State<Policy> {
                     setState(() {});
                   },
                 ),
-                Text(
+                const Text(
                   "لقد قرات سياسة الخصوصيه والامان واوافق عليها",
                   style: TextStyle(fontSize: 10),
                 )
@@ -76,11 +77,14 @@ class _PolicyState extends State<Policy> {
                                   : WidgetStateProperty.all(Colors.white30)),
                           onPressed: () {
                             if (isChecked) {
+                              CacheHelper()
+                                  .saveData(key: "isFirstTime", value: false);
+                              print(CacheHelper().getData(data: "isFirstTime"));
                               Navigator.pushReplacementNamed(
                                   context, Routes.welcome1);
                             }
                           },
-                          child: Text(
+                          child: const Text(
                             "موافق",
                             style: TextStyle(color: Colors.white),
                           ))),

@@ -8,8 +8,8 @@ class MessagesListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.separated(
-        itemBuilder: (c, i) => CustomMessage(),
-        separatorBuilder: (c, i) => SizedBox(
+        itemBuilder: (c, i) => const CustomMessage(),
+        separatorBuilder: (c, i) => const SizedBox(
           height: 15,
         ),
         itemCount: 20,
