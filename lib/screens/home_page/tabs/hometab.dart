@@ -75,7 +75,7 @@ class HomeTab extends StatelessWidget {
                         CacheHelper()
                             .saveData(key: ApiKeys.token, value: "notLogin");
                         Get.offAll(() => Login());
-                        print(CacheHelper().getData(data: ApiKeys.token));
+                        print("object");
                       },
                       icon: const Icon(Icons.logout)),
                 ],
